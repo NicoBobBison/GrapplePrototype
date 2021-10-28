@@ -22,5 +22,8 @@ public class PlayerData : ScriptableObject
     public float staminaRechargeRate = 0.1f;
     public float staminaDrainRate = 0.1f;
     public float maxStamina = 100;
+
+    [Header("Grapple")]
+    public float playerReelSpeed = 3f;
     
 }

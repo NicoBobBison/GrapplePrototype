@@ -12,6 +12,7 @@ public class PlayerControls : MonoBehaviour
     public PlayerJumpUpState JumpUpState { get; private set; }
     public PlayerJumpSustainState JumpSustainState { get; private set; }
     public PlayerFallState FallState { get; private set; }
+    public PlayerGrappleStartState GrappleState { get; private set; }
     
 
     #endregion
@@ -48,6 +49,7 @@ public class PlayerControls : MonoBehaviour
         JumpUpState = new PlayerJumpUpState(this, StateMachine, playerData, "jump up");
         JumpSustainState = new PlayerJumpSustainState(this, StateMachine, playerData, "jump sustain");
         FallState = new PlayerFallState(this, StateMachine, playerData, "fall");
+        GrappleState = new PlayerGrappleStartState(this, StateMachine, playerData, "grapple");
         #endregion
     }
     void Start()
@@ -91,6 +93,10 @@ public class PlayerControls : MonoBehaviour
         if (collision.gameObject.CompareTag("Instakill"))
         {
             psm.ChangeScene(psm.GetCurrentScene());
+        }
+        if(StateMachine.CurrentState == GrappleState)
+        {
+            StateMachine.ChangeState(JumpSustainState);
         }
     }
     #endregion
@@ -199,7 +205,14 @@ public class PlayerControls : MonoBehaviour
             return null;
         }
     }
-    public Vector2 GetNormalizedVelocity()
+    public Vector3 GetMouseDirection()
+    {
+        Camera cam = Camera.main;
+        Vector3 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 mouseDir = mousePos - this.transform.position;
+        return mouseDir.normalized;
+    }
+    public Vector2 GetVelocityDirection()
     {
         Vector2 tempVector;
         if(CurrentVelocity.x > 0.05)

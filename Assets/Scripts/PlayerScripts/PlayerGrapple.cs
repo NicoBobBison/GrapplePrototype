@@ -11,13 +11,15 @@ public class PlayerGrapple : MonoBehaviour
     Camera cam;
     public float currentLength = 0;
     public float grappleRetractSpeed = 0.05f;
-    Vector3 endpoint;
+    public Vector3 endpoint;
+    PlayerControls playerControls;
 
     void Start()
     {
         lr = GetComponent<LineRenderer>();
         player = GameObject.Find("Player").transform.position;
         cam = Camera.main;
+        playerControls = GameObject.Find("Player").GetComponent<PlayerControls>();
     }
 
     // Update is called once per frame
@@ -34,8 +36,10 @@ public class PlayerGrapple : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             player.z = 0;
-            lr.SetPosition(0, player);
             currentLength += grappleRetractSpeed;
+            if(Physics2D.OverlapCircle(endpoint, 0.1f, playerControls.groundLayer)){
+                playerControls.StateMachine.ChangeState(playerControls.GrappleState);
+            }
         }
         else
         {
@@ -46,6 +50,7 @@ public class PlayerGrapple : MonoBehaviour
         }
         currentLength = Mathf.Clamp(currentLength, 0, Vector2.Distance(player, mousePos));
         endpoint = player + (mouseDir * currentLength);
+        lr.SetPosition(0, player);
         lr.SetPosition(1, endpoint);
     }
 }

@@ -32798,6 +32798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentLength: 0
   grappleRetractSpeed: 0.3
+  endpoint: {x: 0, y: 0, z: 0}
 --- !u!1 &1430898860
 GameObject:
   m_ObjectHideFlags: 0
