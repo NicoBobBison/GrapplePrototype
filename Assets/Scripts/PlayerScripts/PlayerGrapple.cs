@@ -8,8 +8,9 @@ public class PlayerGrapple : MonoBehaviour
     Vector3 player;
     Vector3 mousePos;
     Vector3 mouseDir;
+    Vector3 grappleDir;
     Camera cam;
-    public float currentLength = 0;
+    [SerializeField]float currentLength = 0;
     public float grappleRetractSpeed = 0.05f;
     public Vector3 endpoint;
     PlayerControls playerControls;
@@ -30,15 +31,23 @@ public class PlayerGrapple : MonoBehaviour
         mouseDir = mousePos - player;
         mouseDir.z = 0;
         mouseDir = mouseDir.normalized;
+
+
+        grappleDir = endpoint - player;
+        grappleDir = grappleDir.normalized;
+
     }
     private void FixedUpdate()
     {
         if (Input.GetMouseButton(0))
         {
             player.z = 0;
-            currentLength += grappleRetractSpeed;
-            if(Physics2D.OverlapCircle(endpoint, 0.1f, playerControls.groundLayer)){
+            if(GrappleOnObject()){
                 playerControls.StateMachine.ChangeState(playerControls.GrappleState);
+            }
+            else
+            {
+                currentLength += grappleRetractSpeed;
             }
         }
         else
@@ -48,9 +57,23 @@ public class PlayerGrapple : MonoBehaviour
                 currentLength -= grappleRetractSpeed;
             }
         }
-        currentLength = Mathf.Clamp(currentLength, 0, Vector2.Distance(player, mousePos));
         endpoint = player + (mouseDir * currentLength);
+
+        if (currentLength == 0)
+        {
+            //lr.enabled = false;
+        }
+        else
+        {
+            //lr.enabled = true;
+        }
+        currentLength = Mathf.Clamp(currentLength, 0, Vector2.Distance(player, mousePos));
         lr.SetPosition(0, player);
         lr.SetPosition(1, endpoint);
+    }
+   
+    public bool GrappleOnObject()
+    {
+        return Physics2D.OverlapCircle(endpoint, 0.1f, playerControls.groundLayer);
     }
 }

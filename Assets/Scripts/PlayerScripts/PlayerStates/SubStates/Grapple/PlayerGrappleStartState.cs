@@ -26,7 +26,7 @@ public class PlayerGrappleStartState : PlayerGrappleState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) || !playerGrapple.GrappleOnObject())
         {
             stateMachine.ChangeState(player.JumpSustainState);
         }
@@ -35,8 +35,8 @@ public class PlayerGrappleStartState : PlayerGrappleState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-        player.LerpVelocityX(player.GetMouseDirection().x * playerData.playerReelSpeed, 0.9f, false);
-        player.LerpVelocityY(player.GetMouseDirection().y * playerData.playerReelSpeed, 0.9f, false);
+        player.LerpVelocityX(playerGrapple.endpoint.x * playerData.playerReelSpeed, 0.9f, false);
+        player.LerpVelocityY(playerGrapple.endpoint.y * playerData.playerReelSpeed, 0.9f, false);
     }
 
 }

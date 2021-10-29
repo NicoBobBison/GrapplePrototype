@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerGrappleState : PlayerState
 {
-    public Vector3 endpoint;
+    public PlayerGrapple playerGrapple;
     public PlayerGrappleState(PlayerControls player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
     }
@@ -17,7 +17,7 @@ public class PlayerGrappleState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        endpoint = GameObject.Find("Grapple").GetComponent<PlayerGrapple>().endpoint;
+        playerGrapple = GameObject.Find("Grapple").GetComponent<PlayerGrapple>();
         player.SetGravity(0);
     }
 
