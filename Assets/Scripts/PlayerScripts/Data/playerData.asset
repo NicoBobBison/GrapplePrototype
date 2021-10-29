@@ -22,4 +22,4 @@ MonoBehaviour:
   staminaRechargeRate: 0.5
   staminaDrainRate: 0.4
   maxStamina: 100
-  playerReelSpeed: 1
+  playerReelSpeed: 20

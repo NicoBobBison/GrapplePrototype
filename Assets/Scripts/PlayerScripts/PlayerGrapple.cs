@@ -5,75 +5,51 @@ using UnityEngine;
 public class PlayerGrapple : MonoBehaviour
 {
     LineRenderer lr;
-    Vector3 player;
-    Vector3 mousePos;
-    Vector3 mouseDir;
-    Vector3 grappleDir;
     Camera cam;
-    [SerializeField]float currentLength = 0;
-    public float grappleRetractSpeed = 0.05f;
-    public Vector3 endpoint;
-    PlayerControls playerControls;
+    GameObject player;
+    Vector2 playerPos;
+    public Vector2 grapplePoint;
+    public Vector2 grappleDir;
+    PlayerControls pc;
+    [SerializeField] LayerMask groundLayer;
 
-    void Start()
+    private void Start()
     {
-        lr = GetComponent<LineRenderer>();
-        player = GameObject.Find("Player").transform.position;
         cam = Camera.main;
-        playerControls = GameObject.Find("Player").GetComponent<PlayerControls>();
+        lr = GetComponent<LineRenderer>();
+        player = GameObject.Find("Player");
+        pc = player.GetComponent<PlayerControls>();
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        player = GameObject.Find("Player").transform.position;
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-        mouseDir = mousePos - player;
-        mouseDir.z = 0;
-        mouseDir = mouseDir.normalized;
-
-
-        grappleDir = endpoint - player;
-        grappleDir = grappleDir.normalized;
-
-    }
-    private void FixedUpdate()
-    {
+        playerPos = player.transform.position;
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mouseDir = (playerPos - mousePos) * -1;
+            //Debug.Log("Mouse dir: " + mouseDir);
+            RaycastHit2D hit = Physics2D.Raycast(playerPos, mouseDir, 20f, groundLayer);
+            if(hit.collider != null)
+            {
+                Debug.Log(hit.point);
+                grapplePoint = hit.point;
+                grappleDir = (grapplePoint - playerPos).normalized;
+                pc.StateMachine.ChangeState(pc.GrappleState);
+            }
+        }
         if (Input.GetMouseButton(0))
         {
-            player.z = 0;
-            if(GrappleOnObject()){
-                playerControls.StateMachine.ChangeState(playerControls.GrappleState);
-            }
-            else
-            {
-                currentLength += grappleRetractSpeed;
-            }
+            lr.enabled = true;
+            lr.SetPosition(0, playerPos);
+            lr.SetPosition(1, grapplePoint);
         }
         else
         {
-            if(currentLength > 0)
-            {
-                currentLength -= grappleRetractSpeed;
-            }
+            lr.enabled = false;
         }
-        endpoint = player + (mouseDir * currentLength);
-
-        if (currentLength == 0)
+        if(pc.StateMachine.CurrentState != pc.GrappleState || Vector2.Distance(playerPos, grapplePoint) < 1)
         {
-            //lr.enabled = false;
+            lr.enabled = false;
         }
-        else
-        {
-            //lr.enabled = true;
-        }
-        currentLength = Mathf.Clamp(currentLength, 0, Vector2.Distance(player, mousePos));
-        lr.SetPosition(0, player);
-        lr.SetPosition(1, endpoint);
-    }
-   
-    public bool GrappleOnObject()
-    {
-        return Physics2D.OverlapCircle(endpoint, 0.1f, playerControls.groundLayer);
     }
 }

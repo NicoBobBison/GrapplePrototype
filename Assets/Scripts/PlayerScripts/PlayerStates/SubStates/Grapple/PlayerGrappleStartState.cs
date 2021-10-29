@@ -21,12 +21,14 @@ public class PlayerGrappleStartState : PlayerGrappleState
     public override void Exit()
     {
         base.Exit();
+        player.SetVelocityX(player.CurrentVelocity.x / 2);
+        player.SetVelocityY(player.CurrentVelocity.y / 2);
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (Input.GetMouseButtonUp(0) || !playerGrapple.GrappleOnObject())
+        if (Input.GetMouseButtonUp(0) || Vector2.Distance(playerGrapple.grapplePoint, player.transform.position) < 0.75f)
         {
             stateMachine.ChangeState(player.JumpSustainState);
         }
@@ -35,8 +37,8 @@ public class PlayerGrappleStartState : PlayerGrappleState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-        player.LerpVelocityX(playerGrapple.endpoint.x * playerData.playerReelSpeed, 0.9f, false);
-        player.LerpVelocityY(playerGrapple.endpoint.y * playerData.playerReelSpeed, 0.9f, false);
+        player.LerpVelocityX(playerGrapple.grappleDir.x * playerData.playerReelSpeed, 0.9f, false);
+        player.LerpVelocityY(playerGrapple.grappleDir.y * playerData.playerReelSpeed, 0.9f, false);
     }
 
 }

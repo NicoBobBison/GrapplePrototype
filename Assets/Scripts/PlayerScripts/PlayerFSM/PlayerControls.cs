@@ -36,7 +36,6 @@ public class PlayerControls : MonoBehaviour
     public LayerMask groundLayer;
     public Vector2 lastAfterImage;
     public bool canRechargeStamina { get; private set; }
-    public bool isDashing;
     #endregion
 
     #region Unity Callback Functions
@@ -54,6 +53,7 @@ public class PlayerControls : MonoBehaviour
     }
     void Start()
     {
+        
         rb = GetComponent<Rigidbody2D>();
         Anim = GetComponent<Animator>();
         groundCheckL = GameObject.Find("GroundCheckL").transform;
