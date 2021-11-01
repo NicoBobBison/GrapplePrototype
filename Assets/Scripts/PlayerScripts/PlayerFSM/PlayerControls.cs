@@ -13,6 +13,7 @@ public class PlayerControls : MonoBehaviour
     public PlayerJumpSustainState JumpSustainState { get; private set; }
     public PlayerFallState FallState { get; private set; }
     public PlayerGrappleStartState GrappleState { get; private set; }
+    public PlayerGrapplePullState PullState { get; private set; }
     
 
     #endregion
@@ -49,6 +50,7 @@ public class PlayerControls : MonoBehaviour
         JumpSustainState = new PlayerJumpSustainState(this, StateMachine, playerData, "jump sustain");
         FallState = new PlayerFallState(this, StateMachine, playerData, "fall");
         GrappleState = new PlayerGrappleStartState(this, StateMachine, playerData, "grapple");
+        PullState = new PlayerGrapplePullState(this, StateMachine, playerData, "pull");
         #endregion
     }
     void Start()
@@ -79,6 +81,7 @@ public class PlayerControls : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        
         StateMachine.CurrentState.PhysicsUpdate();
         /*if (!isDashing)
         {
@@ -205,6 +208,7 @@ public class PlayerControls : MonoBehaviour
             return null;
         }
     }
+    
     public Vector3 GetMouseDirection()
     {
         Camera cam = Camera.main;

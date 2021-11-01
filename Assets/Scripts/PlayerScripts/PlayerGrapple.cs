@@ -11,7 +11,8 @@ public class PlayerGrapple : MonoBehaviour
     public Vector2 grapplePoint;
     public Vector2 grappleDir;
     PlayerControls pc;
-    [SerializeField] LayerMask groundLayer;
+    [SerializeField] LayerMask grappleable;
+    RaycastHit2D lastHit;
 
     private void Start()
     {
@@ -28,13 +29,23 @@ public class PlayerGrapple : MonoBehaviour
             Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mouseDir = (playerPos - mousePos) * -1;
             //Debug.Log("Mouse dir: " + mouseDir);
-            RaycastHit2D hit = Physics2D.Raycast(playerPos, mouseDir, 20f, groundLayer);
+            RaycastHit2D hit = Physics2D.Raycast(playerPos, mouseDir, 20f, grappleable);
             if(hit.collider != null)
             {
+                lastHit = hit;
                 Debug.Log(hit.point);
                 grapplePoint = hit.point;
                 grappleDir = (grapplePoint - playerPos).normalized;
-                pc.StateMachine.ChangeState(pc.GrappleState);
+                if(hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
+                {
+                    pc.StateMachine.ChangeState(pc.GrappleState);
+                }
+                else if(hit.transform.gameObject.layer == LayerMask.NameToLayer("Pullable"))
+                {
+                    Pullable pullScript = hit.transform.gameObject.GetComponent<Pullable>();
+                    pc.StateMachine.ChangeState(pc.PullState);
+                    pullScript.beingPulled = true;
+                }
             }
         }
         if (Input.GetMouseButton(0))
@@ -46,8 +57,17 @@ public class PlayerGrapple : MonoBehaviour
         else
         {
             lr.enabled = false;
+            if (lastHit.collider != null)
+            {
+                if (lastHit.transform.gameObject.layer == LayerMask.NameToLayer("Pullable"))
+                {
+                    Pullable pullScript = lastHit.transform.gameObject.GetComponent<Pullable>();
+                    pc.StateMachine.ChangeState(pc.PullState);
+                    pullScript.beingPulled = false;
+                }
+            }
         }
-        if(pc.StateMachine.CurrentState != pc.GrappleState || Vector2.Distance(playerPos, grapplePoint) < 1)
+        if(pc.StateMachine.CurrentState != pc.GrappleState && pc.StateMachine.CurrentState != pc.PullState || Vector2.Distance(playerPos, grapplePoint) < 1)
         {
             lr.enabled = false;
         }

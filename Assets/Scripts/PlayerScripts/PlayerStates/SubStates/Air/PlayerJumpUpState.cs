@@ -16,7 +16,15 @@ public class PlayerJumpUpState : PlayerAirState
     public override void Enter()
     {
         base.Enter();
-        player.SetVelocityY(playerData.jumpForce);
+        if (player.FindObjectStandingOn() != null)
+        {
+            Rigidbody2D standingOn = player.FindObjectStandingOn().GetComponent<Rigidbody2D>();
+            if (standingOn.velocity != Vector2.zero)
+            {
+                player.SetVelocityX(standingOn.velocity.x);
+                player.SetVelocityY(standingOn.velocity.y);
+            }
+        }
     }
 
     public override void Exit()
@@ -34,7 +42,14 @@ public class PlayerJumpUpState : PlayerAirState
         }
         if(player.MoveInput.y != 1)
         {
-            player.SetVelocityY(3.0f);
+            if(player.CurrentVelocity.y / 2 < 3)
+            {
+                player.SetVelocityY(3);
+            }
+            else
+            {
+                player.SetVelocityY(player.CurrentVelocity.y / 2);
+            }
             stateMachine.ChangeState(player.FallState);
         }
     }
