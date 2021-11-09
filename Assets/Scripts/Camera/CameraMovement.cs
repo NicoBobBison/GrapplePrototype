@@ -12,6 +12,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] float camShakeDistance = 0.1f;
     [SerializeField] float camShakeTime = 0.05f;
     private Vector3 boundPos;
+    public bool stillCamera;
     void Start()
     {
         target = GameObject.FindWithTag("Player").transform;
@@ -21,13 +22,19 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 currentPos = this.transform.position + offset;
-        Vector3 desiredPos = Vector3.Lerp(currentPos, target.transform.position, lerpPercent);
-        this.transform.position = desiredPos;
+        if (!stillCamera)
+        {
+            Vector3 currentPos = this.transform.position + offset;
+            Vector3 desiredPos = Vector3.Lerp(currentPos, target.transform.position, lerpPercent);
+            transform.position = desiredPos;
+        }
     }
-    private void LateUpdate()
-    {    
-        SetBounds();
+    void LateUpdate()
+    {
+        if (!stillCamera)
+        {
+            SetBounds();
+        }
     }
 
     public IEnumerator camShake(float horizontal, float vertical)
@@ -37,9 +44,8 @@ public class CameraMovement : MonoBehaviour
         this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x - (horizontal * camShakeDistance), this.gameObject.transform.position.y - (vertical * camShakeDistance), this.gameObject.transform.position.z);
     }
 
-    private void SetBounds()
+    void SetBounds()
     {
-        
         if (SceneManager.GetActiveScene().name == "CaveEntrance")
         {
             boundPos.Set(
@@ -47,17 +53,15 @@ public class CameraMovement : MonoBehaviour
                 Mathf.Clamp(this.gameObject.transform.position.y, -31.5f, 40),
                 this.gameObject.transform.position.z);
         }
-        /*if (SceneManager.GetActiveScene().name == "Cave1")
+        if (SceneManager.GetActiveScene().name == "Cave1")
         {
             boundPos.Set(
-                14.14f,
-                //this.gameObject.transform.position.x,
-                //Mathf.Clamp(this.gameObject.transform.position.y, 0.5f, 1.2f),
-                2.01f,
+                Mathf.Clamp(this.gameObject.transform.position.x, 41.59f, 1000f),
+                Mathf.Clamp(this.gameObject.transform.position.y, 2.75f, 1000f),
                 //this.gameObject.transform.position.y,
                 this.gameObject.transform.position.z);
-        }*/
-        if(SceneManager.GetActiveScene().name == "Cave2")
+        }
+        if (SceneManager.GetActiveScene().name == "Cave2")
         {
             boundPos.Set(
                 Mathf.Clamp(this.gameObject.transform.position.x, 0f, 74.3f),
@@ -66,6 +70,6 @@ public class CameraMovement : MonoBehaviour
                 this.gameObject.transform.position.z);
         }
 
-        //this.gameObject.transform.position = boundPos;
+        this.gameObject.transform.position = boundPos;
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerJumpUpState : PlayerAirState
 {
+    float initialVelocityY;
     public PlayerJumpUpState(PlayerControls player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
     }
@@ -16,15 +17,7 @@ public class PlayerJumpUpState : PlayerAirState
     public override void Enter()
     {
         base.Enter();
-        if (player.FindObjectStandingOn() != null)
-        {
-            Rigidbody2D standingOn = player.FindObjectStandingOn().GetComponent<Rigidbody2D>();
-            if (standingOn.velocity != Vector2.zero)
-            {
-                player.SetVelocityX(standingOn.velocity.x);
-                player.SetVelocityY(standingOn.velocity.y);
-            }
-        }
+        initialVelocityY = player.CurrentVelocity.y;
     }
 
     public override void Exit()
@@ -58,6 +51,6 @@ public class PlayerJumpUpState : PlayerAirState
     {
         base.PhysicsUpdate();
         player.SetVelocityX(playerData.movementSpeedX * player.MoveInput.x);
-        player.SetVelocityY(playerData.jumpForce);
+        player.SetVelocityY(playerData.jumpForce + initialVelocityY / 2);
     }
 }

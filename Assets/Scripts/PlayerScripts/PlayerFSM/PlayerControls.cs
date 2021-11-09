@@ -20,7 +20,7 @@ public class PlayerControls : MonoBehaviour
 
     #region Components
     public Animator Anim { get; private set; }
-    [SerializeField] private PlayerData playerData;
+    [SerializeField] public PlayerData playerData;
     Rigidbody2D rb;
     public PlayerSceneManagement psm;
     //Slider staminaSlider;
@@ -193,12 +193,14 @@ public class PlayerControls : MonoBehaviour
             if(leftHit.collider != null)
             {
                 //Debug.Log(leftHit.collider.gameObject);
+                Debug.Log(leftHit.collider.gameObject);
                 return leftHit.collider.gameObject;
             }
             else
             {
                 RaycastHit2D rightHit = Physics2D.Raycast(groundCheckR.transform.position, Vector2.down);
                 //Debug.Log(rightHit.collider.gameObject);
+                Debug.Log(rightHit.collider.gameObject);
                 return rightHit.collider.gameObject;
             }
         }

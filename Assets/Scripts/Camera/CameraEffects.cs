@@ -43,7 +43,7 @@ public class CameraEffects : MonoBehaviour
         while (dimmer.color.a < 1)
         {
             yield return new WaitForSeconds(0.005f);
-            Debug.Log(tempColor.a);
+            //Debug.Log(tempColor.a);
             tempColor.a += 0.01f;
             dimmer.color = tempColor;
         }

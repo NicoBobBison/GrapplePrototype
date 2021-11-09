@@ -33,7 +33,7 @@ public class PlayerIdleState : PlayerGroundedState
         if (input.x != 0)
         {
             stateMachine.ChangeState(player.MoveState);
-            Debug.Log(player.StateMachine.CurrentState);
+            //Debug.Log(player.StateMachine.CurrentState);
         }
     }
 

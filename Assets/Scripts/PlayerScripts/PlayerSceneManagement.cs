@@ -20,12 +20,29 @@ public class PlayerSceneManagement : MonoBehaviour
 
     void CheckIfShouldTransition()
     {
-        if (SceneManager.GetActiveScene().name == "Cave1")
+        if (!camEffects.transitioning)
         {
-            if (transform.position.x > 19.775f && !camEffects.transitioning)
+            if (SceneManager.GetActiveScene().name == "Cave1")
             {
-                //Debug.Log("Change scene");
-                //camEffects.PlaySceneTransition("Cave2");
+                if (transform.position.x > 19.775)
+                {
+                    //Debug.Log("Change scene");
+                    //camEffects.PlaySceneTransition("Cave2");
+                }
+            }
+            if (SceneManager.GetActiveScene().name == "CaveRoom1")
+            {
+                if (transform.position.x > 4.75)
+                {
+                    camEffects.PlaySceneTransition("CaveRoom2");
+                }
+            }
+            if (SceneManager.GetActiveScene().name == "CaveRoom2")
+            {
+                if (transform.position.x < -5.25)
+                {
+                    camEffects.PlaySceneTransition("CaveRoom1");
+                }
             }
         }
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerGrapplePullState : PlayerGrappleState
 {
+    PlayerGrapple pg;
     public PlayerGrapplePullState(PlayerControls player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
     }
@@ -16,6 +17,10 @@ public class PlayerGrapplePullState : PlayerGrappleState
     public override void Enter()
     {
         base.Enter();
+        pg = GameObject.Find("Grapple").GetComponent<PlayerGrapple>();
+        Pullable pull = pg.lastHit.collider.gameObject.GetComponent<Pullable>();
+        pull.StopAllCoroutines();
+        pull.StartCoroutine(pull.Transition());
     }
 
     public override void Exit()
@@ -28,6 +33,7 @@ public class PlayerGrapplePullState : PlayerGrappleState
         base.LogicUpdate();
         if (Input.GetMouseButtonUp(0) || Time.time - startTime >= 0.3)
         {
+            pg.SetGrappleState(PlayerGrapple.GrapplingState.unattached);
             stateMachine.ChangeState(player.JumpSustainState);
         }
     }

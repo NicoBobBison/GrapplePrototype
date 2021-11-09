@@ -7,12 +7,17 @@ public class PlayerGrapple : MonoBehaviour
     LineRenderer lr;
     Camera cam;
     GameObject player;
-    Vector2 playerPos;
+    Vector3 playerPos;
+    Vector3 mousePos;
     public Vector2 grapplePoint;
     public Vector2 grappleDir;
     PlayerControls pc;
     [SerializeField] LayerMask grappleable;
-    RaycastHit2D lastHit;
+    public RaycastHit2D lastHit;
+    public Vector2 workspace;
+    [SerializeField] float grappleLerpAmount = 0.5f;
+    public enum GrapplingState { searching, pulling, unattached}
+    GrapplingState _state = GrapplingState.unattached;
 
     private void Start()
     {
@@ -20,56 +25,120 @@ public class PlayerGrapple : MonoBehaviour
         lr = GetComponent<LineRenderer>();
         player = GameObject.Find("Player");
         pc = player.GetComponent<PlayerControls>();
+        playerPos = player.transform.position;
+        grapplePoint = playerPos;
     }
     private void Update()
     {
+        ChangeBasedOnState();
+        MoveGrappleEnd();
+        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         playerPos = player.transform.position;
         if (Input.GetMouseButtonDown(0))
         {
-            Vector2 mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 mouseDir = (playerPos - mousePos) * -1;
-            //Debug.Log("Mouse dir: " + mouseDir);
-            RaycastHit2D hit = Physics2D.Raycast(playerPos, mouseDir, 20f, grappleable);
+            RaycastHit2D hit = CastToMouse();
             if(hit.collider != null)
             {
+                _state = GrapplingState.pulling;
                 lastHit = hit;
-                Debug.Log(hit.point);
-                grapplePoint = hit.point;
-                grappleDir = (grapplePoint - playerPos).normalized;
-                if(hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
-                {
-                    pc.StateMachine.ChangeState(pc.GrappleState);
-                }
-                else if(hit.transform.gameObject.layer == LayerMask.NameToLayer("Pullable"))
-                {
-                    Pullable pullScript = hit.transform.gameObject.GetComponent<Pullable>();
-                    pc.StateMachine.ChangeState(pc.PullState);
-                    pullScript.beingPulled = true;
-                }
+                //Debug.Log("Hit transform: " + hit.point);
+                grappleDir = (hit.point - (Vector2)playerPos).normalized;
+            }
+            else
+            {
+                _state = GrapplingState.searching;
             }
         }
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonUp(0))
         {
-            lr.enabled = true;
-            lr.SetPosition(0, playerPos);
-            lr.SetPosition(1, grapplePoint);
+            _state = GrapplingState.unattached;
+        }
+    }
+    void ChangeBasedOnState()
+    {
+        if(_state == GrapplingState.unattached)
+        {
+            if (Vector2.Distance(playerPos, grapplePoint) < 1)
+            {
+                lr.enabled = false;
+            }
+            else
+            {
+                lr.enabled = true;
+            }
+        }
+        else if(_state == GrapplingState.searching)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                lr.enabled = true;
+                if (Physics2D.OverlapCircle(grapplePoint, 0.1f, grappleable))
+                {
+                    if(CastToMouse().collider != null)
+                    {
+                        lastHit = CastToMouse();
+                        grappleDir = (lastHit.point - (Vector2)playerPos).normalized;
+                        _state = GrapplingState.pulling;
+                    }
+                }
+            }
         }
         else
         {
-            lr.enabled = false;
-            if (lastHit.collider != null)
+            lr.enabled = true;
+            if(_state == GrapplingState.pulling && pc.StateMachine.CurrentState != pc.PullState)
             {
-                if (lastHit.transform.gameObject.layer == LayerMask.NameToLayer("Pullable"))
+                if(lastHit.collider.gameObject.layer == LayerMask.NameToLayer("Pullable"))
                 {
-                    Pullable pullScript = lastHit.transform.gameObject.GetComponent<Pullable>();
                     pc.StateMachine.ChangeState(pc.PullState);
-                    pullScript.beingPulled = false;
+                }
+                if(lastHit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+                {
+                    pc.StateMachine.ChangeState(pc.GrappleState);
                 }
             }
+            
         }
-        if(pc.StateMachine.CurrentState != pc.GrappleState && pc.StateMachine.CurrentState != pc.PullState || Vector2.Distance(playerPos, grapplePoint) < 1)
+    }
+
+    void MoveGrappleEnd()
+    {
+        if (_state == GrapplingState.pulling)
         {
-            lr.enabled = false;
+            grapplePoint.Set(Vector2.Lerp(grapplePoint, lastHit.point, grappleLerpAmount).x,
+                Vector2.Lerp(grapplePoint, lastHit.point, grappleLerpAmount).y);
+        }else if (_state == GrapplingState.searching)
+        {
+            grapplePoint.Set(Vector2.Lerp(grapplePoint, mousePos, grappleLerpAmount).x,
+                Vector2.Lerp(grapplePoint, mousePos, grappleLerpAmount).y);
+        }
+        else
+        {
+            grapplePoint.Set(Vector2.Lerp(grapplePoint, playerPos, grappleLerpAmount).x,
+                Vector2.Lerp(grapplePoint, playerPos, grappleLerpAmount).y);
+        }
+        lr.SetPosition(0, playerPos);
+        lr.SetPosition(1, grapplePoint);
+    }
+    RaycastHit2D CastToMouse()
+    {
+        Vector2 mouseDir = (playerPos - mousePos) * -1;
+        RaycastHit2D hit = Physics2D.Raycast(playerPos, mouseDir, 10f, grappleable);
+        return hit;
+    }
+    public void SetGrappleState(GrapplingState state)
+    {
+        if (state == GrapplingState.pulling)
+        {
+            _state = GrapplingState.pulling;
+        }
+        else if(state == GrapplingState.searching)
+        {
+            _state = GrapplingState.searching;
+        }
+        else
+        {
+            _state = GrapplingState.unattached;
         }
     }
 }

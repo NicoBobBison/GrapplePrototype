@@ -25,5 +25,6 @@ public class PlayerData : ScriptableObject
 
     [Header("Grapple")]
     public float playerReelSpeed = 3f;
+    public float playerPullSpeed = 5f;
     
 }

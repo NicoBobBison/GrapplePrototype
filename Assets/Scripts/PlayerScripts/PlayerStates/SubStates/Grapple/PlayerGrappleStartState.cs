@@ -21,7 +21,7 @@ public class PlayerGrappleStartState : PlayerGrappleState
     public override void Exit()
     {
         base.Exit();
-        player.SetVelocityX(player.CurrentVelocity.x / 2);
+        player.SetVelocityX(player.CurrentVelocity.x / 1.3f);
         player.SetVelocityY(player.CurrentVelocity.y / 2);
     }
 
@@ -30,6 +30,8 @@ public class PlayerGrappleStartState : PlayerGrappleState
         base.LogicUpdate();
         if (Input.GetMouseButtonUp(0) || Vector2.Distance(playerGrapple.grapplePoint, player.transform.position) < 0.75f)
         {
+            PlayerGrapple pg = GameObject.Find("Grapple").GetComponent<PlayerGrapple>();
+            pg.SetGrappleState(PlayerGrapple.GrapplingState.unattached);
             stateMachine.ChangeState(player.JumpSustainState);
         }
     }
