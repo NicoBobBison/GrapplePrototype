@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beingPulled: 0
-  start: {x: 25, y: 4}
-  end: {x: 25, y: 7}
+  start: {x: -1.75, y: -2.5}
+  end: {x: -1.75, y: -0.5}
   trackRef: {fileID: 4765975152546979722, guid: caa65c6345fb50a42aa67a8c7a519aeb, type: 3}
+  atOriginalPosition: 1

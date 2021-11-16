@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13966, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Cave1
+  m_Name: Cave1 - Copy
   m_EditorClassIdentifier: 
   templateScene: {fileID: 102900000, guid: 90b23a07918a9a14a8aec1939c3b38ab, type: 3}
   templateName: Cave Template 2.0

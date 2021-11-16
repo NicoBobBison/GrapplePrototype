@@ -58,7 +58,7 @@ public class PlayerGrapple : MonoBehaviour
     {
         if(_state == GrapplingState.unattached)
         {
-            if (Vector2.Distance(playerPos, grapplePoint) < 1)
+            if (Vector2.Distance(playerPos, grapplePoint) < 0.05f)
             {
                 lr.enabled = false;
             }
@@ -72,7 +72,7 @@ public class PlayerGrapple : MonoBehaviour
             if (Input.GetMouseButton(0))
             {
                 lr.enabled = true;
-                if (Physics2D.OverlapCircle(grapplePoint, 0.1f, grappleable))
+                if (Physics2D.OverlapCircle(grapplePoint, 0.05f, grappleable))
                 {
                     if(CastToMouse().collider != null)
                     {

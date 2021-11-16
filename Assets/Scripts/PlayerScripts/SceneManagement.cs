@@ -93,7 +93,7 @@ public class SceneManagement : MonoBehaviour
                 return respawn;
             }
         }
-        Debug.LogError("Couldn't find respawn that matched scene name");
+        Debug.LogWarning("Couldn't find respawn that matched scene name");
         return null;
     }
 }

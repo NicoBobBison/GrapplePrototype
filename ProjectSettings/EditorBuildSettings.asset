@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CaveRoom1.unity
     guid: ad08a0f68d098d74fbdeaafb87b40b9a
+  - enabled: 1
+    path: Assets/Scenes/CaveRoom3.unity
+    guid: a2aba7fceaffe054999bcf9c45656c8c
   m_configObjects: {}
