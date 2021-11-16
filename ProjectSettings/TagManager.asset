@@ -11,6 +11,7 @@ TagManager:
   - LeftCheck
   - RightCheck
   - FallingBox
+  - LevelExit
   layers:
   - Default
   - TransparentFX

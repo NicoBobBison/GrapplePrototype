@@ -3,10 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerSceneManagement : MonoBehaviour
+public class SceneManagement : MonoBehaviour
 {
     public CameraEffects camEffects;
     public bool inSceneTransition = false;
+    public string previousScene;
+    public static SceneManagement instance { get; private set; }
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+        if(instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
     void Start()
     {
         camEffects = GameObject.Find("Main Camera").GetComponent<CameraEffects>();
@@ -15,10 +29,14 @@ public class PlayerSceneManagement : MonoBehaviour
 
     void Update()
     {
-        CheckIfShouldTransition();
+        //CheckIfShouldTransition();
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            camEffects.PlaySceneTransition(SceneManager.GetActiveScene().name);
+        }
     }
 
-    void CheckIfShouldTransition()
+    /*void CheckIfShouldTransition()
     {
         if (!camEffects.transitioning)
         {
@@ -45,13 +63,37 @@ public class PlayerSceneManagement : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
     public void ChangeScene(string scene)
     {
+        if(scene != GetCurrentScene())
+        {
+            instance.previousScene = GetCurrentScene();
+        }
         SceneManager.LoadSceneAsync(scene);
     }
     public string GetCurrentScene()
     {
         return SceneManager.GetActiveScene().name;
+    }
+    
+    public void GetSceneReferences()
+    {
+        camEffects = GameObject.Find("Main Camera").GetComponent<CameraEffects>();
+        camEffects.PlaySceneTransition();
+    }
+
+    public GameObject FindSpawnPoint()
+    {
+        GameObject[] respawns = GameObject.FindGameObjectsWithTag("LevelExit");
+        foreach(GameObject respawn in respawns)
+        {
+            if(respawn.name.Equals(previousScene))
+            {
+                return respawn;
+            }
+        }
+        Debug.LogError("Couldn't find respawn that matched scene name");
+        return null;
     }
 }

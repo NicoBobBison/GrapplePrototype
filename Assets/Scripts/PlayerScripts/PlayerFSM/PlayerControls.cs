@@ -14,6 +14,7 @@ public class PlayerControls : MonoBehaviour
     public PlayerFallState FallState { get; private set; }
     public PlayerGrappleStartState GrappleState { get; private set; }
     public PlayerGrapplePullState PullState { get; private set; }
+    public PlayerSceneTransState SceneTransState { get; private set; }
     
 
     #endregion
@@ -22,7 +23,7 @@ public class PlayerControls : MonoBehaviour
     public Animator Anim { get; private set; }
     [SerializeField] public PlayerData playerData;
     Rigidbody2D rb;
-    public PlayerSceneManagement psm;
+    public SceneManagement psm;
     //Slider staminaSlider;
     #endregion
 
@@ -30,7 +31,7 @@ public class PlayerControls : MonoBehaviour
     public Vector2 MoveInput { get; private set; }
     public Vector2 CurrentVelocity { get; private set; }
     private Vector2 workspace;
-    public int DirectionFacing { get; private set; }
+    public int DirectionFacing;
     public Transform groundCheckL { get; private set; }
     public Transform groundCheckR { get; private set; }
     //public float stamina { get; private set; }
@@ -42,6 +43,7 @@ public class PlayerControls : MonoBehaviour
     #region Unity Callback Functions
     private void Awake()
     {
+        SceneManagement.instance.GetSceneReferences();
         StateMachine = new PlayerStateMachine();
         #region Create instances of states
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
@@ -51,18 +53,35 @@ public class PlayerControls : MonoBehaviour
         FallState = new PlayerFallState(this, StateMachine, playerData, "fall");
         GrappleState = new PlayerGrappleStartState(this, StateMachine, playerData, "grapple");
         PullState = new PlayerGrapplePullState(this, StateMachine, playerData, "pull");
+        SceneTransState = new PlayerSceneTransState(this, StateMachine, playerData, "scene trans");
         #endregion
     }
     void Start()
     {
-        
+        GameObject spawn = SceneManagement.instance.FindSpawnPoint();
+        if(spawn != null)
+        {
+            transform.position = SceneManagement.instance.FindSpawnPoint().transform.position;
+            if(spawn.GetComponent<LevelExit>() != null && spawn.GetComponent<LevelExit>().directionToExit == LevelExit.Direction.right)
+            {
+                Flip();
+                DirectionFacing = -1;
+            }
+            else
+            {
+                DirectionFacing = 1;
+            }
+        }
+        else
+        {
+            DirectionFacing = 1;
+        }
         rb = GetComponent<Rigidbody2D>();
         Anim = GetComponent<Animator>();
         groundCheckL = GameObject.Find("GroundCheckL").transform;
         groundCheckR = GameObject.Find("GroundCheckR").transform;
         StateMachine.Initialize(IdleState);
-        DirectionFacing = 1;
-        psm = GetComponent<PlayerSceneManagement>();
+        psm = GameObject.Find("SceneManager").GetComponent<SceneManagement>();
         //staminaSlider = GameObject.Find("Stamina").GetComponent<Slider>();
         //staminaSlider.value = 100;
         //canRechargeStamina = true;
@@ -167,7 +186,7 @@ public class PlayerControls : MonoBehaviour
     #region Check Functions
     public void CheckIfShouldFlip(int xInput)
     {
-        if(xInput != 0 && xInput!= DirectionFacing)
+        if(xInput != 0 && xInput != DirectionFacing)
         {
             Flip();
         }

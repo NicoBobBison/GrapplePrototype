@@ -7,14 +7,15 @@ public class CameraEffects : MonoBehaviour
 {
     public Image dimmer;
     public bool transitioning = false;
-    PlayerSceneManagement psm;
-    private void Start()
+    SceneManagement psm;
+    private void Awake()
     {
         dimmer = GameObject.Find("Dimmer").GetComponent<Image>();
         Color tempColor = dimmer.color;
         tempColor.a = 1;
         dimmer.color = tempColor;
-        psm = GameObject.Find("Player").GetComponent<PlayerSceneManagement>();
+        psm = GameObject.Find("Player").GetComponent<SceneManagement>();
+        
     }
     
     public void PlaySceneTransition(string nextScene)
@@ -40,14 +41,16 @@ public class CameraEffects : MonoBehaviour
         Color tempColor = dimmer.color;
         tempColor.a = 0;
         dimmer.color = tempColor;
+        PlayerControls pc = GameObject.Find("Player").GetComponent<PlayerControls>();
+        pc.StateMachine.ChangeState(pc.SceneTransState);
         while (dimmer.color.a < 1)
         {
             yield return new WaitForSeconds(0.005f);
             //Debug.Log(tempColor.a);
-            tempColor.a += 0.01f;
+            tempColor.a += 0.02f;
             dimmer.color = tempColor;
         }
-        psm.ChangeScene(nextScene);
+        SceneManagement.instance.ChangeScene(nextScene);
         transitioning = false;
     }
     public IEnumerator BrightenCam()
@@ -59,7 +62,7 @@ public class CameraEffects : MonoBehaviour
         while (dimmer.color.a > 0)
         {
             yield return new WaitForSeconds(0.005f);
-            tempColor.a -= 0.01f;
+            tempColor.a -= 0.02f;
             dimmer.color = tempColor;
         }
         transitioning = false;

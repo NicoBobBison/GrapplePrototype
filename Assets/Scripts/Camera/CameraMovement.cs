@@ -12,7 +12,8 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] float camShakeDistance = 0.1f;
     [SerializeField] float camShakeTime = 0.05f;
     private Vector3 boundPos;
-    public bool stillCamera;
+    public enum CamType { still, verticallyBound, horizontallyBound, freeCamera}
+    public CamType CameraType = CamType.still;
     void Start()
     {
         target = GameObject.FindWithTag("Player").transform;
@@ -22,7 +23,7 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!stillCamera)
+        if (CameraType != CamType.still)
         {
             Vector3 currentPos = this.transform.position + offset;
             Vector3 desiredPos = Vector3.Lerp(currentPos, target.transform.position, lerpPercent);
@@ -31,7 +32,7 @@ public class CameraMovement : MonoBehaviour
     }
     void LateUpdate()
     {
-        if (!stillCamera)
+        if (CameraType != CamType.still)
         {
             SetBounds();
         }
@@ -67,6 +68,13 @@ public class CameraMovement : MonoBehaviour
                 Mathf.Clamp(this.gameObject.transform.position.x, 0f, 74.3f),
                 Mathf.Clamp(this.gameObject.transform.position.y, -0.5f, 0f),
                 //this.gameObject.transform.position.y,
+                this.gameObject.transform.position.z);
+        }
+        if(SceneManager.GetActiveScene().name == "CaveRoom2")
+        {
+            boundPos.Set(
+                Mathf.Clamp(this.gameObject.transform.position.x, 0f, 100),
+                Mathf.Clamp(this.gameObject.transform.position.y, -0.5f, 100),
                 this.gameObject.transform.position.z);
         }
 
