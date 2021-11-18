@@ -24,3 +24,4 @@ MonoBehaviour:
   maxStamina: 100
   playerReelSpeed: 20
   playerPullSpeed: 7
+  grappleStallTime: 0.15

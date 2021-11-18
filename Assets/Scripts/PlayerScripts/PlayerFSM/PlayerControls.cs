@@ -38,6 +38,7 @@ public class PlayerControls : MonoBehaviour
     public LayerMask groundLayer;
     public Vector2 lastAfterImage;
     public bool canRechargeStamina { get; private set; }
+    public bool slowingFromGrapple = false;
     #endregion
 
     #region Unity Callback Functions
@@ -166,6 +167,24 @@ public class PlayerControls : MonoBehaviour
     {
         rb.gravityScale = gravity;
     }
+    public IEnumerator SlowToStop(float time)
+    {
+        slowingFromGrapple = true;
+        float timer = time;
+        while (timer > 0)
+        {
+            SetVelocityX(Mathf.Lerp(CurrentVelocity.x, 0, 0.05f));
+            SetVelocityY(Mathf.Lerp(CurrentVelocity.y, 0, 0.05f));
+            timer -= Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        slowingFromGrapple = false;
+    }
+    public void EndCoroutine(Coroutine co)
+    {
+        StopCoroutine(co);
+    }
+
     /*public void SetStamina(float stam)
     {
         if (stam >= 0)

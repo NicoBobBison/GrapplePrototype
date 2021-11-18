@@ -92,12 +92,14 @@ public class PlayerGrapple : MonoBehaviour
                 {
                     pc.StateMachine.ChangeState(pc.PullState);
                 }
-                if(lastHit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            }
+            if(_state == GrapplingState.pulling && pc.StateMachine.CurrentState != pc.GrappleState)
+            {
+                if (lastHit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
                 {
                     pc.StateMachine.ChangeState(pc.GrappleState);
                 }
             }
-            
         }
     }
 
