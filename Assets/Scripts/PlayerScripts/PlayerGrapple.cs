@@ -100,6 +100,10 @@ public class PlayerGrapple : MonoBehaviour
                     lastHit.collider.gameObject.layer == LayerMask.NameToLayer("Platform"))
                 {
                     pc.StateMachine.ChangeState(pc.GrappleState);
+                    if(Vector2.Distance(grapplePoint, playerPos) > pc.playerData.grappleMaxDistance)
+                    {
+                        EndGrapple();
+                    }
                 }
             }
         }
@@ -152,6 +156,11 @@ public class PlayerGrapple : MonoBehaviour
     {
         Vector2 mouseDir = (playerPos - mousePos) * -1;
         RaycastHit2D hit = Physics2D.Raycast(playerPos, mouseDir, pc.playerData.grappleMaxDistance, grappleable);
+        return hit;
+    }
+    RaycastHit2D CastInDirection(Vector2 direction)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(playerPos, direction, pc.playerData.grappleMaxDistance, grappleable);
         return hit;
     }
     public void SetGrappleState(GrapplingState state)

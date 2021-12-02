@@ -25,4 +25,4 @@ MonoBehaviour:
   playerReelSpeed: 8
   playerPullSpeed: 7
   grappleStallTime: 0.15
-  grappleMaxDistance: 6
+  grappleMaxDistance: 5

@@ -53,7 +53,7 @@ public class PlayerGrappleStartState : PlayerGrappleState
         base.PhysicsUpdate();
         if (!player.slowingFromGrapple)
         {
-            if (playerGrapple.lastHit.collider.gameObject.layer != LayerMask.NameToLayer("Platform") &&
+            if (playerGrapple.lastHit.collider.gameObject.layer != LayerMask.NameToLayer("Platform") ||
                 playerGrapple.lastHit.collider.gameObject.layer != LayerMask.NameToLayer("GrapplePoint"))
             {
                 if (Vector2.Distance(playerGrapple.grapplePoint, player.transform.position) > 0.33f)
@@ -75,25 +75,25 @@ public class PlayerGrappleStartState : PlayerGrappleState
             }
             else
             {
-                if (Vector2.Distance(playerGrapple.grapplePoint, player.transform.position) > 0.6f)
+                if (Vector2.Distance(playerGrapple.grapplePoint, player.transform.position) > 0.3f)
                 {
                     float xVel = playerGrapple.grappleDir.x * playerData.playerReelSpeed * startDistance;
                     if(xVel < 8 && xVel > 0)
                     {
-                        Mathf.Clamp(xVel, 8, 100);
+                        xVel = 8;
                     }
                     else if(xVel > -8 && xVel <= 0)
                     {
-                        Mathf.Clamp(xVel, -8, -100);
+                        xVel = -8;
                     }
                     float yVel = playerGrapple.grappleDir.y * playerData.playerReelSpeed * startDistance;
                     if (yVel < 8 && yVel > 0)
                     {
-                        Mathf.Clamp(yVel, 8, 100);
+                        yVel = 8;
                     }
                     else if (yVel > -8 && yVel <= 0)
                     {
-                        Mathf.Clamp(yVel, -8, -100);
+                        yVel = -8;
                     }
                     player.SetVelocityX(xVel);
                     player.SetVelocityY(yVel);
