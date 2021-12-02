@@ -15,7 +15,7 @@ public class PlayerControls : MonoBehaviour
     public PlayerGrappleStartState GrappleState { get; private set; }
     public PlayerGrapplePullState PullState { get; private set; }
     public PlayerSceneTransState SceneTransState { get; private set; }
-    
+    public PlayerGrappleSlowdownState GrappleSlowdownState { get; private set; }
 
     #endregion
 
@@ -24,6 +24,8 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] public PlayerData playerData;
     Rigidbody2D rb;
     public SceneManagement psm;
+    public ParticleSystem CollideDuringGrapplePS { get; private set; }
+    public CameraMovement camMovement;
     //Slider staminaSlider;
     #endregion
 
@@ -39,12 +41,12 @@ public class PlayerControls : MonoBehaviour
     public Vector2 lastAfterImage;
     public bool canRechargeStamina { get; private set; }
     public bool slowingFromGrapple = false;
+    PlayerGrapple playerGrapple;
     #endregion
 
     #region Unity Callback Functions
     private void Awake()
     {
-        SceneManagement.instance.GetSceneReferences();
         StateMachine = new PlayerStateMachine();
         #region Create instances of states
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
@@ -55,6 +57,7 @@ public class PlayerControls : MonoBehaviour
         GrappleState = new PlayerGrappleStartState(this, StateMachine, playerData, "grapple");
         PullState = new PlayerGrapplePullState(this, StateMachine, playerData, "pull");
         SceneTransState = new PlayerSceneTransState(this, StateMachine, playerData, "scene trans");
+        GrappleSlowdownState = new PlayerGrappleSlowdownState(this, StateMachine, playerData, "grapple slowdown");
         #endregion
     }
     void Start()
@@ -77,12 +80,15 @@ public class PlayerControls : MonoBehaviour
         {
             DirectionFacing = 1;
         }
+        camMovement = Camera.main.gameObject.GetComponent<CameraMovement>();
+        CollideDuringGrapplePS = GetComponentInChildren<ParticleSystem>();
         rb = GetComponent<Rigidbody2D>();
         Anim = GetComponent<Animator>();
         groundCheckL = GameObject.Find("GroundCheckL").transform;
         groundCheckR = GameObject.Find("GroundCheckR").transform;
         StateMachine.Initialize(IdleState);
         psm = GameObject.Find("SceneManager").GetComponent<SceneManagement>();
+        playerGrapple = GameObject.Find("Grapple").GetComponent<PlayerGrapple>();
         //staminaSlider = GameObject.Find("Stamina").GetComponent<Slider>();
         //staminaSlider.value = 100;
         //canRechargeStamina = true;
@@ -134,7 +140,7 @@ public class PlayerControls : MonoBehaviour
             workspace.x = (workspace.x > -0.25f && workspace.x < 0.25f) ? 0 : workspace.x;
         }
 
-        this.rb.velocity = workspace;
+        rb.velocity = workspace;
         CurrentVelocity = workspace;
     }
     public void LerpVelocityY(float desiredVelocity, float lerpPercent, bool shouldClamp)
@@ -167,23 +173,8 @@ public class PlayerControls : MonoBehaviour
     {
         rb.gravityScale = gravity;
     }
-    public IEnumerator SlowToStop(float time)
-    {
-        slowingFromGrapple = true;
-        float timer = time;
-        while (timer > 0)
-        {
-            SetVelocityX(Mathf.Lerp(CurrentVelocity.x, 0, 0.05f));
-            SetVelocityY(Mathf.Lerp(CurrentVelocity.y, 0, 0.05f));
-            timer -= Time.deltaTime;
-            yield return new WaitForEndOfFrame();
-        }
-        slowingFromGrapple = false;
-    }
-    public void EndCoroutine(Coroutine co)
-    {
-        StopCoroutine(co);
-    }
+    
+
 
     /*public void SetStamina(float stam)
     {
@@ -294,5 +285,44 @@ public class PlayerControls : MonoBehaviour
         DirectionFacing *= -1;
         transform.Rotate(0.0f, 180.0f, 0.0f);
     }
+    public IEnumerator SlowToStop(float time, float multiplier, bool screenshake)
+    {
+        slowingFromGrapple = true;
+        float timer = time;
+        while (timer > 0)
+        {
+            SetVelocityX(Mathf.Lerp(CurrentVelocity.x, 0, multiplier));
+            SetVelocityY(Mathf.Lerp(CurrentVelocity.y, 0, multiplier));
+            timer -= Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        slowingFromGrapple = false;
+        if (screenshake)
+        {
+            StartCoroutine(camMovement.camShake(GetMouseDirection().x, GetMouseDirection().y));
+        }
+    }
+    public IEnumerator SlowToStop(float time, float multiplier, bool screenshake, bool endGrapple)
+    {
+        slowingFromGrapple = true;
+        float timer = time;
+        while (timer > 0)
+        {
+            SetVelocityX(Mathf.Lerp(CurrentVelocity.x, 0, multiplier));
+            SetVelocityY(Mathf.Lerp(CurrentVelocity.y, 0, multiplier));
+            timer -= Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        slowingFromGrapple = false;
+        if (screenshake)
+        {
+            StartCoroutine(camMovement.camShake(GetMouseDirection().x, GetMouseDirection().y));
+        }
+        if (endGrapple)
+        {
+            playerGrapple.EndGrapple();
+        }
+    }
+
     #endregion
 }

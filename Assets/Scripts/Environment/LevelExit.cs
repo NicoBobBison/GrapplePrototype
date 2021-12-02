@@ -18,6 +18,7 @@ public class LevelExit : MonoBehaviour
     {
         if (PastExit())
         {
+            //Debug.Log("Past exit. In scene: " + SceneManagement.instance.GetCurrentScene());
             if (!effects.transitioning)
             {
                 effects.PlaySceneTransition(gameObject.name);

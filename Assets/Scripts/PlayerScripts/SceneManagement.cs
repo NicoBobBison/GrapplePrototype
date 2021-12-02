@@ -23,8 +23,8 @@ public class SceneManagement : MonoBehaviour
     }
     void Start()
     {
-        camEffects = GameObject.Find("Main Camera").GetComponent<CameraEffects>();
-        camEffects.PlaySceneTransition();
+        GetSceneReferences();
+        
     }
 
     void Update()
@@ -36,7 +36,10 @@ public class SceneManagement : MonoBehaviour
         }
     }
 
-    /*void CheckIfShouldTransition()
+    /*
+     * DEPRECATED
+     * 
+     * void CheckIfShouldTransition()
     {
         if (!camEffects.transitioning)
         {
@@ -96,4 +99,5 @@ public class SceneManagement : MonoBehaviour
         Debug.LogWarning("Couldn't find respawn that matched scene name");
         return null;
     }
+    
 }

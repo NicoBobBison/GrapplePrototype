@@ -27,6 +27,7 @@ public class CameraMovement : MonoBehaviour
         {
             Vector3 currentPos = this.transform.position + offset;
             Vector3 desiredPos = Vector3.Lerp(currentPos, target.transform.position, lerpPercent);
+            desiredPos.z = -10;
             transform.position = desiredPos;
         }
     }
@@ -40,9 +41,23 @@ public class CameraMovement : MonoBehaviour
 
     public IEnumerator camShake(float horizontal, float vertical)
     {
-        this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x + (horizontal * camShakeDistance), this.gameObject.transform.position.y + (vertical * camShakeDistance), this.gameObject.transform.position.z);
+        Vector3 original = transform.position;
+        this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x + (2 * horizontal * camShakeDistance),
+            this.gameObject.transform.position.y + (vertical * camShakeDistance),
+            this.gameObject.transform.position.z);
         yield return new WaitForSeconds(camShakeTime);
-        this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x - (horizontal * camShakeDistance), this.gameObject.transform.position.y - (vertical * camShakeDistance), this.gameObject.transform.position.z);
+        this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x - (2 * horizontal * camShakeDistance),
+            this.gameObject.transform.position.y - (vertical * camShakeDistance),
+            this.gameObject.transform.position.z);
+        yield return new WaitForSeconds(camShakeTime);
+        this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x + (0.5f * horizontal * camShakeDistance),
+            this.gameObject.transform.position.y + (vertical * camShakeDistance),
+            this.gameObject.transform.position.z);
+        yield return new WaitForSeconds(camShakeTime);
+        this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x - (0.5f * horizontal * camShakeDistance),
+            this.gameObject.transform.position.y - (0.5f * vertical * camShakeDistance),
+            this.gameObject.transform.position.z);
+        transform.position = original;
     }
 
     void SetBounds()

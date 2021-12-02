@@ -56,5 +56,13 @@ public class PlayerJumpSustainState : PlayerAirState
         {
             player.SetGravity(playerData.baseGravity);
         }
+        if (player.slowingFromGrapple)
+        {
+            player.SetGravity(0);
+        }
+        else
+        {
+            player.SetGravity(playerData.baseGravity);
+        }
     }
 }

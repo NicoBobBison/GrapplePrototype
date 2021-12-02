@@ -7,17 +7,19 @@ public class PlayerGrapple : MonoBehaviour
     LineRenderer lr;
     Camera cam;
     GameObject player;
-    Vector3 playerPos;
-    Vector3 mousePos;
+    Vector2 playerPos;
+    Vector2 mousePos;
     public Vector2 grapplePoint;
     public Vector2 grappleDir;
     PlayerControls pc;
     [SerializeField] LayerMask grappleable;
-    public RaycastHit2D lastHit;
+    public RaycastHit2D lastHit { get; private set; }
     public Vector2 workspace;
     [SerializeField] float grappleLerpAmount = 0.5f;
     public enum GrapplingState { searching, pulling, unattached}
-    GrapplingState _state = GrapplingState.unattached;
+    public GrapplingState _state = GrapplingState.unattached;
+    Color baseColor = Color.gray;
+    Color warningColor = Color.red;
 
     private void Start()
     {
@@ -32,9 +34,10 @@ public class PlayerGrapple : MonoBehaviour
     {
         ChangeBasedOnState();
         MoveGrappleEnd();
+        ManageGrappleColor();
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         playerPos = player.transform.position;
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             RaycastHit2D hit = CastToMouse();
             if(hit.collider != null)
@@ -42,14 +45,14 @@ public class PlayerGrapple : MonoBehaviour
                 _state = GrapplingState.pulling;
                 lastHit = hit;
                 //Debug.Log("Hit transform: " + hit.point);
-                grappleDir = (hit.point - (Vector2)playerPos).normalized;
+                grappleDir = (hit.point - playerPos).normalized;
             }
             else
             {
                 _state = GrapplingState.searching;
             }
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) || Input.GetKeyUp(KeyCode.Space))
         {
             _state = GrapplingState.unattached;
         }
@@ -69,17 +72,14 @@ public class PlayerGrapple : MonoBehaviour
         }
         else if(_state == GrapplingState.searching)
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space))
             {
                 lr.enabled = true;
-                if (Physics2D.OverlapCircle(grapplePoint, 0.05f, grappleable))
+                if (Physics2D.OverlapCircle(grapplePoint, 0.05f, grappleable) && CastToMouse().collider != null)
                 {
-                    if(CastToMouse().collider != null)
-                    {
-                        lastHit = CastToMouse();
-                        grappleDir = (lastHit.point - (Vector2)playerPos).normalized;
-                        _state = GrapplingState.pulling;
-                    }
+                    lastHit = CastToMouse();
+                    grappleDir = (lastHit.point - playerPos).normalized;
+                    _state = GrapplingState.pulling;
                 }
             }
         }
@@ -95,7 +95,9 @@ public class PlayerGrapple : MonoBehaviour
             }
             if(_state == GrapplingState.pulling && pc.StateMachine.CurrentState != pc.GrappleState)
             {
-                if (lastHit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+                if (lastHit.collider.gameObject.layer == LayerMask.NameToLayer("Ground") ||
+                    lastHit.collider.gameObject.layer == LayerMask.NameToLayer("GrapplePoint") ||
+                    lastHit.collider.gameObject.layer == LayerMask.NameToLayer("Platform"))
                 {
                     pc.StateMachine.ChangeState(pc.GrappleState);
                 }
@@ -111,8 +113,19 @@ public class PlayerGrapple : MonoBehaviour
                 Vector2.Lerp(grapplePoint, lastHit.point, grappleLerpAmount).y);
         }else if (_state == GrapplingState.searching)
         {
-            grapplePoint.Set(Vector2.Lerp(grapplePoint, mousePos, grappleLerpAmount).x,
+            //Debug.Log("Mouse pos: " + mousePos);
+            //Debug.Log("Player pos: " + playerPos);
+            if(Vector2.Distance(playerPos, mousePos) > pc.playerData.grappleMaxDistance)
+            {
+                Vector2 v = mousePos - playerPos;
+                grapplePoint.Set(Vector2.Lerp(grapplePoint, v.normalized * pc.playerData.grappleMaxDistance + playerPos, grappleLerpAmount).x,
+                    Vector2.Lerp(grapplePoint, v.normalized * pc.playerData.grappleMaxDistance + playerPos, grappleLerpAmount).y);
+            }
+            else
+            {
+                grapplePoint.Set(Vector2.Lerp(grapplePoint, mousePos, grappleLerpAmount).x,
                 Vector2.Lerp(grapplePoint, mousePos, grappleLerpAmount).y);
+            }
         }
         else
         {
@@ -122,25 +135,38 @@ public class PlayerGrapple : MonoBehaviour
         lr.SetPosition(0, playerPos);
         lr.SetPosition(1, grapplePoint);
     }
+    void ManageGrappleColor()
+    {
+        if(Vector2.Distance(playerPos, grapplePoint) > (pc.playerData.grappleMaxDistance / 5) * 4)
+        {
+            lr.startColor = warningColor;
+            lr.endColor = warningColor;
+        }
+        else
+        {
+            lr.startColor = baseColor;
+            lr.endColor = baseColor;
+        }
+    }
     RaycastHit2D CastToMouse()
     {
         Vector2 mouseDir = (playerPos - mousePos) * -1;
-        RaycastHit2D hit = Physics2D.Raycast(playerPos, mouseDir, 10f, grappleable);
+        RaycastHit2D hit = Physics2D.Raycast(playerPos, mouseDir, pc.playerData.grappleMaxDistance, grappleable);
         return hit;
     }
     public void SetGrappleState(GrapplingState state)
     {
-        if (state == GrapplingState.pulling)
-        {
-            _state = GrapplingState.pulling;
-        }
-        else if(state == GrapplingState.searching)
-        {
-            _state = GrapplingState.searching;
-        }
-        else
-        {
-            _state = GrapplingState.unattached;
-        }
+        _state = state;
+    }
+    public void SlowThenEndGrapple()
+    {
+        pc.StartCoroutine(pc.SlowToStop(0.25f, 0.02f, false, true));
+        
+    }
+    public void EndGrapple()
+    {
+        pc.StateMachine.ChangeState(pc.JumpSustainState);
+        pc.CollideDuringGrapplePS.Play();
+        SetGrappleState(GrapplingState.unattached);
     }
 }
