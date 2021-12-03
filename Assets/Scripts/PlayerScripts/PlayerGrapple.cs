@@ -37,22 +37,22 @@ public class PlayerGrapple : MonoBehaviour
         ManageGrappleColor();
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         playerPos = player.transform.position;
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.LeftShift))
         {
-            RaycastHit2D hit = CastToMouse();
+            RaycastHit2D hit = CastInDirection(pc.MoveInput);
             if(hit.collider != null)
             {
                 _state = GrapplingState.pulling;
                 lastHit = hit;
                 //Debug.Log("Hit transform: " + hit.point);
-                grappleDir = (hit.point - playerPos).normalized;
+                grappleDir = pc.MoveInput.normalized;
             }
             else
             {
                 _state = GrapplingState.searching;
             }
         }
-        if (Input.GetMouseButtonUp(0) || Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetMouseButtonUp(0) || Input.GetKeyUp(KeyCode.LeftShift))
         {
             _state = GrapplingState.unattached;
         }
@@ -75,11 +75,12 @@ public class PlayerGrapple : MonoBehaviour
             if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space))
             {
                 lr.enabled = true;
-                if (Physics2D.OverlapCircle(grapplePoint, 0.05f, grappleable) && CastToMouse().collider != null)
+                if (Physics2D.OverlapCircle(grapplePoint, 0.05f, grappleable) && CastInDirection(pc.MoveInput).collider != null)
                 {
-                    lastHit = CastToMouse();
-                    grappleDir = (lastHit.point - playerPos).normalized;
+                    lastHit = CastInDirection(pc.MoveInput);
+                    grappleDir = pc.MoveInput.normalized;
                     _state = GrapplingState.pulling;
+                    pc.StateMachine.ChangeState(pc.GrappleState);
                 }
             }
         }
@@ -117,19 +118,8 @@ public class PlayerGrapple : MonoBehaviour
                 Vector2.Lerp(grapplePoint, lastHit.point, grappleLerpAmount).y);
         }else if (_state == GrapplingState.searching)
         {
-            //Debug.Log("Mouse pos: " + mousePos);
-            //Debug.Log("Player pos: " + playerPos);
-            if(Vector2.Distance(playerPos, mousePos) > pc.playerData.grappleMaxDistance)
-            {
-                Vector2 v = mousePos - playerPos;
-                grapplePoint.Set(Vector2.Lerp(grapplePoint, v.normalized * pc.playerData.grappleMaxDistance + playerPos, grappleLerpAmount).x,
-                    Vector2.Lerp(grapplePoint, v.normalized * pc.playerData.grappleMaxDistance + playerPos, grappleLerpAmount).y);
-            }
-            else
-            {
-                grapplePoint.Set(Vector2.Lerp(grapplePoint, mousePos, grappleLerpAmount).x,
-                Vector2.Lerp(grapplePoint, mousePos, grappleLerpAmount).y);
-            }
+            grapplePoint.Set(pc.MoveInput.x * pc.playerData.grappleMaxDistance + player.transform.position.x,
+                pc.MoveInput.y * pc.playerData.grappleMaxDistance + player.transform.position.y);
         }
         else
         {

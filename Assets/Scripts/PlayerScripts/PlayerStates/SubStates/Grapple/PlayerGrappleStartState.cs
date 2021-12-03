@@ -41,8 +41,9 @@ public class PlayerGrappleStartState : PlayerGrappleState
         base.LogicUpdate();
         if (!player.slowingFromGrapple)
         {
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0) || Input.GetKeyUp(KeyCode.LeftShift))
             {
+                Debug.Log("Slow then end grapple");
                 playerGrapple.SlowThenEndGrapple();
             }
         }
@@ -53,7 +54,7 @@ public class PlayerGrappleStartState : PlayerGrappleState
         base.PhysicsUpdate();
         if (!player.slowingFromGrapple)
         {
-            if (playerGrapple.lastHit.collider.gameObject.layer != LayerMask.NameToLayer("Platform") ||
+            if (playerGrapple.lastHit.collider.gameObject.layer != LayerMask.NameToLayer("Platform") &&
                 playerGrapple.lastHit.collider.gameObject.layer != LayerMask.NameToLayer("GrapplePoint"))
             {
                 if (Vector2.Distance(playerGrapple.grapplePoint, player.transform.position) > 0.33f)
@@ -82,7 +83,7 @@ public class PlayerGrappleStartState : PlayerGrappleState
                     {
                         xVel = 8;
                     }
-                    else if(xVel > -8 && xVel <= 0)
+                    else if(xVel > -8 && xVel < 0)
                     {
                         xVel = -8;
                     }
@@ -91,7 +92,7 @@ public class PlayerGrappleStartState : PlayerGrappleState
                     {
                         yVel = 8;
                     }
-                    else if (yVel > -8 && yVel <= 0)
+                    else if (yVel > -8 && yVel < 0)
                     {
                         yVel = -8;
                     }
