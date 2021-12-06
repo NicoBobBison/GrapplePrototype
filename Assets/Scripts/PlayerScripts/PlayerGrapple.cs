@@ -45,7 +45,7 @@ public class PlayerGrapple : MonoBehaviour
                 _state = GrapplingState.pulling;
                 lastHit = hit;
                 //Debug.Log("Hit transform: " + hit.point);
-                grappleDir = pc.MoveInput.normalized;
+                grappleDir = pc.MoveInput;
             }
             else
             {
@@ -72,7 +72,7 @@ public class PlayerGrapple : MonoBehaviour
         }
         else if(_state == GrapplingState.searching)
         {
-            if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.Space))
+            if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.LeftShift))
             {
                 lr.enabled = true;
                 if (Physics2D.OverlapCircle(grapplePoint, 0.05f, grappleable) && CastInDirection(pc.MoveInput).collider != null)
@@ -96,6 +96,7 @@ public class PlayerGrapple : MonoBehaviour
             }
             if(_state == GrapplingState.pulling && pc.StateMachine.CurrentState != pc.GrappleState)
             {
+                Debug.Log("Current state: " + pc.StateMachine.CurrentState);
                 if (lastHit.collider.gameObject.layer == LayerMask.NameToLayer("Ground") ||
                     lastHit.collider.gameObject.layer == LayerMask.NameToLayer("GrapplePoint") ||
                     lastHit.collider.gameObject.layer == LayerMask.NameToLayer("Platform"))
@@ -103,7 +104,7 @@ public class PlayerGrapple : MonoBehaviour
                     pc.StateMachine.ChangeState(pc.GrappleState);
                     if(Vector2.Distance(grapplePoint, playerPos) > pc.playerData.grappleMaxDistance)
                     {
-                        EndGrapple();
+                        EndGrapple(pc.GrappleAirState);
                     }
                 }
             }
@@ -142,12 +143,7 @@ public class PlayerGrapple : MonoBehaviour
             lr.endColor = baseColor;
         }
     }
-    RaycastHit2D CastToMouse()
-    {
-        Vector2 mouseDir = (playerPos - mousePos) * -1;
-        RaycastHit2D hit = Physics2D.Raycast(playerPos, mouseDir, pc.playerData.grappleMaxDistance, grappleable);
-        return hit;
-    }
+    
     RaycastHit2D CastInDirection(Vector2 direction)
     {
         RaycastHit2D hit = Physics2D.Raycast(playerPos, direction, pc.playerData.grappleMaxDistance, grappleable);
@@ -162,7 +158,7 @@ public class PlayerGrapple : MonoBehaviour
         pc.StartCoroutine(pc.SlowToStop(0.25f, 0.02f, false, true));
         
     }
-    public void EndGrapple()
+    public void EndGrapple(PlayerState nextState)
     {
         pc.StateMachine.ChangeState(pc.JumpSustainState);
         pc.CollideDuringGrapplePS.Play();

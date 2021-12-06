@@ -12,12 +12,16 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] float camShakeDistance = 0.1f;
     [SerializeField] float camShakeTime = 0.05f;
     private Vector3 boundPos;
-    public enum CamType { still, verticallyBound, horizontallyBound, freeCamera}
+    [SerializeField] Vector2 lowerLeftBound;
+    [SerializeField] Vector2 upperRightBound;
+    public enum CamType { still, vertical, horizontal, freeCamera}
     public CamType CameraType = CamType.still;
+    Vector2 startPos;
     void Start()
     {
         target = GameObject.FindWithTag("Player").transform;
         playerControls = target.GetComponent<PlayerControls>();
+        startPos.Set(transform.position.x, transform.position.y);
     }
 
     // Update is called once per frame
@@ -33,10 +37,7 @@ public class CameraMovement : MonoBehaviour
     }
     void LateUpdate()
     {
-        if (CameraType != CamType.still)
-        {
-            SetBounds();
-        }
+        SetBounds();
     }
 
     public IEnumerator camShake(float horizontal, float vertical)
@@ -62,37 +63,24 @@ public class CameraMovement : MonoBehaviour
 
     void SetBounds()
     {
-        if (SceneManager.GetActiveScene().name == "CaveEntrance")
+        if(CameraType == CamType.freeCamera)
         {
-            boundPos.Set(
-                Mathf.Clamp(this.gameObject.transform.position.x, 0f, 6.84f),
-                Mathf.Clamp(this.gameObject.transform.position.y, -31.5f, 40),
-                this.gameObject.transform.position.z);
+            boundPos.Set(Mathf.Clamp(gameObject.transform.position.x, lowerLeftBound.x, upperRightBound.x),
+            Mathf.Clamp(gameObject.transform.position.y, lowerLeftBound.y, upperRightBound.y), -10);
         }
-        if (SceneManager.GetActiveScene().name == "Cave1")
+        else if(CameraType == CamType.horizontal)
         {
-            boundPos.Set(
-                Mathf.Clamp(this.gameObject.transform.position.x, 41.59f, 1000f),
-                Mathf.Clamp(this.gameObject.transform.position.y, 2.75f, 1000f),
-                //this.gameObject.transform.position.y,
-                this.gameObject.transform.position.z);
+            boundPos.Set(Mathf.Clamp(gameObject.transform.position.x, lowerLeftBound.x, upperRightBound.x),
+            startPos.y, -10);
         }
-        if (SceneManager.GetActiveScene().name == "Cave2")
+        else if(CameraType == CamType.vertical)
         {
-            boundPos.Set(
-                Mathf.Clamp(this.gameObject.transform.position.x, 0f, 74.3f),
-                Mathf.Clamp(this.gameObject.transform.position.y, -0.5f, 0f),
-                //this.gameObject.transform.position.y,
-                this.gameObject.transform.position.z);
+            boundPos.Set(startPos.x, Mathf.Clamp(gameObject.transform.position.y, lowerLeftBound.y, upperRightBound.y), -10);
         }
-        if(SceneManager.GetActiveScene().name == "CaveRoom2")
+        else
         {
-            boundPos.Set(
-                Mathf.Clamp(this.gameObject.transform.position.x, 0f, 100),
-                Mathf.Clamp(this.gameObject.transform.position.y, -0.5f, 100),
-                this.gameObject.transform.position.z);
+            boundPos.Set(transform.position.x, transform.position.y, -10);
         }
-
-        this.gameObject.transform.position = boundPos;
+        gameObject.transform.position = boundPos;
     }
 }

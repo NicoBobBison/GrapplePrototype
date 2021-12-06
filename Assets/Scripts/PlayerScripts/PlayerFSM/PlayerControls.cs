@@ -16,6 +16,7 @@ public class PlayerControls : MonoBehaviour
     public PlayerGrapplePullState PullState { get; private set; }
     public PlayerSceneTransState SceneTransState { get; private set; }
     public PlayerGrappleSlowdownState GrappleSlowdownState { get; private set; }
+    public PlayerGrappleAirState GrappleAirState { get; private set; }
 
     #endregion
 
@@ -58,15 +59,16 @@ public class PlayerControls : MonoBehaviour
         PullState = new PlayerGrapplePullState(this, StateMachine, playerData, "pull");
         SceneTransState = new PlayerSceneTransState(this, StateMachine, playerData, "scene trans");
         GrappleSlowdownState = new PlayerGrappleSlowdownState(this, StateMachine, playerData, "grapple slowdown");
+        GrappleAirState = new PlayerGrappleAirState(this, StateMachine, playerData, "grapple air");
         #endregion
     }
     void Start()
     {
         GameObject spawn = SceneManagement.instance.FindSpawnPoint();
-        if(spawn != null)
+        if (spawn != null)
         {
             transform.position = SceneManagement.instance.FindSpawnPoint().transform.position;
-            if(spawn.GetComponent<LevelExit>() != null && spawn.GetComponent<LevelExit>().directionToExit == LevelExit.Direction.right)
+            if (spawn.GetComponent<LevelExit>() != null && spawn.GetComponent<LevelExit>().directionToExit == LevelExit.Direction.right)
             {
                 Flip();
                 DirectionFacing = -1;
@@ -103,11 +105,11 @@ public class PlayerControls : MonoBehaviour
         //staminaSlider.value = Mathf.Lerp(staminaSlider.value, stamina, 0.95f);
         CurrentVelocity = rb.velocity;
         MoveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        StateMachine.CurrentState.LogicUpdate();        
+        StateMachine.CurrentState.LogicUpdate();
     }
     private void FixedUpdate()
     {
-        
+
         StateMachine.CurrentState.PhysicsUpdate();
         /*if (!isDashing)
         {
@@ -123,7 +125,7 @@ public class PlayerControls : MonoBehaviour
         {
             psm.ChangeScene(psm.GetCurrentScene());
         }
-        if(StateMachine.CurrentState == GrappleState)
+        if (StateMachine.CurrentState == GrappleState && playerGrapple.lastHit.collider.gameObject.layer != LayerMask.NameToLayer("Platform") && playerGrapple.lastHit.collider.gameObject.layer != LayerMask.NameToLayer("Grapple Point"))
         {
             StateMachine.ChangeState(JumpSustainState);
         }
@@ -173,7 +175,7 @@ public class PlayerControls : MonoBehaviour
     {
         rb.gravityScale = gravity;
     }
-    
+
 
 
     /*public void SetStamina(float stam)
@@ -196,14 +198,14 @@ public class PlayerControls : MonoBehaviour
     #region Check Functions
     public void CheckIfShouldFlip(int xInput)
     {
-        if(xInput != 0 && xInput != DirectionFacing)
+        if (xInput != 0 && xInput != DirectionFacing)
         {
             Flip();
         }
     }
     public bool CheckIfGrounded()
     {
-        if (Physics2D.OverlapCircle(groundCheckL.transform.position, 0.1f, groundLayer) || 
+        if (Physics2D.OverlapCircle(groundCheckL.transform.position, 0.1f, groundLayer) ||
             Physics2D.OverlapCircle(groundCheckR.transform.position, 0.1f, groundLayer))
         {
             return true;
@@ -219,7 +221,7 @@ public class PlayerControls : MonoBehaviour
         if (CheckIfGrounded())
         {
             RaycastHit2D leftHit = Physics2D.Raycast(groundCheckL.transform.position, Vector2.down);
-            if(leftHit.collider != null)
+            if (leftHit.collider != null)
             {
                 //Debug.Log(leftHit.collider.gameObject);
                 Debug.Log(leftHit.collider.gameObject);
@@ -239,7 +241,7 @@ public class PlayerControls : MonoBehaviour
             return null;
         }
     }
-    
+
     public Vector3 GetMouseDirection()
     {
         Camera cam = Camera.main;
@@ -250,11 +252,11 @@ public class PlayerControls : MonoBehaviour
     public Vector2 GetVelocityDirection()
     {
         Vector2 tempVector;
-        if(CurrentVelocity.x > 0.05)
+        if (CurrentVelocity.x > 0.05)
         {
             tempVector.x = 1;
         }
-        else if(CurrentVelocity.x < -0.05)
+        else if (CurrentVelocity.x < -0.05)
         {
             tempVector.x = -1;
         }
@@ -287,6 +289,7 @@ public class PlayerControls : MonoBehaviour
     }
     public IEnumerator SlowToStop(float time, float multiplier, bool screenshake)
     {
+        Debug.Log("Slow to stop");
         slowingFromGrapple = true;
         float timer = time;
         while (timer > 0)
@@ -320,8 +323,13 @@ public class PlayerControls : MonoBehaviour
         }
         if (endGrapple)
         {
-            playerGrapple.EndGrapple();
+            playerGrapple.EndGrapple(JumpSustainState);
         }
+    }
+    public void AddForceTo(Vector2 direction, float amount)
+    {
+        Debug.Log("Direction: " + direction * amount);
+        rb.AddForce(direction * amount, ForceMode2D.Impulse);
     }
 
     #endregion

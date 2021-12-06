@@ -12,13 +12,13 @@ public class PlayerGrappleState : PlayerState
     public override void DoChecks()
     {
         base.DoChecks();
+        
     }
 
     public override void Enter()
     {
         base.Enter();
         playerGrapple = GameObject.Find("Grapple").GetComponent<PlayerGrapple>();
-        player.SetGravity(0);
     }
 
     public override void Exit()

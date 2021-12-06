@@ -17,6 +17,7 @@ public class PlayerGrappleSlowdownState : PlayerGrappleState
     public override void Enter()
     {
         base.Enter();
+        Debug.LogWarning("Entering slowdown state");
         co = player.StartCoroutine(player.SlowToStop(2, 0.03f, false));
     }
 

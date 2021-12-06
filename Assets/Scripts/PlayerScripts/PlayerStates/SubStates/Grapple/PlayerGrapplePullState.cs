@@ -21,6 +21,7 @@ public class PlayerGrapplePullState : PlayerGrappleState
         Pullable pull = pg.lastHit.collider.gameObject.GetComponent<Pullable>();
         pull.StopAllCoroutines();
         pull.StartCoroutine(pull.Transition());
+        player.SetGravity(0);
     }
 
     public override void Exit()

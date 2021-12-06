@@ -19,8 +19,10 @@ public class PlayerGrappleStartState : PlayerGrappleState
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("Start state");
         startDistance = Vector2.Distance(playerGrapple.lastHit.point, player.transform.position);
         wait = player.StartCoroutine(player.SlowToStop(playerData.grappleStallTime, 0.05f, true));
+        player.SetGravity(0);
     }
 
     public override void Exit()
@@ -39,14 +41,6 @@ public class PlayerGrappleStartState : PlayerGrappleState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (!player.slowingFromGrapple)
-        {
-            if (Input.GetMouseButtonUp(0) || Input.GetKeyUp(KeyCode.LeftShift))
-            {
-                Debug.Log("Slow then end grapple");
-                playerGrapple.SlowThenEndGrapple();
-            }
-        }
     }
 
     public override void PhysicsUpdate()
@@ -71,15 +65,16 @@ public class PlayerGrappleStartState : PlayerGrappleState
                 }
                 else
                 {
-                    playerGrapple.EndGrapple();
+                    playerGrapple.EndGrapple(player.JumpSustainState);
                 }
             }
             else
             {
                 if (Vector2.Distance(playerGrapple.grapplePoint, player.transform.position) > 0.3f)
                 {
-                    float xVel = playerGrapple.grappleDir.x * playerData.playerReelSpeed * startDistance;
-                    if(xVel < 8 && xVel > 0)
+                    float xVel = playerGrapple.grappleDir.x * playerData.playerReelSpeed;
+                    float yVel = playerGrapple.grappleDir.y * playerData.playerReelSpeed;
+                    if (xVel < 8 && xVel > 0)
                     {
                         xVel = 8;
                     }
@@ -87,7 +82,6 @@ public class PlayerGrappleStartState : PlayerGrappleState
                     {
                         xVel = -8;
                     }
-                    float yVel = playerGrapple.grappleDir.y * playerData.playerReelSpeed * startDistance;
                     if (yVel < 8 && yVel > 0)
                     {
                         yVel = 8;
@@ -101,7 +95,9 @@ public class PlayerGrappleStartState : PlayerGrappleState
                 }
                 else
                 {
-                    playerGrapple.EndGrapple();
+                    Debug.Log("End platform grapple. Direction is: " + playerGrapple.grappleDir);
+                    player.AddForceTo(playerGrapple.grappleDir, 10);
+                    playerGrapple.EndGrapple(player.GrappleAirState);
                 }
             }
         }
