@@ -48,6 +48,10 @@ public class PlayerGrappleStartState : PlayerGrappleState
         base.PhysicsUpdate();
         if (!player.slowingFromGrapple)
         {
+            if (Vector2.Distance(player.transform.position, playerGrapple.grapplePoint) > startDistance)
+            {
+                player.StateMachine.ChangeState(player.GrappleAirState);
+            }
             if (playerGrapple.lastHit.collider.gameObject.layer != LayerMask.NameToLayer("Platform") &&
                 playerGrapple.lastHit.collider.gameObject.layer != LayerMask.NameToLayer("GrapplePoint"))
             {
@@ -58,10 +62,10 @@ public class PlayerGrappleStartState : PlayerGrappleState
                     //player.LerpVelocityY(playerGrapple.grappleDir.y * playerData.playerReelSpeed *
                     //    Vector2.Distance(playerGrapple.grapplePoint, player.transform.position), 0.9f, false);
 
-                    player.SetVelocityX(playerGrapple.grappleDir.x * (playerData.playerReelSpeed *
-                        Vector2.Distance(playerGrapple.grapplePoint, player.transform.position)));
-                    player.SetVelocityY(playerGrapple.grappleDir.y * (playerData.playerReelSpeed *
-                        Vector2.Distance(playerGrapple.grapplePoint, player.transform.position)));
+                    player.SetVelocityX(Mathf.Clamp(playerGrapple.grappleDir.x * (playerData.playerReelSpeed *
+                        Vector2.Distance(playerGrapple.grapplePoint, player.transform.position)), -playerData.playerReelSpeed, playerData.playerReelSpeed));
+                    player.SetVelocityY(Mathf.Clamp(playerGrapple.grappleDir.y * (playerData.playerReelSpeed *
+                        Vector2.Distance(playerGrapple.grapplePoint, player.transform.position)), -playerData.playerReelSpeed, playerData.playerReelSpeed));
                 }
                 else
                 {
@@ -96,11 +100,10 @@ public class PlayerGrappleStartState : PlayerGrappleState
                 else
                 {
                     Debug.Log("End platform grapple. Direction is: " + playerGrapple.grappleDir);
-                    player.AddForceTo(playerGrapple.grappleDir, 10);
+                    //player.AddForceTo(playerGrapple.grappleDir, 10);
                     playerGrapple.EndGrapple(player.GrappleAirState);
                 }
             }
         }
-        
     }
 }

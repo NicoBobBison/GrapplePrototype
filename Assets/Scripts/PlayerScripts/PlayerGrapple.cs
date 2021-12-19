@@ -75,7 +75,7 @@ public class PlayerGrapple : MonoBehaviour
             if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.LeftShift))
             {
                 lr.enabled = true;
-                if (Physics2D.OverlapCircle(grapplePoint, 0.05f, grappleable) && CastInDirection(pc.MoveInput).collider != null)
+                if (CastInDirection(pc.MoveInput).collider != null)
                 {
                     lastHit = CastInDirection(pc.MoveInput);
                     grappleDir = pc.MoveInput.normalized;

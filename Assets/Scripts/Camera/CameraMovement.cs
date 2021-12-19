@@ -14,6 +14,7 @@ public class CameraMovement : MonoBehaviour
     private Vector3 boundPos;
     [SerializeField] Vector2 lowerLeftBound;
     [SerializeField] Vector2 upperRightBound;
+    [SerializeField] CameraData cameraData;
     public enum CamType { still, vertical, horizontal, freeCamera}
     public CamType CameraType = CamType.still;
     Vector2 startPos;
@@ -22,9 +23,9 @@ public class CameraMovement : MonoBehaviour
         target = GameObject.FindWithTag("Player").transform;
         playerControls = target.GetComponent<PlayerControls>();
         startPos.Set(transform.position.x, transform.position.y);
+        Camera.main.orthographicSize = cameraData.camSize;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (CameraType != CamType.still)
@@ -42,23 +43,24 @@ public class CameraMovement : MonoBehaviour
 
     public IEnumerator camShake(float horizontal, float vertical)
     {
-        Vector3 original = transform.position;
-        this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x + (2 * horizontal * camShakeDistance),
+        if (cameraData.camShake)
+        {
+            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x + (2 * horizontal * camShakeDistance),
             this.gameObject.transform.position.y + (vertical * camShakeDistance),
             this.gameObject.transform.position.z);
-        yield return new WaitForSeconds(camShakeTime);
-        this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x - (2 * horizontal * camShakeDistance),
-            this.gameObject.transform.position.y - (vertical * camShakeDistance),
-            this.gameObject.transform.position.z);
-        yield return new WaitForSeconds(camShakeTime);
-        this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x + (0.5f * horizontal * camShakeDistance),
-            this.gameObject.transform.position.y + (vertical * camShakeDistance),
-            this.gameObject.transform.position.z);
-        yield return new WaitForSeconds(camShakeTime);
-        this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x - (0.5f * horizontal * camShakeDistance),
-            this.gameObject.transform.position.y - (0.5f * vertical * camShakeDistance),
-            this.gameObject.transform.position.z);
-        transform.position = original;
+            yield return new WaitForSeconds(camShakeTime);
+            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x - (2 * horizontal * camShakeDistance),
+                this.gameObject.transform.position.y - (vertical * camShakeDistance),
+                this.gameObject.transform.position.z);
+            yield return new WaitForSeconds(camShakeTime);
+            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x + (0.5f * horizontal * camShakeDistance),
+                this.gameObject.transform.position.y + (vertical * camShakeDistance),
+                this.gameObject.transform.position.z);
+            yield return new WaitForSeconds(camShakeTime);
+            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x - (0.5f * horizontal * camShakeDistance),
+                this.gameObject.transform.position.y - (0.5f * vertical * camShakeDistance),
+                this.gameObject.transform.position.z);
+        }
     }
 
     void SetBounds()

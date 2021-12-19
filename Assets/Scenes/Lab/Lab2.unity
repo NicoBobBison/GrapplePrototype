@@ -5211,6 +5211,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 299868869120854031, guid: c780463e994860a428d16870a61a8f82, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 299868869120854031, guid: c780463e994860a428d16870a61a8f82, type: 3}
       propertyPath: directionToExit
       value: 3
       objectReference: {fileID: 0}
@@ -5310,7 +5314,7 @@ MonoBehaviour:
   camShakeTime: 0.05
   lowerLeftBound: {x: 0, y: 0}
   upperRightBound: {x: 0, y: 10}
-  CameraType: 1
+  CameraType: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

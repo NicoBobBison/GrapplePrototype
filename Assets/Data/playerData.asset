@@ -22,7 +22,7 @@ MonoBehaviour:
   staminaRechargeRate: 0.5
   staminaDrainRate: 0.4
   maxStamina: 100
-  playerReelSpeed: 8
+  playerReelSpeed: 16
   playerPullSpeed: 7
   grappleStallTime: 0.15
   grappleMaxDistance: 100
