@@ -69,16 +69,13 @@ public class SceneManagement : MonoBehaviour
     }*/
     public void ChangeScene(string scene)
     {
-        if(scene != GetCurrentScene())
+        if(scene != SceneManager.GetActiveScene().name)
         {
-            instance.previousScene = GetCurrentScene();
+            instance.previousScene = SceneManager.GetActiveScene().name;
         }
         SceneManager.LoadSceneAsync(scene);
     }
-    public string GetCurrentScene()
-    {
-        return SceneManager.GetActiveScene().name;
-    }
+    
     
     public void GetSceneReferences()
     {

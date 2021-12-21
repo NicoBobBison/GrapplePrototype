@@ -8933,6 +8933,9 @@ MonoBehaviour:
   lerpPercent: 0.9
   camShakeDistance: 0.1
   camShakeTime: 0.05
+  lowerLeftBound: {x: 0, y: 0}
+  upperRightBound: {x: 0, y: 0}
+  cameraData: {fileID: 11400000, guid: 0fdd44bda5d301540a94ca5c54b4ccf0, type: 2}
   CameraType: 0
 --- !u!20 &519420031
 Camera:
@@ -8961,7 +8964,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.81
+  orthographic size: 4.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -9095,7 +9098,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863495386}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 

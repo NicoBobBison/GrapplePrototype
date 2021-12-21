@@ -5314,6 +5314,7 @@ MonoBehaviour:
   camShakeTime: 0.05
   lowerLeftBound: {x: 0, y: 0}
   upperRightBound: {x: 0, y: 10}
+  cameraData: {fileID: 11400000, guid: 0fdd44bda5d301540a94ca5c54b4ccf0, type: 2}
   CameraType: 0
 --- !u!20 &519420031
 Camera:
@@ -5342,7 +5343,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 4.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5384,7 +5385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7899f58c319ec9b48b5cf19ff3cad0ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dimmer: {fileID: 0}
+  dimmer: {fileID: 863495388}
   transitioning: 0
 --- !u!1 &733475507
 GameObject:
@@ -5476,7 +5477,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863495386}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 

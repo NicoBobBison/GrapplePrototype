@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -123,7 +124,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Instakill"))
         {
-            psm.ChangeScene(psm.GetCurrentScene());
+            psm.ChangeScene(SceneManager.GetActiveScene().name);
         }
         if (StateMachine.CurrentState == GrappleState && playerGrapple.lastHit.collider.gameObject.layer != LayerMask.NameToLayer("Platform") && playerGrapple.lastHit.collider.gameObject.layer != LayerMask.NameToLayer("Grapple Point"))
         {
