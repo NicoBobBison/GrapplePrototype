@@ -26,3 +26,4 @@ MonoBehaviour:
   playerPullSpeed: 7
   grappleStallTime: 0.15
   grappleMaxDistance: 100
+  chainGrabDistance: 1

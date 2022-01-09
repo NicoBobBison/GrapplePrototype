@@ -126,7 +126,7 @@ public class PlayerControls : MonoBehaviour
         {
             psm.ChangeScene(SceneManager.GetActiveScene().name);
         }
-        if (StateMachine.CurrentState == GrappleState && playerGrapple.lastHit.collider.gameObject.layer != LayerMask.NameToLayer("Platform") && playerGrapple.lastHit.collider.gameObject.layer != LayerMask.NameToLayer("Grapple Point"))
+        if (StateMachine.CurrentState == GrappleState && playerGrapple.lastHitObject.layer != LayerMask.NameToLayer("Platform") && playerGrapple.lastHitObject.layer != LayerMask.NameToLayer("Grapple Point"))
         {
             StateMachine.ChangeState(JumpSustainState);
         }
@@ -290,7 +290,6 @@ public class PlayerControls : MonoBehaviour
     }
     public IEnumerator SlowToStop(float time, float multiplier, bool screenshake)
     {
-        Debug.Log("Slow to stop");
         slowingFromGrapple = true;
         float timer = time;
         while (timer > 0)
@@ -331,6 +330,10 @@ public class PlayerControls : MonoBehaviour
     {
         Debug.Log("Direction: " + direction * amount);
         rb.AddForce(direction * amount, ForceMode2D.Impulse);
+    }
+    public bool IsInLayerMask(GameObject obj, LayerMask layerMask)
+    {
+        return (layerMask.value & (1 << obj.layer)) > 0;
     }
 
     #endregion

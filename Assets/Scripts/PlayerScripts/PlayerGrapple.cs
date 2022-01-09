@@ -7,13 +7,15 @@ public class PlayerGrapple : MonoBehaviour
     LineRenderer lr;
     Camera cam;
     GameObject player;
-    Vector2 playerPos;
+    public Vector2 playerPos;
     Vector2 mousePos;
     public Vector2 grapplePoint;
     public Vector2 grappleDir;
     PlayerControls pc;
-    [SerializeField] LayerMask grappleable;
-    public RaycastHit2D lastHit { get; private set; }
+    public LayerMask grappleable;
+    public LayerMask grappleDontSlow;
+    public Vector2 lastHitPoint { get; private set; }
+    public GameObject lastHitObject { get; private set; }
     public Vector2 workspace;
     [SerializeField] float grappleLerpAmount = 0.5f;
     public enum GrapplingState { searching, pulling, unattached}
@@ -42,10 +44,30 @@ public class PlayerGrapple : MonoBehaviour
             RaycastHit2D hit = CastInDirection(pc.MoveInput);
             if(hit.collider != null)
             {
+                Debug.Log("Hit something");
                 _state = GrapplingState.pulling;
-                lastHit = hit;
-                //Debug.Log("Hit transform: " + hit.point);
+                lastHitPoint = hit.point;
+                lastHitObject = hit.collider.gameObject;
                 grappleDir = pc.MoveInput;
+                if(Vector2.Distance(lastHitPoint, playerPos) < 0.2f)
+                {
+                    Debug.Log("Found chains");
+                    Vector2 inputToChain = pc.MoveInput * pc.playerData.chainGrabDistance;
+                    inputToChain.Normalize();
+                    Debug.DrawLine(playerPos, playerPos + inputToChain, Color.red, 2, false);
+
+                    if (Physics2D.OverlapCircle(playerPos + (pc.MoveInput * pc.playerData.chainGrabDistance), 0.01f))
+                    {
+                        // Might not work if the grappled chain is a different object than the one the player is on
+                        lastHitPoint = playerPos + (pc.MoveInput * pc.playerData.chainGrabDistance);
+                        Debug.Log("Far");
+                    }
+                    else
+                    {
+                        lastHitPoint = playerPos + (pc.MoveInput * 0.5f);
+                        Debug.Log("Close");
+                    }
+                }
             }
             else
             {
@@ -77,7 +99,8 @@ public class PlayerGrapple : MonoBehaviour
                 lr.enabled = true;
                 if (CastInDirection(pc.MoveInput).collider != null)
                 {
-                    lastHit = CastInDirection(pc.MoveInput);
+                    lastHitPoint = CastInDirection(pc.MoveInput).point;
+                    lastHitObject = CastInDirection(pc.MoveInput).collider.gameObject;
                     grappleDir = pc.MoveInput.normalized;
                     _state = GrapplingState.pulling;
                     pc.StateMachine.ChangeState(pc.GrappleState);
@@ -89,21 +112,19 @@ public class PlayerGrapple : MonoBehaviour
             lr.enabled = true;
             if(_state == GrapplingState.pulling && pc.StateMachine.CurrentState != pc.PullState)
             {
-                if(lastHit.collider.gameObject.layer == LayerMask.NameToLayer("Pullable"))
+                if(lastHitObject.layer == LayerMask.NameToLayer("Pullable"))
                 {
                     pc.StateMachine.ChangeState(pc.PullState);
                 }
             }
             if(_state == GrapplingState.pulling && pc.StateMachine.CurrentState != pc.GrappleState)
             {
-                Debug.Log("Current state: " + pc.StateMachine.CurrentState);
-                if (lastHit.collider.gameObject.layer == LayerMask.NameToLayer("Ground") ||
-                    lastHit.collider.gameObject.layer == LayerMask.NameToLayer("GrapplePoint") ||
-                    lastHit.collider.gameObject.layer == LayerMask.NameToLayer("Platform"))
+                if (pc.IsInLayerMask(lastHitObject, grappleable))
                 {
                     pc.StateMachine.ChangeState(pc.GrappleState);
                     if(Vector2.Distance(grapplePoint, playerPos) > pc.playerData.grappleMaxDistance)
                     {
+                        // Grapple air state doesn't work as intended
                         EndGrapple(pc.GrappleAirState);
                     }
                 }
@@ -115,8 +136,8 @@ public class PlayerGrapple : MonoBehaviour
     {
         if (_state == GrapplingState.pulling)
         {
-            grapplePoint.Set(Vector2.Lerp(grapplePoint, lastHit.point, grappleLerpAmount).x,
-                Vector2.Lerp(grapplePoint, lastHit.point, grappleLerpAmount).y);
+            grapplePoint.Set(Vector2.Lerp(grapplePoint, lastHitPoint, grappleLerpAmount).x,
+                Vector2.Lerp(grapplePoint, lastHitPoint, grappleLerpAmount).y);
         }else if (_state == GrapplingState.searching)
         {
             grapplePoint.Set(pc.MoveInput.x * pc.playerData.grappleMaxDistance + player.transform.position.x,
@@ -164,4 +185,5 @@ public class PlayerGrapple : MonoBehaviour
         pc.CollideDuringGrapplePS.Play();
         SetGrappleState(GrapplingState.unattached);
     }
+    
 }

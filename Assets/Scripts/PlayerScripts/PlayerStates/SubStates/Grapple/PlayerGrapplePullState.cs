@@ -18,7 +18,7 @@ public class PlayerGrapplePullState : PlayerGrappleState
     {
         base.Enter();
         pg = GameObject.Find("Grapple").GetComponent<PlayerGrapple>();
-        Pullable pull = pg.lastHit.collider.gameObject.GetComponent<Pullable>();
+        Pullable pull = pg.lastHitObject.GetComponent<Pullable>();
         pull.StopAllCoroutines();
         pull.StartCoroutine(pull.Transition());
         player.SetGravity(0);

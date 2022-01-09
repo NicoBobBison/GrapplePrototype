@@ -30,7 +30,7 @@ public class PlayerGrappleSlowdownState : PlayerGrappleState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (Vector2.Distance(playerGrapple.lastHit.point, player.transform.position) < 1 || Time.time - startTime >= 2)
+        if (Vector2.Distance(playerGrapple.lastHitPoint, player.transform.position) < 1 || Time.time - startTime >= 2)
         {
             PlayerGrapple pg = GameObject.Find("Grapple").GetComponent<PlayerGrapple>();
             pg.SetGrappleState(PlayerGrapple.GrapplingState.unattached);
