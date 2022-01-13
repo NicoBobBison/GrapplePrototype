@@ -111,7 +111,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -2269557245397631408, guid: e0dbb67bb0e7c6042bd580b8a8cd4e29, type: 3}
+  m_Sprite: {fileID: -2269557245397631408, guid: 5a604b95fb2e72f40b4a7aaaa9e70a5a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -164,7 +164,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 2
-  m_Material: {fileID: 6200000, guid: 1ed83011da0733f4bb3432836318cd80, type: 2}
+  m_Material: {fileID: 6200000, guid: d595139802b776f46846476118c4819e, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -179,7 +179,7 @@ Animator:
   m_GameObject: {fileID: 2266628732206872480}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2b569e37f41e20f43a3689fdc232599e, type: 2}
+  m_Controller: {fileID: 9100000, guid: fe51644511d4bfc4e8536327431978f9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5087,7 +5087,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d8611903a42433f49a1af83fda1e92cf, type: 2}
+  - {fileID: 2100000, guid: 02f1283105782ff40883c5ebd6cd9edf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

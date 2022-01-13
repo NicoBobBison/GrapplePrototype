@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: playerData
   m_EditorClassIdentifier: 
   movementSpeedX: 4
-  baseGravity: 1.5
+  baseGravity: 1.6
   jumpForce: 3.6
   maxFallSpeed: -7
   maxDashSpeed: 8
@@ -22,8 +22,9 @@ MonoBehaviour:
   staminaRechargeRate: 0.5
   staminaDrainRate: 0.4
   maxStamina: 100
-  playerReelSpeed: 16
+  playerReelSpeed: 18
   playerPullSpeed: 7
   grappleStallTime: 0.15
   grappleMaxDistance: 100
-  chainGrabDistance: 1
+  chainGrabDistance: 2
+  unlockedGrapple: 0

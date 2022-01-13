@@ -126,10 +126,6 @@ public class PlayerControls : MonoBehaviour
         {
             psm.ChangeScene(SceneManager.GetActiveScene().name);
         }
-        if (StateMachine.CurrentState == GrappleState && playerGrapple.lastHitObject.layer != LayerMask.NameToLayer("Platform") && playerGrapple.lastHitObject.layer != LayerMask.NameToLayer("Grapple Point"))
-        {
-            StateMachine.ChangeState(JumpSustainState);
-        }
     }
     #endregion
 
@@ -291,6 +287,7 @@ public class PlayerControls : MonoBehaviour
     public IEnumerator SlowToStop(float time, float multiplier, bool screenshake)
     {
         slowingFromGrapple = true;
+        Debug.Log("Slow called");
         float timer = time;
         while (timer > 0)
         {

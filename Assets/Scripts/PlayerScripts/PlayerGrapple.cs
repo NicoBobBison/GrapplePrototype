@@ -20,7 +20,7 @@ public class PlayerGrapple : MonoBehaviour
     [SerializeField] float grappleLerpAmount = 0.5f;
     public enum GrapplingState { searching, pulling, unattached}
     public GrapplingState _state = GrapplingState.unattached;
-    Color baseColor = Color.gray;
+    Color baseColor;
     Color warningColor = Color.red;
 
     private void Start()
@@ -31,6 +31,7 @@ public class PlayerGrapple : MonoBehaviour
         pc = player.GetComponent<PlayerControls>();
         playerPos = player.transform.position;
         grapplePoint = playerPos;
+        baseColor = GetComponent<LineRenderer>().startColor;
     }
     private void Update()
     {
@@ -39,7 +40,7 @@ public class PlayerGrapple : MonoBehaviour
         ManageGrappleColor();
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         playerPos = player.transform.position;
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             RaycastHit2D hit = CastInDirection(pc.MoveInput);
             if(hit.collider != null)
@@ -74,7 +75,7 @@ public class PlayerGrapple : MonoBehaviour
                 _state = GrapplingState.searching;
             }
         }
-        if (Input.GetMouseButtonUp(0) || Input.GetKeyUp(KeyCode.LeftShift))
+        if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             _state = GrapplingState.unattached;
         }
@@ -125,7 +126,7 @@ public class PlayerGrapple : MonoBehaviour
                     if(Vector2.Distance(grapplePoint, playerPos) > pc.playerData.grappleMaxDistance)
                     {
                         // Grapple air state doesn't work as intended
-                        EndGrapple(pc.GrappleAirState);
+                        EndGrapple(pc.JumpSustainState);
                     }
                 }
             }

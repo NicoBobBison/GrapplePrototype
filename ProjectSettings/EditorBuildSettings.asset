@@ -32,7 +32,31 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lab/Lab1.unity
     guid: 30978e49e9536524eb7a58e60fee446a
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Lab/Lab3.unity
-    guid: 8b6c8433811ef2745a1901172b904134
+    guid: d732d914a8338a747a176b53e7bf302d
+  - enabled: 1
+    path: Assets/Scenes/Lab/Lab4.unity
+    guid: 7a5fadac92ff4c546ad7d5c12aa16302
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Lab/Lab5.unity
+    guid: e46e496ef6ce8754191d37fb2fe2d648
+  - enabled: 1
+    path: Assets/Scenes/Lab/Lab8.unity
+    guid: 8e412557372e7a74ea1e454f8828984c
+  - enabled: 1
+    path: Assets/Scenes/Lab/Lab6.unity
+    guid: 47fd6fdfb3a0669498a85653a59c9c18
+  - enabled: 1
+    path: Assets/Scenes/Lab/Lab7.unity
+    guid: 7cf77d3fdddaa2d4ab24a8603635e306
+  - enabled: 1
+    path: Assets/Scenes/Lab/Lab9.unity
+    guid: 3be7e49f74e592c42b3da802c88a36b2
   m_configObjects: {}

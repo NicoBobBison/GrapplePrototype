@@ -12,6 +12,7 @@ TagManager:
   - RightCheck
   - FallingBox
   - LevelExit
+  - GrapplePickUp
   layers:
   - Default
   - TransparentFX

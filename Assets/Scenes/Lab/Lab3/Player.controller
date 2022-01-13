@@ -63,7 +63,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9ff2e7b16830e4f4ba247d6a42407abb, type: 2}
+  m_Motion: {fileID: 7400000, guid: 368e8c506105dd846840b0980d2de337, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -212,7 +212,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d61a15df739f7b94aaec876b856fa6c3, type: 2}
+  m_Motion: {fileID: 7400000, guid: de9caa0f15f8efb4e876e63232b1292d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -281,7 +281,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a722fae35f6711d4bbb1c57c414d76e9, type: 2}
+  m_Motion: {fileID: 7400000, guid: 4c6b82a00667b9c4bb6111f75c09e26a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -368,6 +368,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+  - m_Name: grapple air
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -402,7 +408,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6e2603f95ca778d4c88e7416985771ab, type: 2}
+  m_Motion: {fileID: 7400000, guid: 7cecbd18648e93f4facb978a1a6068c7, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -429,7 +435,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b2756962930cdd641b665f4f32815fbe, type: 2}
+  m_Motion: {fileID: 7400000, guid: ca6069aedc1feb840bea2f7db603037b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

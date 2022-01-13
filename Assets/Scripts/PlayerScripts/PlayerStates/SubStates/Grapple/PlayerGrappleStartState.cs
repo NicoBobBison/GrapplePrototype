@@ -21,8 +21,7 @@ public class PlayerGrappleStartState : PlayerGrappleState
     {
         base.Enter();
         startDistance = Vector2.Distance(playerGrapple.lastHitPoint, player.transform.position);
-        Debug.Log("Starting distance: " + startDistance);
-        wait = player.StartCoroutine(player.SlowToStop(playerData.grappleStallTime, 0.05f, true));
+        wait = player.StartCoroutine(player.SlowToStop(playerData.grappleStallTime, 0.09f, true));
         player.SetGravity(0);
         direction = player.MoveInput;
         direction.Normalize();
@@ -31,6 +30,7 @@ public class PlayerGrappleStartState : PlayerGrappleState
     public override void Exit()
     {
         base.Exit();
+        Debug.Log("Exit grapple");
         player.SetVelocityX(player.CurrentVelocity.x / 2);
         player.SetVelocityY(player.CurrentVelocity.y / 2);
         player.StopCoroutine(wait);
@@ -51,7 +51,7 @@ public class PlayerGrappleStartState : PlayerGrappleState
         base.PhysicsUpdate();
         if (!player.slowingFromGrapple)
         {
-            if (Vector2.Distance(player.transform.position, playerGrapple.grapplePoint) > startDistance)
+            if (Vector2.Distance(player.transform.position, playerGrapple.grapplePoint) > startDistance + 1)
             {
                 player.StateMachine.ChangeState(player.GrappleAirState);
             }
