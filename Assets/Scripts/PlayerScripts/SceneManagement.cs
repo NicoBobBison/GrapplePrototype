@@ -8,6 +8,7 @@ public class SceneManagement : MonoBehaviour
     public CameraEffects camEffects;
     public bool inSceneTransition = false;
     public string previousScene;
+
     public static SceneManagement instance { get; private set; }
     private void Awake()
     {
@@ -24,7 +25,6 @@ public class SceneManagement : MonoBehaviour
     void Start()
     {
         GetSceneReferences();
-        
     }
 
     void Update()
@@ -72,6 +72,10 @@ public class SceneManagement : MonoBehaviour
         if(scene != SceneManager.GetActiveScene().name)
         {
             instance.previousScene = SceneManager.GetActiveScene().name;
+        }
+        if (Time.timeSinceLevelLoad < 0.03f)
+        {
+            Debug.LogWarning("Attempting to reload scene too quickly. Make sure the player's spawn and the area around it is unobstructed.");
         }
         SceneManager.LoadSceneAsync(scene);
     }
