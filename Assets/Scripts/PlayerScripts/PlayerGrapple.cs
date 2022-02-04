@@ -50,7 +50,7 @@ public class PlayerGrapple : MonoBehaviour
                 lastHitPoint = hit.point;
                 lastHitObject = hit.collider.gameObject;
                 grappleDir = pc.MoveInput;
-                if(Vector2.Distance(lastHitPoint, playerPos) < 0.2f)
+                if(Vector2.Distance(lastHitPoint, playerPos) < 0.2f && lastHitObject.layer == LayerMask.NameToLayer("Chains"))
                 {
                     Debug.Log("Found chains");
                     Vector2 inputToChain = pc.MoveInput * pc.playerData.chainGrabDistance;
@@ -186,5 +186,4 @@ public class PlayerGrapple : MonoBehaviour
         pc.CollideDuringGrapplePS.Play();
         SetGrappleState(GrapplingState.unattached);
     }
-    
 }

@@ -15,16 +15,17 @@ MonoBehaviour:
   movementSpeedX: 4
   baseGravity: 1.6
   jumpForce: 3.6
-  maxFallSpeed: -7
+  maxFallSpeed: -5
   maxDashSpeed: 8
   dashTime: 0.2
   distanceBetweenAfterImages: 0.4
   staminaRechargeRate: 0.5
   staminaDrainRate: 0.4
   maxStamina: 100
-  playerReelSpeed: 18
+  playerReelSpeed: 20
   playerPullSpeed: 7
   grappleStallTime: 0.15
-  grappleMaxDistance: 100
+  grappleMaxDistance: 50
   chainGrabDistance: 2
+  slowBeforeGrapple: 0
   unlockedGrapple: 0

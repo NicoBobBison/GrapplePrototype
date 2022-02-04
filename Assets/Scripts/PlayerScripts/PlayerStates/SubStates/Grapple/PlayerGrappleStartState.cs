@@ -20,8 +20,17 @@ public class PlayerGrappleStartState : PlayerGrappleState
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("Enter grapple start");
         startDistance = Vector2.Distance(playerGrapple.lastHitPoint, player.transform.position);
-        wait = player.StartCoroutine(player.SlowToStop(playerData.grappleStallTime, 0.09f, true));
+        if (playerData.slowBeforeGrapple)
+        {
+            wait = player.StartCoroutine(player.SlowToStop(playerData.grappleStallTime, 0.09f, true));
+        }
+        else
+        {
+            player.SetVelocityX(0);
+            player.SetVelocityY(0);
+        }
         player.SetGravity(0);
         direction = player.MoveInput;
         direction.Normalize();
@@ -33,7 +42,10 @@ public class PlayerGrappleStartState : PlayerGrappleState
         Debug.Log("Exit grapple");
         player.SetVelocityX(player.CurrentVelocity.x / 2);
         player.SetVelocityY(player.CurrentVelocity.y / 2);
-        player.StopCoroutine(wait);
+        if (playerData.slowBeforeGrapple)
+        {
+            player.StopCoroutine(wait);
+        }
         player.slowingFromGrapple = false;
         if (Vector2.Distance(playerGrapple.grapplePoint, player.transform.position) < 0.75f)
         {
@@ -49,9 +61,9 @@ public class PlayerGrappleStartState : PlayerGrappleState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-        if (!player.slowingFromGrapple)
+        if (!playerData.slowBeforeGrapple || (playerData.slowBeforeGrapple && !player.slowingFromGrapple))
         {
-            if (Vector2.Distance(player.transform.position, playerGrapple.grapplePoint) > startDistance + 1)
+            if (Vector2.Distance(player.transform.position, playerGrapple.grapplePoint) > startDistance + 0.5f)
             {
                 player.StateMachine.ChangeState(player.GrappleAirState);
             }
