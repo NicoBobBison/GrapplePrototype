@@ -119597,6 +119597,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5866057083119524732, guid: b2f71fe30ebb87e43aefa120b8705f5a, type: 3}
+      propertyPath: end.x
+      value: -4.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866057083119524732, guid: b2f71fe30ebb87e43aefa120b8705f5a, type: 3}
+      propertyPath: start.x
+      value: -4.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866057083119524732, guid: b2f71fe30ebb87e43aefa120b8705f5a, type: 3}
+      propertyPath: start.y
+      value: -3
+      objectReference: {fileID: 0}
     - target: {fileID: 6333546098312531590, guid: b2f71fe30ebb87e43aefa120b8705f5a, type: 3}
       propertyPath: m_Name
       value: Moving Platform
