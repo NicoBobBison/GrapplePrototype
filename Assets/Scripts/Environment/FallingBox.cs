@@ -15,9 +15,9 @@ public class FallingBox : MonoBehaviour
     }
     private void Update()
     {
-        if(player.FindObjectStandingOn() != null)
+        if(player.GetObjectStandingOn() != null)
         {
-            if (player.FindObjectStandingOn().name == this.name)
+            if (player.GetObjectStandingOn().name == this.name)
             {
                 StartCoroutine(Fall());
                 Debug.Log("Start box fall");

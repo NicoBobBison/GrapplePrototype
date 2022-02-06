@@ -6,13 +6,16 @@ public class MovingPlatform : MonoBehaviour
 {
     [SerializeField] Vector2 start;
     [SerializeField] Vector2 end;
+    Vector2 dirToEnd;
+
     [SerializeField] GameObject trackRef;
-    Vector2 endDir;
-    Vector2 workspace;
     GameObject track;
     LineRenderer lr;
+    Rigidbody2D rb;
     [SerializeField] float movePercentage = 0.02f;
     [SerializeField] float maxMoveSpeed = 2;
+    [SerializeField] float minMoveSpeed = 0.03f;
+    [SerializeField] float divisor = 2;
     bool movingToEnd = true;
 
     // Start is called before the first frame update
@@ -20,6 +23,7 @@ public class MovingPlatform : MonoBehaviour
     {
         track = Instantiate(trackRef);
         lr = track.GetComponent<LineRenderer>();
+        rb = GetComponent<Rigidbody2D>();
 
         // Create squares at start and end points
         GameObject startCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -34,27 +38,49 @@ public class MovingPlatform : MonoBehaviour
         lr.SetPosition(0, new Vector2(start.x, start.y));
         lr.SetPosition(1, new Vector2(end.x, end.y));
 
-        endDir = (end - start).normalized;
         transform.position = start;
+        dirToEnd = (end - start).normalized;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        float speed;
         // TODO: Change velocity instead of changing position
 
         if (movingToEnd)
         {
-            workspace.Set(Vector2.Lerp(transform.position, end, movePercentage).x, Vector2.Lerp(transform.position, end, movePercentage).y);
-            Vector2.ClampMagnitude(workspace, maxMoveSpeed);
-            transform.position = workspace;
+            speed = Vector2.Distance(transform.position, end)/ divisor;
+            float toStart = Vector2.Distance(transform.position, start);
+            if (toStart/divisor < speed)
+            {
+                speed = toStart/ divisor;
+            }
+            speed = Mathf.Clamp(speed, -maxMoveSpeed, maxMoveSpeed);
+
+            if(speed < minMoveSpeed)
+            {
+                speed = minMoveSpeed;
+            }
+
+            rb.velocity = dirToEnd * speed;
         }
         else
         {
-            workspace.Set(Vector2.Lerp(transform.position, start, movePercentage).x, Vector2.Lerp(transform.position, start, movePercentage).y);
-            Vector2.ClampMagnitude(workspace, maxMoveSpeed);
-            transform.position = workspace;
+            speed = Vector2.Distance(transform.position, end);
+            float toStart = Vector2.Distance(transform.position, start)/ divisor;
+            if (toStart/ divisor < speed)
+            {
+                speed = toStart/ divisor;
+            }
+            speed = Mathf.Clamp(speed, -maxMoveSpeed, maxMoveSpeed);
+
+            if (speed < minMoveSpeed)
+            {
+                speed = minMoveSpeed;
+            }
+
+            rb.velocity = dirToEnd * speed * -1;
         }
         if(movingToEnd && Vector2.Distance(transform.position, end) < 0.03)
         {

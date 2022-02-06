@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6333546098312531588}
   - component: {fileID: 6333546098312531591}
   - component: {fileID: 5866057083119524732}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Moving Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,19 +140,19 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6333546098312531590}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &5866057083119524732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f739fd00b81ffcf46b66e54b0c664472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start: {x: 0, y: 0}
-  end: {x: 0, y: 0}
+  start: {x: -4.25, y: -3.25}
+  end: {x: 0, y: -3.25}
   trackRef: {fileID: 4765975152546979722, guid: caa65c6345fb50a42aa67a8c7a519aeb, type: 3}
+  movePercentage: 0.02
+  maxMoveSpeed: 5
+  minMoveSpeed: 0.15
+  divisor: 1

@@ -44,6 +44,8 @@ public class PlayerControls : MonoBehaviour
     public bool canRechargeStamina { get; private set; }
     public bool slowingFromGrapple = false;
     PlayerGrapple playerGrapple;
+    [SerializeField] PhysicsMaterial2D slippery;
+    [SerializeField] PhysicsMaterial2D sticky;
     #endregion
 
     #region Unity Callback Functions
@@ -99,32 +101,29 @@ public class PlayerControls : MonoBehaviour
 
     void Update()
     {
-        /*if (CheckIfGrounded() && canRechargeStamina && stamina < playerData.maxStamina)
-        {
-            stamina += playerData.staminaRechargeRate;
-        }*/
-        //staminaSlider.value = Mathf.Lerp(staminaSlider.value, stamina, 0.95f);
         CurrentVelocity = rb.velocity;
         MoveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         StateMachine.CurrentState.LogicUpdate();
     }
     private void FixedUpdate()
     {
+        // Check if on moving platform
+        if (GetObjectStandingOn() != null && GetObjectStandingOn().layer == LayerMask.NameToLayer("MovingPlatform") && MoveInput.x == 0)
+        {
+            rb.sharedMaterial = sticky;
+        }
+        else
+        {
+            rb.sharedMaterial = slippery;
+        }
 
         StateMachine.CurrentState.PhysicsUpdate();
-        /*if (!isDashing)
-        {
-            if (CurrentVelocity.y < playerData.maxFallSpeed)
-            {
-                SetVelocityY(playerData.maxFallSpeed);
-            }
-        }*/
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Instakill"))
         {
-            psm.ChangeScene(SceneManager.GetActiveScene().name);
+            KillPlayer();
         }
     }
     #endregion
@@ -202,33 +201,21 @@ public class PlayerControls : MonoBehaviour
     }
     public bool CheckIfGrounded()
     {
-        if (Physics2D.OverlapCircle(groundCheckL.transform.position, 0.1f, groundLayer) ||
-            Physics2D.OverlapCircle(groundCheckR.transform.position, 0.1f, groundLayer))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return Physics2D.OverlapCircle(groundCheckL.transform.position, 0.1f, groundLayer) || Physics2D.OverlapCircle(groundCheckR.transform.position, 0.1f, groundLayer);
     }
 
-    public GameObject FindObjectStandingOn()
+    public GameObject GetObjectStandingOn()
     {
         if (CheckIfGrounded())
         {
             RaycastHit2D leftHit = Physics2D.Raycast(groundCheckL.transform.position, Vector2.down);
             if (leftHit.collider != null)
             {
-                //Debug.Log(leftHit.collider.gameObject);
-                Debug.Log(leftHit.collider.gameObject);
                 return leftHit.collider.gameObject;
             }
             else
             {
                 RaycastHit2D rightHit = Physics2D.Raycast(groundCheckR.transform.position, Vector2.down);
-                //Debug.Log(rightHit.collider.gameObject);
-                Debug.Log(rightHit.collider.gameObject);
                 return rightHit.collider.gameObject;
             }
         }
@@ -332,6 +319,9 @@ public class PlayerControls : MonoBehaviour
     {
         return (layerMask.value & (1 << obj.layer)) > 0;
     }
-
+    public void KillPlayer()
+    {
+        psm.ChangeScene(SceneManager.GetActiveScene().name);
+    }
     #endregion
 }

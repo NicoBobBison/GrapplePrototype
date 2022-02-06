@@ -40,19 +40,18 @@ public class PlayerGrapple : MonoBehaviour
         ManageGrappleColor();
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         playerPos = player.transform.position;
+
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             RaycastHit2D hit = CastInDirection(pc.MoveInput);
             if(hit.collider != null)
             {
-                Debug.Log("Hit something");
                 _state = GrapplingState.pulling;
                 lastHitPoint = hit.point;
                 lastHitObject = hit.collider.gameObject;
                 grappleDir = pc.MoveInput;
                 if(Vector2.Distance(lastHitPoint, playerPos) < 0.2f && lastHitObject.layer == LayerMask.NameToLayer("Chains"))
                 {
-                    Debug.Log("Found chains");
                     Vector2 inputToChain = pc.MoveInput * pc.playerData.chainGrabDistance;
                     inputToChain.Normalize();
                     Debug.DrawLine(playerPos, playerPos + inputToChain, Color.red, 2, false);
@@ -61,12 +60,10 @@ public class PlayerGrapple : MonoBehaviour
                     {
                         // Might not work if the grappled chain is a different object than the one the player is on
                         lastHitPoint = playerPos + (pc.MoveInput * pc.playerData.chainGrabDistance);
-                        Debug.Log("Far");
                     }
                     else
                     {
                         lastHitPoint = playerPos + (pc.MoveInput * 0.5f);
-                        Debug.Log("Close");
                     }
                 }
             }
@@ -169,6 +166,11 @@ public class PlayerGrapple : MonoBehaviour
     RaycastHit2D CastInDirection(Vector2 direction)
     {
         RaycastHit2D hit = Physics2D.Raycast(playerPos, direction, pc.playerData.grappleMaxDistance, grappleable);
+        if(Physics2D.OverlapCircle(hit.point, 0.2f, 1 << LayerMask.NameToLayer("Instakill")))
+        {
+            Debug.Log("Die");
+            pc.KillPlayer();
+        }
         return hit;
     }
     public void SetGrappleState(GrapplingState state)
