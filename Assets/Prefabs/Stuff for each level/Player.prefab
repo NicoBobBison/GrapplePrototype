@@ -111,7 +111,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -2269557245397631408, guid: 8e50c382fbaacc6408128316ff687749, type: 3}
+  m_Sprite: {fileID: -5960937447962463597, guid: 771376dcc43e93241b40838be066ec0a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -139,7 +139,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.4375, y: 0.625}
+    oldSize: {x: 0.53125, y: 0.53125}
     newSize: {x: 0.4375, y: 0.625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -202,7 +202,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 71acaf3c442a3034ab9697da4aaf2d97, type: 2}
   psm: {fileID: 0}
-  collideDuringGrapplePS: {fileID: 0}
   camMovement: {fileID: 0}
   DirectionFacing: 0
   groundLayer:
@@ -210,6 +209,8 @@ MonoBehaviour:
     m_Bits: 520
   lastAfterImage: {x: 0, y: 0}
   slowingFromGrapple: 0
+  slippery: {fileID: 0}
+  sticky: {fileID: 0}
 --- !u!1 &2266628732759796666
 GameObject:
   m_ObjectHideFlags: 0

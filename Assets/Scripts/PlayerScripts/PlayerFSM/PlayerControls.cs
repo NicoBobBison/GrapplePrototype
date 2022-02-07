@@ -216,14 +216,13 @@ public class PlayerControls : MonoBehaviour
             else
             {
                 RaycastHit2D rightHit = Physics2D.Raycast(groundCheckR.transform.position, Vector2.down);
-                return rightHit.collider.gameObject;
+                if(rightHit.collider != null)
+                    return rightHit.collider.gameObject;
             }
         }
-        else
-        {
-            //Debug.LogWarning("Not standing on object");
-            return null;
-        }
+        //Debug.LogWarning("Not standing on object");
+        return null;
+
     }
 
     public Vector3 GetMouseDirection()
