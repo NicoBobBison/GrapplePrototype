@@ -47,7 +47,7 @@ public class PlayerGrappleStartState : PlayerGrappleState
         player.slowingFromGrapple = false;
         if (Vector2.Distance(playerGrapple.grapplePoint, player.transform.position) < 0.75f)
         {
-            player.CollideDuringGrapplePS.Play();
+            //player.CollideDuringGrapplePS.Play();
         }
     }
 

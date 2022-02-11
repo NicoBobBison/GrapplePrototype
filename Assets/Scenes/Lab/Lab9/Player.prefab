@@ -209,6 +209,8 @@ MonoBehaviour:
     m_Bits: 520
   lastAfterImage: {x: 0, y: 0}
   slowingFromGrapple: 0
+  slippery: {fileID: 6200000, guid: 214f28e068bc39f4ebcf2d11c9f0fcf9, type: 2}
+  sticky: {fileID: 6200000, guid: b73cb3c9be8c9054fb8f985a9fb45099, type: 2}
 --- !u!1 &2266628732759796666
 GameObject:
   m_ObjectHideFlags: 0

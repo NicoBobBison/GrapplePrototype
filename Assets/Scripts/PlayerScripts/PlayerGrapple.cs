@@ -166,7 +166,7 @@ public class PlayerGrapple : MonoBehaviour
     RaycastHit2D CastInDirection(Vector2 direction)
     {
         RaycastHit2D hit = Physics2D.Raycast(playerPos, direction, pc.playerData.grappleMaxDistance, grappleable);
-        if(Physics2D.OverlapCircle(hit.point, 0.2f, 1 << LayerMask.NameToLayer("Instakill")))
+        if(direction != Vector2.zero && Physics2D.OverlapCircle(hit.point, 0.05f, 1 << LayerMask.NameToLayer("Instakill")))
         {
             Debug.Log("Die");
             pc.KillPlayer();
@@ -185,7 +185,6 @@ public class PlayerGrapple : MonoBehaviour
     public void EndGrapple(PlayerState nextState)
     {
         pc.StateMachine.ChangeState(pc.JumpSustainState);
-        pc.CollideDuringGrapplePS.Play();
         SetGrappleState(GrapplingState.unattached);
     }
 }
