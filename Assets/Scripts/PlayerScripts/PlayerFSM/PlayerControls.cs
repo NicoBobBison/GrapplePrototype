@@ -267,8 +267,11 @@ public class PlayerControls : MonoBehaviour
     #region Other Functions
     private void Flip()
     {
-        DirectionFacing *= -1;
-        transform.Rotate(0.0f, 180.0f, 0.0f);
+        if (!SceneManagement.instance.gamePaused)
+        {
+            DirectionFacing *= -1;
+            transform.Rotate(0.0f, 180.0f, 0.0f);
+        }
     }
     public IEnumerator SlowToStop(float time, float multiplier, bool screenshake)
     {

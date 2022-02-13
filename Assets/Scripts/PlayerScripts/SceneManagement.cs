@@ -8,6 +8,7 @@ public class SceneManagement : MonoBehaviour
     public CameraEffects camEffects;
     public bool inSceneTransition = false;
     public string previousScene;
+    public bool gamePaused = false;
 
     public static SceneManagement instance { get; private set; }
     private void Awake()
@@ -24,49 +25,32 @@ public class SceneManagement : MonoBehaviour
     }
     void Start()
     {
+        /*if (!PlayerPrefs.HasKey("coins"))
+        {
+            PlayerPrefs.SetInt("coins", 0);
+        }*/
         GetSceneReferences();
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (gamePaused)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
         //CheckIfShouldTransition();
         if (Input.GetKeyDown(KeyCode.R))
         {
             camEffects.PlaySceneTransition(SceneManager.GetActiveScene().name);
         }
     }
-
-    /*
-     * DEPRECATED
-     * 
-     * void CheckIfShouldTransition()
-    {
-        if (!camEffects.transitioning)
-        {
-            if (SceneManager.GetActiveScene().name == "Cave1")
-            {
-                if (transform.position.x > 19.775)
-                {
-                    //Debug.Log("Change scene");
-                    //camEffects.PlaySceneTransition("Cave2");
-                }
-            }
-            if (SceneManager.GetActiveScene().name == "CaveRoom1")
-            {
-                if (transform.position.x > 4.75)
-                {
-                    camEffects.PlaySceneTransition("CaveRoom2");
-                }
-            }
-            if (SceneManager.GetActiveScene().name == "CaveRoom2")
-            {
-                if (transform.position.x < -5.25)
-                {
-                    camEffects.PlaySceneTransition("CaveRoom1");
-                }
-            }
-        }
-    }*/
     public void ChangeScene(string scene)
     {
         if(scene != SceneManager.GetActiveScene().name)
@@ -101,4 +85,18 @@ public class SceneManagement : MonoBehaviour
         return null;
     }
     
+    void PauseGame()
+    {
+        Time.timeScale = 0;
+        gamePaused = true;
+        camEffects.SetDimmerLevel(0.4f);
+        camEffects.EnablePauseText();
+    }
+    void ResumeGame()
+    {
+        Time.timeScale = 1;
+        gamePaused = false;
+        camEffects.SetDimmerLevel(0);
+        camEffects.DisablePauseText();
+    }
 }

@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class CameraEffects : MonoBehaviour
 {
     public Image dimmer;
+    public TextMeshProUGUI pauseText;
     public bool transitioning = false;
     public SceneManagement sm { get; private set; }
     private void Awake()
     {
         GetDimmer();
+        GetPauseText();
+        DisablePauseText();
         Color tempColor = dimmer.color;
         tempColor.a = 1;
         dimmer.color = tempColor;
@@ -71,8 +75,26 @@ public class CameraEffects : MonoBehaviour
         }
         transitioning = false;
     }
+    public void SetDimmerLevel(float level)
+    {
+        Color temp = dimmer.color;
+        temp.a = level;
+        dimmer.color = temp;
+    }
     void GetDimmer()
     {
         dimmer = GameObject.Find("Dimmer").GetComponent<Image>();
+    }
+    void GetPauseText()
+    {
+        pauseText = GameObject.Find("PauseText").GetComponent<TextMeshProUGUI>();
+    }
+    public void EnablePauseText()
+    {
+        pauseText.enabled = true;
+    }
+    public void DisablePauseText()
+    {
+        pauseText.enabled = false;
     }
 }
