@@ -84,6 +84,10 @@ public class SceneManagement : MonoBehaviour
         Debug.LogWarning("Couldn't find respawn that matched scene name");
         return null;
     }
+    public void ToMainMenu()
+    {
+
+    }
     
     void PauseGame()
     {

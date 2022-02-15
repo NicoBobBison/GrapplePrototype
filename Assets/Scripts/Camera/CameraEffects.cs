@@ -8,7 +8,9 @@ using TMPro;
 public class CameraEffects : MonoBehaviour
 {
     public Image dimmer;
-    public TextMeshProUGUI pauseText;
+    TextMeshProUGUI pauseText;
+    Image exitButton;
+    TextMeshProUGUI exitButtonText;
     public bool transitioning = false;
     public SceneManagement sm { get; private set; }
     private void Awake()
@@ -88,13 +90,19 @@ public class CameraEffects : MonoBehaviour
     void GetPauseText()
     {
         pauseText = GameObject.Find("PauseText").GetComponent<TextMeshProUGUI>();
+        exitButton = GameObject.Find("ExitButton").GetComponent<Image>();
+        exitButtonText = GameObject.Find("ExitButtonText").GetComponent<TextMeshProUGUI>();
     }
     public void EnablePauseText()
     {
         pauseText.enabled = true;
+        exitButton.enabled = true;
+        exitButtonText.enabled = true;
     }
     public void DisablePauseText()
     {
         pauseText.enabled = false;
+        exitButton.enabled = false;
+        exitButtonText.enabled = false;
     }
 }
