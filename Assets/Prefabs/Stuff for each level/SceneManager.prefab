@@ -43,6 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afc0d3a07b634aa4aa88d07624bd286a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camEffects: {fileID: 0}
+  camEffects: {fileID: 7136681425852273815, guid: 30be491e394ef4747913672b84e71cba, type: 3}
   inSceneTransition: 0
-  previousScene: 
+  gamePaused: 0

@@ -71,4 +71,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lab/Lab13.unity
     guid: 14e0f2df594a90149a067f4545571ee1
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: cfb003fae73d5bc4c83a4ce04dd3c4a1
+  - enabled: 1
+    path: Assets/Scenes/Lab/TempLabForTemplate.unity
+    guid: 09553e9f1294cfb4589b81979810a959
   m_configObjects: {}

@@ -23,7 +23,7 @@ public class PlayerGrappleStartState : PlayerGrappleState
         startDistance = Vector2.Distance(playerGrapple.lastHitPoint, player.transform.position);
         if (playerData.slowBeforeGrapple)
         {
-            wait = player.StartCoroutine(player.SlowToStop(playerData.grappleStallTime, 0.09f, true));
+            wait = player.StartCoroutine(player.FullStop(playerData.grappleStallTime, true));
         }
         else
         {

@@ -7,13 +7,13 @@ public class SceneManagement : MonoBehaviour
 {
     public CameraEffects camEffects;
     public bool inSceneTransition = false;
-    public string previousScene;
-    public bool gamePaused = false;
+    public static bool gamePaused;
 
     public static SceneManagement instance { get; private set; }
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
+        gamePaused = false;
         if(instance != null && instance != this)
         {
             Destroy(gameObject);
@@ -30,12 +30,18 @@ public class SceneManagement : MonoBehaviour
             PlayerPrefs.SetInt("coins", 0);
         }*/
         GetSceneReferences();
+        camEffects.PlaySceneTransition();
     }
 
     void Update()
     {
+        if(camEffects == null)
+        {
+            GetSceneReferences();
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            GetSceneReferences();
             if (gamePaused)
             {
                 ResumeGame();
@@ -55,20 +61,22 @@ public class SceneManagement : MonoBehaviour
     {
         if(scene != SceneManager.GetActiveScene().name)
         {
-            instance.previousScene = SceneManager.GetActiveScene().name;
+            PlayerPrefs.SetString("previousScene", SceneManager.GetActiveScene().name);
         }
         if (Time.timeSinceLevelLoad < 0.03f)
         {
             Debug.LogWarning("Attempting to reload scene too quickly. Make sure the player's spawn and the area around it is unobstructed.");
         }
+        GetSceneReferences();
+        camEffects.PlaySceneTransition();
         SceneManager.LoadSceneAsync(scene);
+
     }
-    
-    
+
+
     public void GetSceneReferences()
     {
         camEffects = GameObject.Find("Main Camera").GetComponent<CameraEffects>();
-        camEffects.PlaySceneTransition();
     }
 
     public GameObject FindSpawnPoint()
@@ -76,7 +84,7 @@ public class SceneManagement : MonoBehaviour
         GameObject[] respawns = GameObject.FindGameObjectsWithTag("LevelExit");
         foreach(GameObject respawn in respawns)
         {
-            if(respawn.name.Equals(previousScene))
+            if(respawn.name.Equals(PlayerPrefs.GetString("previousScene")))
             {
                 return respawn;
             }
@@ -86,21 +94,32 @@ public class SceneManagement : MonoBehaviour
     }
     public void ToMainMenu()
     {
-
+        PlayerPrefs.SetString("currentScene", SceneManager.GetActiveScene().name);
+        camEffects.PlaySceneTransition("MainMenu");
+    }
+    public void NewGame()
+    {
+        camEffects.PlaySceneTransition("Lab1");
+    }
+    public void ContinueGame()
+    {
+        camEffects.PlaySceneTransition(PlayerPrefs.GetString("currentScene"));
     }
     
-    void PauseGame()
+    public void PauseGame()
     {
         Time.timeScale = 0;
         gamePaused = true;
         camEffects.SetDimmerLevel(0.4f);
         camEffects.EnablePauseText();
     }
-    void ResumeGame()
+    public void ResumeGame()
     {
-        Time.timeScale = 1;
         gamePaused = false;
+        Time.timeScale = 1;
         camEffects.SetDimmerLevel(0);
         camEffects.DisablePauseText();
+
+
     }
 }

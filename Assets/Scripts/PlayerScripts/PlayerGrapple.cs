@@ -41,7 +41,7 @@ public class PlayerGrapple : MonoBehaviour
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         playerPos = player.transform.position;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !SceneManagement.instance.gamePaused)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !SceneManagement.gamePaused)
         {
             RaycastHit2D hit = CastInDirection(pc.MoveInput);
             if(hit.collider != null)

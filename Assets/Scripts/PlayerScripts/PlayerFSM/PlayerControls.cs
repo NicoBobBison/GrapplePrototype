@@ -267,16 +267,32 @@ public class PlayerControls : MonoBehaviour
     #region Other Functions
     private void Flip()
     {
-        if (!SceneManagement.instance.gamePaused)
+        if (!SceneManagement.gamePaused)
         {
             DirectionFacing *= -1;
             transform.Rotate(0.0f, 180.0f, 0.0f);
         }
     }
+    public IEnumerator FullStop(float time, bool screenshake)
+    {
+        slowingFromGrapple = true;
+        if (screenshake)
+        {
+            StartCoroutine(camMovement.camShake(GetMouseDirection().x, GetMouseDirection().y));
+        }
+        float timer = time;
+        while(timer > 0)
+        {
+            SetVelocityX(0);
+            SetVelocityY(0);
+            timer -= Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        slowingFromGrapple = false;
+    }
     public IEnumerator SlowToStop(float time, float multiplier, bool screenshake)
     {
         slowingFromGrapple = true;
-        Debug.Log("Slow called");
         float timer = time;
         while (timer > 0)
         {
