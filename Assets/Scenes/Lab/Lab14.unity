@@ -23838,17 +23838,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb95c9b5bd937334094d252cb29824a6, type: 3}
---- !u!114 &2120764186 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2066092362337921862, guid: ef59fee7269c9a84fac4fce585c1c500, type: 3}
-  m_PrefabInstance: {fileID: 2066092362847334650}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afc0d3a07b634aa4aa88d07624bd286a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2135075449 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1399262591884747273, guid: af41167660acb7a42b24848d35bc944b, type: 3}
@@ -23918,18 +23907,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1550125834, guid: e7459d8790d7f004e9e4b64475f0ff8f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2066092362337921862, guid: ef59fee7269c9a84fac4fce585c1c500, type: 3}
-    - target: {fileID: 1550125834, guid: e7459d8790d7f004e9e4b64475f0ff8f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ResumeGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 2128664884, guid: e7459d8790d7f004e9e4b64475f0ff8f, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2120764186}
     - target: {fileID: 2235108918164079576, guid: e7459d8790d7f004e9e4b64475f0ff8f, type: 3}
       propertyPath: m_Name
       value: Canvas

@@ -68,7 +68,7 @@ public class CameraEffects : MonoBehaviour
         
         while (dimmer.color.a < 1)
         {
-            yield return new WaitForSeconds(0.005f);
+            yield return new WaitForSecondsRealtime(0.005f);
             tempColor.a += 0.02f;
             dimmer.color = tempColor;
 
@@ -85,7 +85,7 @@ public class CameraEffects : MonoBehaviour
         dimmer.color = tempColor;
         while (dimmer.color.a > 0)
         {
-            yield return new WaitForSeconds(0.005f);
+            yield return new WaitForSecondsRealtime(0.005f);
             tempColor.a -= 0.02f;
             dimmer.color = tempColor;
         }

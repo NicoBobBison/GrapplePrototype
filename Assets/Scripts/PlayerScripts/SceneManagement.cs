@@ -39,7 +39,7 @@ public class SceneManagement : MonoBehaviour
         {
             GetSceneReferences();
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "MainMenu")
         {
             GetSceneReferences();
             if (gamePaused)
@@ -59,7 +59,7 @@ public class SceneManagement : MonoBehaviour
     }
     public void ChangeScene(string scene)
     {
-        if(scene != SceneManager.GetActiveScene().name)
+        if (scene != SceneManager.GetActiveScene().name)
         {
             PlayerPrefs.SetString("previousScene", SceneManager.GetActiveScene().name);
         }
@@ -70,7 +70,7 @@ public class SceneManagement : MonoBehaviour
         GetSceneReferences();
         camEffects.PlaySceneTransition();
         SceneManager.LoadSceneAsync(scene);
-
+        ResumeGame();
     }
 
 
@@ -117,9 +117,8 @@ public class SceneManagement : MonoBehaviour
     {
         gamePaused = false;
         Time.timeScale = 1;
+        GetSceneReferences();
         camEffects.SetDimmerLevel(0);
         camEffects.DisablePauseText();
-
-
     }
 }
