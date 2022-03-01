@@ -165,10 +165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f739fd00b81ffcf46b66e54b0c664472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start: {x: -4.25, y: -3.25}
-  end: {x: 0, y: -3.25}
+  start: {x: 5, y: -6}
+  end: {x: 5, y: -1}
   trackRef: {fileID: 4765975152546979722, guid: caa65c6345fb50a42aa67a8c7a519aeb, type: 3}
   movePercentage: 0.02
   maxMoveSpeed: 5
   minMoveSpeed: 0.15
-  divisor: 1
+  speedMultiplier: 2

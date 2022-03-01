@@ -32,6 +32,10 @@ public class PlayerAirState : PlayerState
         base.LogicUpdate();
         player.CheckIfShouldFlip((int)input.x);
         input = player.MoveInput;
+        if(player.CurrentVelocity.y < playerData.maxFallSpeed)
+        {
+            player.SetVelocityY(playerData.maxFallSpeed);
+        }
         
     }
 

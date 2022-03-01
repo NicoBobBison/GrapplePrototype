@@ -15,7 +15,7 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] float movePercentage = 0.02f;
     [SerializeField] float maxMoveSpeed = 2;
     [SerializeField] float minMoveSpeed = 0.03f;
-    [SerializeField] float divisor = 2;
+    [SerializeField] float speedMultiplier = 1;
     bool movingToEnd = true;
 
     // Start is called before the first frame update
@@ -46,15 +46,14 @@ public class MovingPlatform : MonoBehaviour
     void FixedUpdate()
     {
         float speed;
-        // TODO: Change velocity instead of changing position
 
         if (movingToEnd)
         {
-            speed = Vector2.Distance(transform.position, end)/ divisor;
+            speed = Vector2.Distance(transform.position, end);
             float toStart = Vector2.Distance(transform.position, start);
-            if (toStart/divisor < speed)
+            if (toStart < speed)
             {
-                speed = toStart/ divisor;
+                speed = toStart;
             }
             speed = Mathf.Clamp(speed, -maxMoveSpeed, maxMoveSpeed);
 
@@ -63,15 +62,15 @@ public class MovingPlatform : MonoBehaviour
                 speed = minMoveSpeed;
             }
 
-            rb.velocity = dirToEnd * speed;
+            rb.velocity = dirToEnd * speed * speedMultiplier;
         }
         else
         {
             speed = Vector2.Distance(transform.position, end);
-            float toStart = Vector2.Distance(transform.position, start)/ divisor;
-            if (toStart/ divisor < speed)
+            float toStart = Vector2.Distance(transform.position, start);
+            if (toStart < speed)
             {
-                speed = toStart/ divisor;
+                speed = toStart;
             }
             speed = Mathf.Clamp(speed, -maxMoveSpeed, maxMoveSpeed);
 
@@ -80,7 +79,7 @@ public class MovingPlatform : MonoBehaviour
                 speed = minMoveSpeed;
             }
 
-            rb.velocity = dirToEnd * speed * -1;
+            rb.velocity = -1 * speed * dirToEnd * speedMultiplier;
         }
         if(movingToEnd && Vector2.Distance(transform.position, end) < 0.03)
         {

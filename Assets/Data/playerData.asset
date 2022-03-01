@@ -15,7 +15,7 @@ MonoBehaviour:
   movementSpeedX: 4
   baseGravity: 1.6
   jumpForce: 3.6
-  maxFallSpeed: -5
+  maxFallSpeed: -10
   maxDashSpeed: 8
   dashTime: 0.2
   distanceBetweenAfterImages: 0.4
