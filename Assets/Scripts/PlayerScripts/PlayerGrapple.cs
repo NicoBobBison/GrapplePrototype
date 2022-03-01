@@ -41,7 +41,7 @@ public class PlayerGrapple : MonoBehaviour
         mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
         playerPos = player.transform.position;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !SceneManagement.gamePaused)
+        if (Input.GetButtonDown("Fire1") && !SceneManagement.gamePaused)
         {
             RaycastHit2D hit = CastInDirection(pc.MoveInput);
             if(hit.collider != null)
@@ -72,7 +72,7 @@ public class PlayerGrapple : MonoBehaviour
                 _state = GrapplingState.searching;
             }
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
+        if (Input.GetButtonUp("Fire1"))
         {
             _state = GrapplingState.unattached;
         }
@@ -92,7 +92,7 @@ public class PlayerGrapple : MonoBehaviour
         }
         else if(_state == GrapplingState.searching)
         {
-            if (Input.GetMouseButton(0) || Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetMouseButton(0) || Input.GetButton("Fire1"))
             {
                 lr.enabled = true;
                 if (CastInDirection(pc.MoveInput).collider != null)
