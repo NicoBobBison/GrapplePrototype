@@ -775,11 +775,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.2452023, y: 3.767641}
-      - {x: 0.28076404, y: -0.3897688}
-      - {x: 0.22560745, y: -26.524284}
-      - {x: 19.573664, y: -26.594633}
-      - {x: 19.537971, y: 3.6863515}
+    - - {x: 8.542528, y: 3.0421295}
+      - {x: 0.40707016, y: 3.0474393}
+      - {x: 0.44557047, y: -25.836266}
+      - {x: 19.626408, y: -26.018324}
+      - {x: 19.714111, y: 3.0548296}
 --- !u!4 &86146402
 Transform:
   m_ObjectHideFlags: 0
@@ -45843,7 +45843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BoundingShape2D: {fileID: 86146401}
-  m_Damping: 0.5
+  m_Damping: 0.52
   m_MaxWindowSize: -1
 --- !u!1001 &623489861
 PrefabInstance:
@@ -81424,8 +81424,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TrackedObjectOffset: {x: 0, y: 0, z: 0}
-  m_LookaheadTime: 0.24
-  m_LookaheadSmoothing: 0.1
+  m_LookaheadTime: 0.522
+  m_LookaheadSmoothing: 1.9
   m_LookaheadIgnoreY: 0
   m_XDamping: 1
   m_YDamping: 1
@@ -81762,6 +81762,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7136681425852273768, guid: 0470209deb4de5d4ba0572abd78da5d4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7136681425852273768, guid: 0470209deb4de5d4ba0572abd78da5d4, type: 3}
       propertyPath: CameraType
       value: 1
       objectReference: {fileID: 0}
@@ -81791,11 +81795,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7136681425852273814, guid: 0470209deb4de5d4ba0572abd78da5d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.778979
+      value: 9.302634
       objectReference: {fileID: 0}
     - target: {fileID: 7136681425852273814, guid: 0470209deb4de5d4ba0572abd78da5d4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.20145
+      value: -1.9570299
       objectReference: {fileID: 0}
     - target: {fileID: 7136681425852273814, guid: 0470209deb4de5d4ba0572abd78da5d4, type: 3}
       propertyPath: m_LocalPosition.z
