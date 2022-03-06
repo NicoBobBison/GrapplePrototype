@@ -27,5 +27,7 @@ MonoBehaviour:
   grappleStallTime: 0.05
   grappleMaxDistance: 50
   chainGrabDistance: 2
+  grappleWidth: 0.05
+  grappleColor: {r: 0, g: 0, b: 0, a: 1}
   slowBeforeGrapple: 1
   unlockedGrapple: 0

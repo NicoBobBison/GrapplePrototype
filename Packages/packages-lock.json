@@ -83,6 +83,13 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       }
     },
+    "com.unity.cinemachine": {
+      "version": "2.7.9",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.collab-proxy": {
       "version": "1.5.7",
       "depth": 0,

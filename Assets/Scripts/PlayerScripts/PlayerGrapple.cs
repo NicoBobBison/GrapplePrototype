@@ -32,6 +32,11 @@ public class PlayerGrapple : MonoBehaviour
         playerPos = player.transform.position;
         grapplePoint = playerPos;
         baseColor = GetComponent<LineRenderer>().startColor;
+
+        lr.startWidth = pc.playerData.grappleWidth;
+        lr.endWidth = pc.playerData.grappleWidth;
+        lr.startColor = pc.playerData.grappleColor;
+        lr.endColor = pc.playerData.grappleColor;
     }
     private void Update()
     {
