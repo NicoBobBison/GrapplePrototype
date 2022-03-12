@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7136681425852273771}
   - component: {fileID: 7136681425852273768}
   - component: {fileID: 7136681425852273815}
+  - component: {fileID: 1802031883}
+  - component: {fileID: 1802031884}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -27,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7136681425852273770}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.25, y: -3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -92,7 +94,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7136681425852273770}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c8040baa73333c44681edd8349d5c53e, type: 3}
   m_Name: 
@@ -101,10 +103,10 @@ MonoBehaviour:
   lerpPercent: 0.9
   camShakeDistance: 0.15
   camShakeTime: 0.05
-  lowerLeftBound: {x: 0, y: -5}
-  upperRightBound: {x: 9, y: 6}
+  lowerLeftBound: {x: 10.25, y: -21}
+  upperRightBound: {x: 10.25, y: -3}
   cameraData: {fileID: 11400000, guid: 0fdd44bda5d301540a94ca5c54b4ccf0, type: 2}
-  CameraType: 3
+  CameraType: 1
 --- !u!114 &7136681425852273815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,3 +121,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dimmer: {fileID: 0}
   transitioning: 0
+--- !u!114 &1802031883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7136681425852273770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_BlendUpdateMethod: 1
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 2
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1802031884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7136681425852273770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c075024c1d429d94292ba8589c9aaf07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lockXPosition: 1
+  lockYPosition: 0

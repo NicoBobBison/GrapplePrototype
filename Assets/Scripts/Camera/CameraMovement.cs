@@ -45,21 +45,18 @@ public class CameraMovement : MonoBehaviour
     {
         if (cameraData.camShake)
         {
+            Vector3 originalPos = transform.position;
             this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x + (2 * horizontal * camShakeDistance),
             this.gameObject.transform.position.y + (vertical * camShakeDistance),
             this.gameObject.transform.position.z);
             yield return new WaitForSeconds(camShakeTime);
-            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x - (2 * horizontal * camShakeDistance),
-                this.gameObject.transform.position.y - (vertical * camShakeDistance),
-                this.gameObject.transform.position.z);
+            this.gameObject.transform.position = originalPos;
             yield return new WaitForSeconds(camShakeTime);
             this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x + (0.5f * horizontal * camShakeDistance),
                 this.gameObject.transform.position.y + (vertical * camShakeDistance),
                 this.gameObject.transform.position.z);
             yield return new WaitForSeconds(camShakeTime);
-            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x - (0.5f * horizontal * camShakeDistance),
-                this.gameObject.transform.position.y - (0.5f * vertical * camShakeDistance),
-                this.gameObject.transform.position.z);
+            this.gameObject.transform.position = originalPos;
         }
     }
 
