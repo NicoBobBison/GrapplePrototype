@@ -17,8 +17,13 @@ public class CameraEffects : MonoBehaviour
     public SceneManagement sm { get; private set; }
     private void Awake()
     {
+        
+    }
+    private void Start()
+    {
         GetDimmer();
-        if (!SceneManager.GetActiveScene().name.Equals("MainMenu")) {
+        if (!SceneManager.GetActiveScene().name.Equals("MainMenu"))
+        {
             GetPauseText();
             DisablePauseText();
             sm = GameObject.Find("Player").GetComponent<SceneManagement>();
@@ -26,9 +31,6 @@ public class CameraEffects : MonoBehaviour
         Color tempColor = dimmer.color;
         tempColor.a = 1;
         dimmer.color = tempColor;
-    }
-    private void Start()
-    {
         StartCoroutine(BrightenCam());
     }
 

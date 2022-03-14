@@ -23,6 +23,10 @@ public class SceneManagement : MonoBehaviour
             instance = this;
         }
     }
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
     void Start()
     {
         /*if (!PlayerPrefs.HasKey("coins"))
@@ -76,7 +80,7 @@ public class SceneManagement : MonoBehaviour
 
     public void GetSceneReferences()
     {
-        camEffects = GameObject.Find("Main Camera").GetComponent<CameraEffects>();
+        camEffects = Camera.main.GetComponent<CameraEffects>();
     }
 
     public GameObject FindSpawnPoint()
@@ -120,5 +124,20 @@ public class SceneManagement : MonoBehaviour
         GetSceneReferences();
         camEffects.SetDimmerLevel(0);
         camEffects.DisablePauseText();
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "MainMenu")
+        {
+            StartCoroutine(AudioManager.instance.FadeIn("TitleTheme", 1));
+        }
+        else
+        {
+            if (!AudioManager.instance.SoundPlaying("MainTheme"))
+            {
+                StartCoroutine(AudioManager.instance.FadeIn("MainTheme", 1));
+            }
+        }
     }
 }

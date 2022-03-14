@@ -9,6 +9,7 @@ public class Coin : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerPrefs.SetInt("coins", PlayerPrefs.GetInt("coins") + 1);
+            CoinCounter.CollectCoin();
             Destroy(this.gameObject);
         }
     }

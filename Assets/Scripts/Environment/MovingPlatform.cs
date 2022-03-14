@@ -12,7 +12,6 @@ public class MovingPlatform : MonoBehaviour
     GameObject track;
     LineRenderer lr;
     Rigidbody2D rb;
-    [SerializeField] float movePercentage = 0.02f;
     [SerializeField] float maxMoveSpeed = 2;
     [SerializeField] float minMoveSpeed = 0.03f;
     [SerializeField] float speedMultiplier = 1;

@@ -17,5 +17,6 @@ public class MainMenu : MonoBehaviour
     public void ContinueGame()
     {
         camEffects.PlaySceneTransition(PlayerPrefs.GetString("currentScene"));
+        AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut("TitleTheme", 1));
     }
 }
