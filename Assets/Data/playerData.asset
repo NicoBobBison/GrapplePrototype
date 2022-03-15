@@ -25,9 +25,10 @@ MonoBehaviour:
   playerReelSpeed: 20
   playerPullSpeed: 7
   grappleStallTime: 0.05
-  grappleMaxDistance: 50
+  grappleMaxDistance: 3
   chainGrabDistance: 2
   grappleWidth: 0.05
+  grappleLerpSpeed: 20
   grappleColor: {r: 0, g: 0, b: 0, a: 1}
   slowBeforeGrapple: 1
   unlockedGrapple: 1

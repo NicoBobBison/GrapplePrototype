@@ -30,6 +30,7 @@ public class PlayerData : ScriptableObject
     public float grappleMaxDistance = 5;
     public float chainGrabDistance = 1;
     public float grappleWidth = 0.1f;
+    public float grappleLerpSpeed = 1;
     public Color grappleColor;
     public bool slowBeforeGrapple = false;
     public bool unlockedGrapple = false;

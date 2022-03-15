@@ -103,6 +103,11 @@ public class PlayerControls : MonoBehaviour
     {
         CurrentVelocity = rb.velocity;
         MoveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (Input.GetButton("Jump"))
+        {
+            // Might not be optimized, lag?
+            MoveInput = new Vector2(MoveInput.x, 1.0f);
+        }
         StateMachine.CurrentState.LogicUpdate();
     }
     private void FixedUpdate()

@@ -17,7 +17,6 @@ public class PlayerGrapple : MonoBehaviour
     public Vector2 lastHitPoint { get; private set; }
     public GameObject lastHitObject { get; private set; }
     public Vector2 workspace;
-    [SerializeField] float grappleLerpAmount = 0.5f;
     public enum GrapplingState { searching, pulling, unattached}
     public GrapplingState _state = GrapplingState.unattached;
     Color baseColor;
@@ -139,17 +138,22 @@ public class PlayerGrapple : MonoBehaviour
     {
         if (_state == GrapplingState.pulling)
         {
-            grapplePoint.Set(Vector2.Lerp(grapplePoint, lastHitPoint, grappleLerpAmount).x,
-                Vector2.Lerp(grapplePoint, lastHitPoint, grappleLerpAmount).y);
+            grapplePoint = lastHitPoint;
         }else if (_state == GrapplingState.searching)
         {
-            grapplePoint.Set(pc.MoveInput.x * pc.playerData.grappleMaxDistance + player.transform.position.x,
-                pc.MoveInput.y * pc.playerData.grappleMaxDistance + player.transform.position.y);
+            Vector2 temp = new Vector2(pc.MoveInput.x, pc.MoveInput.y);
+            temp.Normalize();
+
+            Vector2 desiredPoint = new Vector2(pc.playerData.grappleMaxDistance * temp.x + player.transform.position.x,
+                pc.playerData.grappleMaxDistance * temp.y + player.transform.position.y);
+
+            Debug.Log(desiredPoint);
+
+            grapplePoint = Vector2.Lerp(grapplePoint, desiredPoint, pc.playerData.grappleLerpSpeed * Time.deltaTime);
         }
         else
         {
-            grapplePoint.Set(Vector2.Lerp(grapplePoint, playerPos, grappleLerpAmount).x,
-                Vector2.Lerp(grapplePoint, playerPos, grappleLerpAmount).y);
+            grapplePoint = Vector2.Lerp(grapplePoint, playerPos, pc.playerData.grappleLerpSpeed * Time.deltaTime);
         }
         lr.SetPosition(0, playerPos);
         lr.SetPosition(1, grapplePoint);
