@@ -146,9 +146,6 @@ public class PlayerGrapple : MonoBehaviour
 
             Vector2 desiredPoint = new Vector2(pc.playerData.grappleMaxDistance * temp.x + player.transform.position.x,
                 pc.playerData.grappleMaxDistance * temp.y + player.transform.position.y);
-
-            Debug.Log(desiredPoint);
-
             grapplePoint = Vector2.Lerp(grapplePoint, desiredPoint, pc.playerData.grappleLerpSpeed * Time.deltaTime);
         }
         else
