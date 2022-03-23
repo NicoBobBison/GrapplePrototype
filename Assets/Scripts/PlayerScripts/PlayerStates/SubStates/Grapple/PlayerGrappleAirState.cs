@@ -44,5 +44,9 @@ public class PlayerGrappleAirState : PlayerGrappleState
     {
         base.PhysicsUpdate();
         player.LerpVelocityX(playerData.movementSpeedX * player.MoveInput.x + player.CurrentVelocity.x, 0.15f, true);
+        if (player.CurrentVelocity.y < playerData.maxFallSpeed)
+        {
+            player.SetVelocityY(playerData.maxFallSpeed);
+        }
     }
 }

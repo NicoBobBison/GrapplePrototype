@@ -51,5 +51,9 @@ public class PlayerGroundedState : PlayerState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+        if (player.CurrentVelocity.y < playerData.maxFallSpeed)
+        {
+            player.SetVelocityY(playerData.maxFallSpeed);
+        }
     }
 }

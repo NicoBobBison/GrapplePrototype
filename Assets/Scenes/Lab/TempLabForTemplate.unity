@@ -10432,6 +10432,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7442684508350111680, guid: 45a6e616546fdb446992b93e935361db, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7442684508350111682, guid: 45a6e616546fdb446992b93e935361db, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -22507,6 +22511,18 @@ PrefabInstance:
     - target: {fileID: 2235108918164079580, guid: fd0919efd3ae8984d91b303ad75c2d73, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2235108919054989024, guid: fd0919efd3ae8984d91b303ad75c2d73, type: 3}
+      propertyPath: m_fontColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2235108919054989024, guid: fd0919efd3ae8984d91b303ad75c2d73, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2235108920023349710, guid: fd0919efd3ae8984d91b303ad75c2d73, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd0919efd3ae8984d91b303ad75c2d73, type: 3}

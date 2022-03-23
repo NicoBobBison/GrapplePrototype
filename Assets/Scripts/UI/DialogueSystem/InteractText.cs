@@ -27,11 +27,15 @@ public class InteractText : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
                 if (!DialogueManager.Instance.inDialogue && dialogue != null)
                 {
+                    // Start new dialogue
+                    DialogueManager.Instance.currentSource = this.gameObject;
+                    DialogueManager.Instance.ResetSentenceIndex();
                     DialogueManager.Instance.inDialogue = true;
-                    StartCoroutine(DialogueManager.Instance.Type(dialogue.lines));
+                    DialogueManager.Instance.currentType = StartCoroutine(DialogueManager.Instance.Type(dialogue.lines));
                 }
                 else
                 {
+                    // Continue to next sentence
                     DialogueManager.Instance.NextSentence();
                 }
 
@@ -39,8 +43,12 @@ public class InteractText : MonoBehaviour
         else
         {
             m_text.text = null;
-            DialogueManager.Instance.inDialogue = false;
-            StopCoroutine(DialogueManager.Instance.Type(dialogue.lines));
+            if (gameObject == DialogueManager.Instance.currentSource)
+            {
+                DialogueManager.Instance.inDialogue = false;
+                if (DialogueManager.Instance.currentType != null)
+                    DialogueManager.Instance.StopCoroutine(DialogueManager.Instance.currentType);
+            } 
         }
     }
 }

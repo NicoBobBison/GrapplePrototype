@@ -9,11 +9,17 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager Instance { get; private set; }
     [SerializeField] Image TextBox;
     [SerializeField] TMP_Text TextBox_TMP;
-    private int index;
+    private int sentenceIndex;
     [SerializeField] float typeSpeed = 0.1f;
     public bool inDialogue = false;
     public bool isTyping = false;
     public string[] currentDialogue;
+    public Coroutine currentType;
+    int pointInSentence = 0;
+    public GameObject currentSource;
+
+    public Vector2 bottomTextLocation = new Vector2(0, -420);
+    public Vector2 topTextLocation = new Vector2(0, 420);
 
 
     private void Awake()
@@ -45,35 +51,62 @@ public class DialogueManager : MonoBehaviour
     {
         if (inDialogue)
         {
+            pointInSentence = 0;
             isTyping = true;
+            
+            int camHeight = Camera.main.pixelHeight;
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            float playerYToScreenSpace = Camera.main.WorldToScreenPoint(player.transform.position).y;
+            if(playerYToScreenSpace > camHeight / 2)
+            {
+                TextBox.rectTransform.anchoredPosition = bottomTextLocation;
+            }
+            else
+            {
+                TextBox.rectTransform.anchoredPosition = topTextLocation;
+            }
+
             TextBox.enabled = true;
             currentDialogue = dialogue;
-            foreach (char letter in dialogue[index].ToCharArray())
+            foreach (char letter in dialogue[sentenceIndex].ToCharArray())
             {
-                TextBox_TMP.text += letter;
-                yield return new WaitForSeconds(typeSpeed);
+                if (inDialogue)
+                {
+                    pointInSentence++;
+                    TextBox_TMP.text += letter;
+                    yield return new WaitForSeconds(typeSpeed);
+                }
             }
-            //Debug.Log(dialogue[0]);
             isTyping = false;
         }
     }
     public void NextSentence()
     {
-        if (!isTyping)
+        if (isTyping)
         {
-            if (index < currentDialogue.Length - 1)
+            StopCoroutine(currentType);
+            TextBox_TMP.text += currentDialogue[sentenceIndex].Substring(pointInSentence);
+            isTyping = false;
+        }
+        else
+        {
+            if (sentenceIndex < currentDialogue.Length - 1)
             {
-                index++;
+                sentenceIndex++;
                 TextBox_TMP.text = "";
-                StartCoroutine(Type(currentDialogue));
+                currentType = StartCoroutine(Type(currentDialogue));
             }
             else
             {
                 TextBox.enabled = false;
                 TextBox_TMP.text = "";
-                index = 0;
+                sentenceIndex = 0;
                 inDialogue = false;
             }
         }
+    }
+    public void ResetSentenceIndex()
+    {
+        sentenceIndex = 0;
     }
 }
