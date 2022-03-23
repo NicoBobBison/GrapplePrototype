@@ -124,7 +124,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294936567
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
@@ -165,10 +165,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f739fd00b81ffcf46b66e54b0c664472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start: {x: 5, y: -6}
-  end: {x: 5, y: -1}
+  start: {x: 4.5, y: -5.75}
+  end: {x: 4.5, y: -1.25}
   trackRef: {fileID: 4765975152546979722, guid: caa65c6345fb50a42aa67a8c7a519aeb, type: 3}
-  movePercentage: 0.02
   maxMoveSpeed: 5
   minMoveSpeed: 0.15
   speedMultiplier: 2
