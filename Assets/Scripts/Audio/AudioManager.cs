@@ -1,7 +1,7 @@
-using Unity.Audio;
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 
 // Shout out to Brackeys!
@@ -10,6 +10,7 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
 
     public static AudioManager instance;
+    public AudioMixerGroup musicMixer;
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            s.source.outputAudioMixerGroup = musicMixer;
         }
     }
 

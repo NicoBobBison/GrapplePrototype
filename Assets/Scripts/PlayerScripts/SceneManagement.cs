@@ -8,6 +8,7 @@ public class SceneManagement : MonoBehaviour
     public CameraEffects camEffects;
     public bool inSceneTransition = false;
     public static bool gamePaused;
+    public bool inSettings { private get; set; }
 
     public static SceneManagement instance { get; private set; }
     private void Awake()
@@ -45,14 +46,22 @@ public class SceneManagement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "MainMenu")
         {
-            GetSceneReferences();
-            if (gamePaused)
+            if (inSettings)
             {
-                ResumeGame();
+                camEffects.DisableSettings();
+                inSettings = false;
             }
             else
             {
-                PauseGame();
+                GetSceneReferences();
+                if (gamePaused)
+                {
+                    ResumeGame();
+                }
+                else
+                {
+                    PauseGame();
+                }
             }
         }
         //CheckIfShouldTransition();

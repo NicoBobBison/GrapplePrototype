@@ -14,7 +14,7 @@ public class LockCameraZ : CinemachineExtension
         CinemachineVirtualCameraBase vcam,
         CinemachineCore.Stage stage, ref CameraState state, float deltaTime)
     {
-        if (enabled && stage == CinemachineCore.Stage.Body)
+        if (enabled && stage == CinemachineCore.Stage.Finalize)
         {
             var pos = state.RawPosition;
             pos.z = m_ZPosition;
@@ -22,9 +22,7 @@ public class LockCameraZ : CinemachineExtension
         }
     }
 }
-[ExecuteInEditMode]
-[SaveDuringPlay]
-[AddComponentMenu("")] // Hide in menu
+[ExecuteInEditMode] [SaveDuringPlay] [AddComponentMenu("")] // Hide in menu
 
 public class LockCameraY : CinemachineExtension
 {
@@ -35,7 +33,7 @@ public class LockCameraY : CinemachineExtension
         CinemachineVirtualCameraBase vcam,
         CinemachineCore.Stage stage, ref CameraState state, float deltaTime)
     {
-        if (enabled && stage == CinemachineCore.Stage.Body)
+        if (enabled && stage == CinemachineCore.Stage.Finalize)
         {
             var pos = state.RawPosition;
             pos.y = m_YPosition;
@@ -43,9 +41,7 @@ public class LockCameraY : CinemachineExtension
         }
     }
 }
-[ExecuteInEditMode]
-[SaveDuringPlay]
-[AddComponentMenu("")] // Hide in menu
+[ExecuteInEditMode] [SaveDuringPlay] [AddComponentMenu("")] // Hide in menu
 
 public class LockCameraX : CinemachineExtension
 {
@@ -56,7 +52,7 @@ public class LockCameraX : CinemachineExtension
         CinemachineVirtualCameraBase vcam,
         CinemachineCore.Stage stage, ref CameraState state, float deltaTime)
     {
-        if (enabled && stage == CinemachineCore.Stage.Body)
+        if (enabled && stage == CinemachineCore.Stage.Finalize)
         {
             var pos = state.RawPosition;
             pos.x = m_XPosition;

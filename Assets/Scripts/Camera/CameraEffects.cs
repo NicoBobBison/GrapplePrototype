@@ -11,8 +11,12 @@ public class CameraEffects : MonoBehaviour
     TextMeshProUGUI pauseText;
     Image resumeButton;
     Image exitButton;
+    Image settingsButton;
     TextMeshProUGUI resumeButtonText;
     TextMeshProUGUI exitButtonText;
+    TextMeshProUGUI settingsButtonText;
+    GameObject settings;
+
     public bool transitioning = false;
     public SceneManagement sm { get; private set; }
     private void Awake()
@@ -111,6 +115,9 @@ public class CameraEffects : MonoBehaviour
         resumeButtonText = GameObject.Find("ResumeButtonText").GetComponent<TextMeshProUGUI>();
         exitButton = GameObject.Find("ExitButton").GetComponent<Image>();
         exitButtonText = GameObject.Find("ExitButtonText").GetComponent<TextMeshProUGUI>();
+        settingsButton = GameObject.Find("SettingsButton").GetComponent<Image>();
+        settingsButtonText = GameObject.Find("SettingsButtonText").GetComponent<TextMeshProUGUI>();
+        settings = GameObject.Find("SettingsMenu");
     }
     public void EnablePauseText()
     {
@@ -120,6 +127,9 @@ public class CameraEffects : MonoBehaviour
         resumeButtonText.enabled = true;
         exitButton.enabled = true;
         exitButtonText.enabled = true;
+        settingsButton.enabled = true;
+        settingsButtonText.enabled = true;
+        settings.SetActive(true);
     }
     public void DisablePauseText()
     {
@@ -129,5 +139,37 @@ public class CameraEffects : MonoBehaviour
         resumeButtonText.enabled = false;
         exitButton.enabled = false;
         exitButtonText.enabled = false;
+        settingsButton.enabled = false;
+        settingsButtonText.enabled = false;
+        DisableSettings();
+    }
+
+    public void DisableSettings()
+    {
+        CanvasGroup settingsGroup = GameObject.Find("SettingsMenu").GetComponent<CanvasGroup>();
+
+        if (settings != null)
+        {
+            settingsGroup.alpha = 0;
+            settingsGroup.blocksRaycasts = false;
+        }
+        else
+        {
+            Debug.LogWarning("Settings reference not found!");
+        }
+    }
+    public void EnableSettings()
+    {
+        CanvasGroup settingsGroup = GameObject.Find("SettingsMenu").GetComponent<CanvasGroup>();
+
+        if (settings != null)
+        {
+            settingsGroup.alpha = 1;
+            settingsGroup.blocksRaycasts = true;
+        }
+        else
+        {
+            Debug.LogWarning("Settings reference not found!");
+        }
     }
 }
