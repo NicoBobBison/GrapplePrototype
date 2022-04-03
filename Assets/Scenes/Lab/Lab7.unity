@@ -29638,7 +29638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4199459012975447593, guid: 16ecb7ef9916cfb43a2e8c96b5fbd416, type: 3}
       propertyPath: m_Name
-      value: Lab6
+      value: Lab5
       objectReference: {fileID: 0}
     - target: {fileID: 5843560768756411008, guid: 16ecb7ef9916cfb43a2e8c96b5fbd416, type: 3}
       propertyPath: m_RootOrder

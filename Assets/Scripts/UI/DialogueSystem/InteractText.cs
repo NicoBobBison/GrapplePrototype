@@ -13,7 +13,7 @@ public class InteractText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_text = GetComponent<TMP_Text>();
+        m_text = GetComponentInChildren<TMP_Text>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         thisPos = this.GetComponent<Transform>();
     }
@@ -42,7 +42,7 @@ public class InteractText : MonoBehaviour
         }
         else
         {
-            m_text.text = null;
+            m_text.text = "";
             if (gameObject == DialogueManager.Instance.currentSource)
             {
                 DialogueManager.Instance.inDialogue = false;

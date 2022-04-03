@@ -17,6 +17,7 @@ public class DialogueManager : MonoBehaviour
     public Coroutine currentType;
     int pointInSentence = 0;
     public GameObject currentSource;
+    bool inMainMenu = true;
 
     public Vector2 bottomTextLocation = new Vector2(0, -420);
     public Vector2 topTextLocation = new Vector2(0, 420);
@@ -36,12 +37,25 @@ public class DialogueManager : MonoBehaviour
     }
     private void Start()
     {
-        TextBox.enabled = false;
-        TextBox_TMP.text = "";
+        inMainMenu = SceneManagement.instance.GetScene().name.Equals("MainMenu");
+        GetDialogueReferences();
+        if (!inMainMenu)
+        {
+            TextBox.enabled = false;
+            TextBox_TMP.text = "";
+        }
     }
     private void Update()
     {
-        if (!inDialogue)
+        if (SceneManagement.instance.GetScene().name.Equals("MainMenu"))
+        {
+            inMainMenu = true;
+        }
+        else
+        {
+            inMainMenu = false;
+        }
+        if (!inDialogue && !inMainMenu)
         {
             TextBox.enabled = false;
             TextBox_TMP.text = "";
@@ -108,5 +122,12 @@ public class DialogueManager : MonoBehaviour
     public void ResetSentenceIndex()
     {
         sentenceIndex = 0;
+    }
+    public void GetDialogueReferences()
+    {
+        if (inMainMenu)
+            return;
+        TextBox = GameObject.Find("TextBox").GetComponent<Image>();
+        TextBox_TMP = GameObject.Find("Text").GetComponent<TextMeshProUGUI>();
     }
 }

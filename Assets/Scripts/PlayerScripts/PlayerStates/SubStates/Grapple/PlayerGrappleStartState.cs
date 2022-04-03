@@ -69,9 +69,9 @@ public class PlayerGrappleStartState : PlayerGrappleState
             {
                 if (Vector2.Distance(playerGrapple.grapplePoint, player.transform.position) > 0.5f)
                 {
-                    player.SetVelocityX(Mathf.Clamp(direction.x * (playerData.playerReelSpeed *
+                    player.SetVelocityX(Mathf.Clamp(playerGrapple.grappleDir.x * (playerData.playerReelSpeed *
                         Vector2.Distance(playerGrapple.grapplePoint, player.transform.position)), -playerData.playerReelSpeed, playerData.playerReelSpeed));
-                    player.SetVelocityY(Mathf.Clamp(direction.y * (playerData.playerReelSpeed *
+                    player.SetVelocityY(Mathf.Clamp(playerGrapple.grappleDir.y * (playerData.playerReelSpeed *
                         Vector2.Distance(playerGrapple.grapplePoint, player.transform.position)), -playerData.playerReelSpeed, playerData.playerReelSpeed));
                 }
                 else

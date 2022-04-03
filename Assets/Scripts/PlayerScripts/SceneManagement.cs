@@ -143,10 +143,15 @@ public class SceneManagement : MonoBehaviour
         }
         else
         {
+            DialogueManager.Instance.GetDialogueReferences();
             if (!AudioManager.instance.SoundPlaying("MainTheme"))
             {
                 StartCoroutine(AudioManager.instance.FadeIn("MainTheme", 1));
             }
         }
+    }
+    public Scene GetScene()
+    {
+        return SceneManager.GetActiveScene();
     }
 }
