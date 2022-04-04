@@ -12,11 +12,13 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
+        PlayerPrefs.SetInt("unlockedGrapple", 0);
         camEffects.PlaySceneTransition("Lab1");
+        AudioManager.instance.FadeOut("TitleTheme", 1);
     }
     public void ContinueGame()
     {
         camEffects.PlaySceneTransition(PlayerPrefs.GetString("currentScene"));
-        AudioManager.instance.StartCoroutine(AudioManager.instance.FadeOut("TitleTheme", 1));
+        AudioManager.instance.FadeOut("TitleTheme", 1);
     }
 }

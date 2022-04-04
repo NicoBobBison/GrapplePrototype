@@ -344,6 +344,7 @@ public class PlayerControls : MonoBehaviour
     }
     public void KillPlayer()
     {
+        AudioManager.instance.Play("DeathSound");
         psm.ChangeScene(SceneManager.GetActiveScene().name);
     }
     #endregion

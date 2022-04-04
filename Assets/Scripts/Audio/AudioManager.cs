@@ -4,13 +4,15 @@ using UnityEngine;
 using UnityEngine.Audio;
 
 
-// Shout out to Brackeys!
+// Shout out to Brackeys!!!
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
 
     public static AudioManager instance;
     public AudioMixerGroup musicMixer;
+    string currentFadeIn;
+    string currentFadeOut;
 
     private void Awake()
     {
@@ -48,8 +50,9 @@ public class AudioManager : MonoBehaviour
         return s.source.isPlaying;
     }
 
-    public IEnumerator FadeOut(string name, float time)
+    IEnumerator _FadeOut(string name, float time)
     {
+        
         Sound s = FindSound(name);
         while(s.source.volume > 0)
         {
@@ -59,7 +62,7 @@ public class AudioManager : MonoBehaviour
         s.source.Stop();
     }
 
-    public IEnumerator FadeIn(string name, float time)
+    IEnumerator _FadeIn(string name, float time)
     {
         Sound s = FindSound(name);
         Play(name);
@@ -79,5 +82,17 @@ public class AudioManager : MonoBehaviour
         }
         Debug.Log("Couldn't find sound named " + name);
         return null;
+    }
+    public void FadeOut(string name, float time)
+    {
+        if (currentFadeIn == name)
+            return;
+        StartCoroutine(_FadeOut(name, time));
+    }
+    public void FadeIn(string name, float time)
+    {
+        if (currentFadeOut == name)
+            return;
+        StartCoroutine(_FadeIn(name, time));
     }
 }

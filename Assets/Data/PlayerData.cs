@@ -33,6 +33,5 @@ public class PlayerData : ScriptableObject
     public float grappleLerpSpeed = 1;
     public Color grappleColor;
     public bool slowBeforeGrapple = false;
-    public bool unlockedGrapple = false;
     
 }

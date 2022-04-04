@@ -12,7 +12,7 @@ public class DialogueManager : MonoBehaviour
     private int sentenceIndex;
     [SerializeField] float typeSpeed = 0.1f;
     public bool inDialogue = false;
-    public bool isTyping = false;
+    bool isTyping = false;
     public string[] currentDialogue;
     public Coroutine currentType;
     int pointInSentence = 0;
@@ -57,6 +57,8 @@ public class DialogueManager : MonoBehaviour
         }
         if (!inDialogue && !inMainMenu)
         {
+            if (TextBox == null)
+                GetDialogueReferences();
             TextBox.enabled = false;
             TextBox_TMP.text = "";
         }
@@ -88,6 +90,7 @@ public class DialogueManager : MonoBehaviour
                 {
                     pointInSentence++;
                     TextBox_TMP.text += letter;
+                    AudioManager.instance.Play("DialogueBeep");
                     yield return new WaitForSeconds(typeSpeed);
                 }
             }

@@ -25,6 +25,8 @@ public class InteractText : MonoBehaviour
         {
             m_text.text = "Press E to Interact";
             if (Input.GetKeyDown(KeyCode.E))
+            {
+                CheckIfSpecialDialogue();
                 if (!DialogueManager.Instance.inDialogue && dialogue != null)
                 {
                     // Start new dialogue
@@ -38,7 +40,7 @@ public class InteractText : MonoBehaviour
                     // Continue to next sentence
                     DialogueManager.Instance.NextSentence();
                 }
-
+            }
         }
         else
         {
@@ -49,6 +51,14 @@ public class InteractText : MonoBehaviour
                 if (DialogueManager.Instance.currentType != null)
                     DialogueManager.Instance.StopCoroutine(DialogueManager.Instance.currentType);
             } 
+        }
+    }
+
+    void CheckIfSpecialDialogue()
+    {
+        if (gameObject.name == "UnlockGrapple")
+        {
+            PlayerPrefs.SetInt("unlockedGrapple", 1);
         }
     }
 }

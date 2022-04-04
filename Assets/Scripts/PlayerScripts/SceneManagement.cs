@@ -139,14 +139,14 @@ public class SceneManagement : MonoBehaviour
     {
         if (scene.name == "MainMenu")
         {
-            StartCoroutine(AudioManager.instance.FadeIn("TitleTheme", 1));
+            AudioManager.instance.FadeIn("TitleTheme", 1);
         }
         else
         {
             DialogueManager.Instance.GetDialogueReferences();
             if (!AudioManager.instance.SoundPlaying("MainTheme"))
             {
-                StartCoroutine(AudioManager.instance.FadeIn("MainTheme", 1));
+                AudioManager.instance.FadeIn("MainTheme", 1);
             }
         }
     }

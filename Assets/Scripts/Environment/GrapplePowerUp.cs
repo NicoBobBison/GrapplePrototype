@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class GrapplePowerUp : MonoBehaviour
 {
-    [SerializeField] PlayerData data;
     private void Start()
     {
-        if (data.unlockedGrapple)
+        if (PlayerPrefs.GetInt("unlockedGrapple") == 1)
         {
             Destroy(this.gameObject);
         }
@@ -16,7 +15,7 @@ public class GrapplePowerUp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            data.unlockedGrapple = true;
+            PlayerPrefs.SetInt("unlockedGrapple", 1);
             Destroy(this.gameObject);
         }
     }
