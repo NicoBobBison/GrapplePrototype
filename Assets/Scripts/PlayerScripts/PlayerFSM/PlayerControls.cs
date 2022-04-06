@@ -28,6 +28,7 @@ public class PlayerControls : MonoBehaviour
     public SceneManagement psm;
     public ParticleSystem CollideDuringGrapplePS { get; private set; }
     public CameraMovement camMovement;
+    public CameraEffects cameraEffects;
     //Slider staminaSlider;
     #endregion
 
@@ -67,6 +68,7 @@ public class PlayerControls : MonoBehaviour
     }
     void Start()
     {
+        cameraEffects = Camera.main.gameObject.GetComponent<CameraEffects>();
         GameObject spawn = SceneManagement.instance.FindSpawnPoint();
         if (spawn != null)
         {
@@ -283,7 +285,7 @@ public class PlayerControls : MonoBehaviour
         slowingFromGrapple = true;
         if (screenshake)
         {
-            StartCoroutine(camMovement.camShake(GetMouseDirection().x, GetMouseDirection().y));
+            StartCoroutine(cameraEffects.camShake(GetMouseDirection().x, GetMouseDirection().y));
         }
         float timer = time;
         while(timer > 0)
@@ -309,7 +311,7 @@ public class PlayerControls : MonoBehaviour
         slowingFromGrapple = false;
         if (screenshake)
         {
-            StartCoroutine(camMovement.camShake(GetMouseDirection().x, GetMouseDirection().y));
+            StartCoroutine(cameraEffects.camShake(GetMouseDirection().x, GetMouseDirection().y));
         }
     }
     public IEnumerator SlowToStop(float time, float multiplier, bool screenshake, bool endGrapple)
@@ -326,7 +328,7 @@ public class PlayerControls : MonoBehaviour
         slowingFromGrapple = false;
         if (screenshake)
         {
-            StartCoroutine(camMovement.camShake(GetMouseDirection().x, GetMouseDirection().y));
+            StartCoroutine(cameraEffects.camShake(GetMouseDirection().x, GetMouseDirection().y));
         }
         if (endGrapple)
         {

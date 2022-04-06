@@ -3,7 +3,9 @@ guid: 7899f58c319ec9b48b5cf19ff3cad0ec
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - dimmer: {instanceID: 0}
+  - cameraData: {fileID: 11400000, guid: 0fdd44bda5d301540a94ca5c54b4ccf0, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

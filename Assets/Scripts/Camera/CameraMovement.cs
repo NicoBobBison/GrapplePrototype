@@ -40,7 +40,7 @@ public class CameraMovement : MonoBehaviour
     {
         SetBounds();
     }
-
+    /*
     public IEnumerator camShake(float horizontal, float vertical)
     {
         if (cameraData.camShake)
@@ -58,7 +58,7 @@ public class CameraMovement : MonoBehaviour
             yield return new WaitForSeconds(camShakeTime);
             this.gameObject.transform.position = originalPos;
         }
-    }
+    }*/
 
     void SetBounds()
     {

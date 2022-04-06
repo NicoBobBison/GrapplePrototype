@@ -16,6 +16,10 @@ public class CameraEffects : MonoBehaviour
     TextMeshProUGUI exitButtonText;
     TextMeshProUGUI settingsButtonText;
     GameObject settings;
+    float camShakeDistance = 0.1f;
+    float camShakeTime = 0.05f;
+    [SerializeField] CameraData cameraData;
+
 
     public bool transitioning = false;
     public SceneManagement sm { get; private set; }
@@ -97,6 +101,27 @@ public class CameraEffects : MonoBehaviour
         }
         transitioning = false;
     }
+    public IEnumerator camShake(float horizontal, float vertical)
+    {
+        if (cameraData.camShake)
+        {
+            Debug.Log("Cam shake");
+
+            Vector3 originalPos = transform.position;
+            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x + (2 * horizontal * camShakeDistance),
+            this.gameObject.transform.position.y + (vertical * camShakeDistance),
+            this.gameObject.transform.position.z);
+            yield return new WaitForSeconds(camShakeTime);
+            this.gameObject.transform.position = originalPos;
+            yield return new WaitForSeconds(camShakeTime);
+            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x + (0.5f * horizontal * camShakeDistance),
+                this.gameObject.transform.position.y + (vertical * camShakeDistance),
+                this.gameObject.transform.position.z);
+            yield return new WaitForSeconds(camShakeTime);
+            this.gameObject.transform.position = originalPos;
+        }
+    }
+
     public void SetDimmerLevel(float level)
     {
         GetDimmer();
