@@ -105,7 +105,7 @@ public class PlayerGrapple : MonoBehaviour
                 {
                     lastHitPoint = CastInDirection(pc.MoveInput).point;
                     lastHitObject = CastInDirection(pc.MoveInput).collider.gameObject;
-                    grappleDir = pc.MoveInput.normalized;
+                    UpdateGrappleDir();
                     _state = GrapplingState.pulling;
                     pc.StateMachine.ChangeState(pc.GrappleState);
                 }
@@ -174,11 +174,11 @@ public class PlayerGrapple : MonoBehaviour
     RaycastHit2D CastInDirection(Vector2 direction)
     {
         RaycastHit2D hit = Physics2D.Raycast(playerPos, direction, pc.playerData.grappleMaxDistance, grappleable);
-        if(direction != Vector2.zero && Physics2D.OverlapCircle(hit.point, 0.05f, 1 << LayerMask.NameToLayer("Instakill")))
+        /*if(direction != Vector2.zero && Physics2D.OverlapCircle(hit.point, 0.05f, 1 << LayerMask.NameToLayer("Instakill")))
         {
             Debug.Log("Die");
             pc.KillPlayer();
-        }
+        }*/
         return hit;
     }
     public void SetGrappleState(GrapplingState state)
@@ -194,5 +194,10 @@ public class PlayerGrapple : MonoBehaviour
     {
         pc.StateMachine.ChangeState(pc.JumpSustainState);
         SetGrappleState(GrapplingState.unattached);
+    }
+    public void UpdateGrappleDir()
+    {
+        grappleDir = grapplePoint - playerPos;
+        grappleDir.Normalize();
     }
 }

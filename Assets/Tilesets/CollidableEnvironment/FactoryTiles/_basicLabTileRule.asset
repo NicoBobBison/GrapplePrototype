@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
   m_Name: _basicLabTileRule
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 4793889666629219750, guid: 466c3ab503777864c8842f1172e5735a, type: 3}
+  m_DefaultSprite: {fileID: -7537385408779648193, guid: d7a3b456a3913134bb2837d372e3841f, type: 3}
   m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_TilingRules:
@@ -130,7 +130,7 @@ MonoBehaviour:
     m_RuleTransform: 0
   - m_Id: 6
     m_Sprites:
-    - {fileID: -7129397947243598379, guid: d7a3b456a3913134bb2837d372e3841f, type: 3}
+    - {fileID: 5864262397233547568, guid: 2ce0abf145069094cb1fdedcb368c8b8, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
@@ -567,7 +567,7 @@ MonoBehaviour:
     m_RuleTransform: 0
   - m_Id: 28
     m_Sprites:
-    - {fileID: -7129397947243598379, guid: d7a3b456a3913134bb2837d372e3841f, type: 3}
+    - {fileID: 5864262397233547568, guid: 2ce0abf145069094cb1fdedcb368c8b8, type: 3}
     m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1

@@ -61,6 +61,7 @@ public class PlayerGrappleStartState : PlayerGrappleState
         base.PhysicsUpdate();
         if (!playerData.slowBeforeGrapple || (playerData.slowBeforeGrapple && !player.slowingFromGrapple))
         {
+            playerGrapple.UpdateGrappleDir();
             if (Vector2.Distance(player.transform.position, playerGrapple.grapplePoint) > startDistance + 0.5f)
             {
                 player.StateMachine.ChangeState(player.GrappleAirState);

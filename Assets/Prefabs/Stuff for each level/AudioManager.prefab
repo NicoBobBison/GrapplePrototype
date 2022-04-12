@@ -58,13 +58,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: DialogueBeep
     clip: {fileID: 8300000, guid: c36b153196ad88e4e8bdcae0c78931cd, type: 3}
-    volume: 1
+    volume: 0.81
     pitch: 0.1
     loop: 0
     source: {fileID: 0}
   - name: DeathSound
     clip: {fileID: 8300000, guid: 385fcfed695ae7940a224a23623bcde2, type: 3}
-    volume: 1
+    volume: 0.77
     pitch: 0.1
     loop: 0
     source: {fileID: 0}
