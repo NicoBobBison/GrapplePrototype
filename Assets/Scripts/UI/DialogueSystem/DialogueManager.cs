@@ -18,6 +18,7 @@ public class DialogueManager : MonoBehaviour
     int pointInSentence = 0;
     public GameObject currentSource;
     bool inMainMenu = true;
+    public string interactDisplayText { get; private set; }
 
     public Vector2 bottomTextLocation = new Vector2(0, -420);
     public Vector2 topTextLocation = new Vector2(0, 420);
@@ -37,6 +38,8 @@ public class DialogueManager : MonoBehaviour
     }
     private void Start()
     {
+        interactDisplayText = "Press E";
+
         inMainMenu = SceneManagement.instance.GetScene().name.Equals("MainMenu");
         GetDialogueReferences();
         if (!inMainMenu)

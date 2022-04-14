@@ -103,7 +103,7 @@ public class CameraEffects : MonoBehaviour
     }
     public IEnumerator camShake(float horizontal, float vertical)
     {
-        if (cameraData.camShake)
+        if (cameraData != null && cameraData.camShake)
         {
             Debug.Log("Cam shake");
 

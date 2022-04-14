@@ -10,6 +10,8 @@ public class InteractText : MonoBehaviour
     private Transform thisPos;
     [SerializeField] Dialogue dialogue;
 
+    Coroutine currentInteractText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +25,13 @@ public class InteractText : MonoBehaviour
     {
         if (Vector3.Distance(thisPos.position, player.position) < 1)
         {
-            m_text.text = "Press E to Interact";
+            if(currentInteractText == null)
+            {
+                currentInteractText = StartCoroutine(DisplayInteractText());
+            }
             if (Input.GetKeyDown(KeyCode.E))
             {
+                StopCoroutine(currentInteractText);
                 CheckIfSpecialDialogue();
                 if (!DialogueManager.Instance.inDialogue && dialogue != null)
                 {
@@ -45,6 +51,11 @@ public class InteractText : MonoBehaviour
         else
         {
             m_text.text = "";
+            if(currentInteractText != null)
+            {
+                StopCoroutine(currentInteractText);
+                currentInteractText = null;
+            }
             if (gameObject == DialogueManager.Instance.currentSource)
             {
                 DialogueManager.Instance.inDialogue = false;
@@ -54,6 +65,14 @@ public class InteractText : MonoBehaviour
         }
     }
 
+    IEnumerator DisplayInteractText()
+    {
+        foreach(char letter in DialogueManager.Instance.interactDisplayText.ToCharArray())
+        {
+            m_text.text += letter;
+            yield return new WaitForSeconds(0.05f);
+        }
+    }
     void CheckIfSpecialDialogue()
     {
         if (gameObject.name == "UnlockGrapple")

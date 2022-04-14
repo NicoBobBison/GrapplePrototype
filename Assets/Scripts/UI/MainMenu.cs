@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     public void NewGame()
     {
         PlayerPrefs.SetInt("unlockedGrapple", 0);
+        Coin.collectedCoins.Clear();
         camEffects.PlaySceneTransition("Lab1");
         AudioManager.instance.FadeOut("TitleTheme", 1);
     }
