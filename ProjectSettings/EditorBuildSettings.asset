@@ -87,7 +87,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Lab/Lab16.unity
     guid: f4faeafca71de1b439a3afc909b53124
   - enabled: 1
-    path: Assets/Scenes/Lab/Lab17.unity
+    path: Assets/Scenes/Lab/ScrappedLevels/Lab17.unity
     guid: 17f440d3fdab96548a92648c3a53f396
   - enabled: 1
     path: Assets/Scenes/Lab/Lab18.unity
@@ -101,4 +101,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lab/Lab25.unity
     guid: 20ff50b46ed4d844298aa400820ff123
+  - enabled: 1
+    path: Assets/Scenes/Lab/Lab27.unity
+    guid: 22aa89f95db1264488f7b259ab2e44d9
+  - enabled: 1
+    path: Assets/Scenes/Lab/Lab21.unity
+    guid: 9f3ff33597f95b9448c8e69d70f28ea5
+  - enabled: 1
+    path: Assets/Scenes/Lab/Lab29.unity
+    guid: b1221e786faf0d944b73654b0bf63fbd
   m_configObjects: {}

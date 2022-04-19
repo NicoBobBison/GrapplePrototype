@@ -37,7 +37,21 @@ public class PlayerMoveState : PlayerGroundedState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-        player.LerpVelocityX(playerData.movementSpeedX * player.MoveInput.x, 0.15f, false);
-
+        var below = GetObjectBelow();
+        float xVelBelow = 0;
+        if(below != null)
+        {
+            xVelBelow = GetObjectBelow().GetComponent<Rigidbody2D>().velocity.x;
+        }
+        
+        player.LerpVelocityX((playerData.movementSpeedX * player.MoveInput.x) + xVelBelow, 0.15f, false);
     }
+    private GameObject GetObjectBelow()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(player.transform.position, Vector2.down, 1, LayerMask.GetMask("Ground", "Platform", "MovingPlatform"));
+        if(hit)
+            return hit.collider.gameObject;
+        return null;
+    }
+       
 }

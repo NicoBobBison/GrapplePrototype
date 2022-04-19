@@ -59364,7 +59364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4199459012975447593, guid: 78b3df1121916e842a34e6e46ed882dd, type: 3}
       propertyPath: m_Name
-      value: Level Exit
+      value: Lab29
       objectReference: {fileID: 0}
     - target: {fileID: 5843560768756411008, guid: 78b3df1121916e842a34e6e46ed882dd, type: 3}
       propertyPath: m_RootOrder
@@ -59372,7 +59372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5843560768756411008, guid: 78b3df1121916e842a34e6e46ed882dd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.5
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5843560768756411008, guid: 78b3df1121916e842a34e6e46ed882dd, type: 3}
       propertyPath: m_LocalPosition.y

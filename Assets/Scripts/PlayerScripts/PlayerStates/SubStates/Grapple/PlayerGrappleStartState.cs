@@ -84,8 +84,8 @@ public class PlayerGrappleStartState : PlayerGrappleState
             {
                 if (Vector2.Distance(playerGrapple.grapplePoint, player.transform.position) > 0.3f)
                 {
-                    float xVel = direction.x * playerData.playerReelSpeed;
-                    float yVel = direction.y * playerData.playerReelSpeed;
+                    float xVel = playerGrapple.grappleDir.x * playerData.playerReelSpeed;
+                    float yVel = playerGrapple.grappleDir.y * playerData.playerReelSpeed;
                     if (xVel < 8 && xVel > 0)
                     {
                         xVel = 8;
