@@ -33,6 +33,7 @@ public class PlayerGrappleStartState : PlayerGrappleState
         player.SetGravity(0);
         direction = player.MoveInput;
         direction.Normalize();
+
     }
 
     public override void Exit()
@@ -62,11 +63,25 @@ public class PlayerGrappleStartState : PlayerGrappleState
         if (!playerData.slowBeforeGrapple || (playerData.slowBeforeGrapple && !player.slowingFromGrapple))
         {
             playerGrapple.UpdateGrappleDir();
+
             if (Vector2.Distance(player.transform.position, playerGrapple.grapplePoint) > startDistance + 0.5f)
             {
                 player.StateMachine.ChangeState(player.GrappleAirState);
             }
-            if (!player.IsInLayerMask(playerGrapple.lastHitObject, playerGrapple.grappleDontSlow))
+            if(playerGrapple.lastHitObject.layer == LayerMask.NameToLayer("Chains"))
+            {
+                if (Vector2.Distance(playerGrapple.grapplePoint, player.transform.position) > 0.5f)
+                {
+                    player.SetVelocityX(Mathf.Clamp(playerGrapple.grappleDir.x * playerData.playerReelSpeed, -playerData.playerReelSpeed, playerData.playerReelSpeed));
+                    player.SetVelocityY(Mathf.Clamp(playerGrapple.grappleDir.y * playerData.playerReelSpeed, -playerData.playerReelSpeed, playerData.playerReelSpeed));
+
+                }
+                else
+                {
+                    playerGrapple.EndGrapple(player.JumpSustainState);
+                }
+            }
+            else
             {
                 if (Vector2.Distance(playerGrapple.grapplePoint, player.transform.position) > 0.5f)
                 {
@@ -80,36 +95,7 @@ public class PlayerGrappleStartState : PlayerGrappleState
                     playerGrapple.EndGrapple(player.JumpSustainState);
                 }
             }
-            else
-            {
-                if (Vector2.Distance(playerGrapple.grapplePoint, player.transform.position) > 0.3f)
-                {
-                    float xVel = playerGrapple.grappleDir.x * playerData.playerReelSpeed;
-                    float yVel = playerGrapple.grappleDir.y * playerData.playerReelSpeed;
-                    if (xVel < 8 && xVel > 0)
-                    {
-                        xVel = 8;
-                    }
-                    else if (xVel > -8 && xVel < 0)
-                    {
-                        xVel = -8;
-                    }
-                    if (yVel < 8 && yVel > 0)
-                    {
-                        yVel = 8;
-                    }
-                    else if (yVel > -8 && yVel < 0)
-                    {
-                        yVel = -8;
-                    }
-                    player.SetVelocityX(Mathf.Clamp(xVel, -playerData.playerReelSpeed, playerData.playerReelSpeed));
-                    player.SetVelocityY(Mathf.Clamp(yVel, -playerData.playerReelSpeed, playerData.playerReelSpeed));
-                }
-                else
-                {
-                    playerGrapple.EndGrapple(player.GrappleAirState);
-                }
-            }
+            
         }
     }
 }
