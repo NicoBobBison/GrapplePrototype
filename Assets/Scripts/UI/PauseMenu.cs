@@ -16,6 +16,8 @@ public class PauseMenu : MonoBehaviour
     }
     public void ToMainMenu()
     {
+        Timer.SetTimePaused(true);
+        Resume();
         PlayerPrefs.SetString("currentScene", SceneManager.GetActiveScene().name);
         AudioManager.instance.FadeOut("MainTheme", 1);
         camEffects.PlaySceneTransition("MainMenu");

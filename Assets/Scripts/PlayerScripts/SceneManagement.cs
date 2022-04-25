@@ -34,8 +34,6 @@ public class SceneManagement : MonoBehaviour
         {
             PlayerPrefs.SetInt("coins", 0);
         }*/
-        GetSceneReferences();
-        camEffects.PlaySceneTransition();
     }
 
     void Update()
@@ -83,7 +81,7 @@ public class SceneManagement : MonoBehaviour
         }
         GetSceneReferences();
         SceneManager.LoadSceneAsync(scene);
-        camEffects.PlaySceneTransition();
+        //camEffects.PlaySceneTransition();
         ResumeGame();
     }
 
@@ -138,6 +136,9 @@ public class SceneManagement : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        GetSceneReferences();
+        camEffects.PlaySceneTransition();
+
         if (scene.name == "MainMenu")
         {
             AudioManager.instance.FadeIn("TitleTheme", 1);

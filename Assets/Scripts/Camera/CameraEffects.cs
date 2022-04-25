@@ -15,6 +15,7 @@ public class CameraEffects : MonoBehaviour
     TextMeshProUGUI resumeButtonText;
     TextMeshProUGUI exitButtonText;
     TextMeshProUGUI settingsButtonText;
+    TextMeshProUGUI timerText;
     GameObject settings;
     float camShakeDistance = 0.1f;
     float camShakeTime = 0.05f;
@@ -44,6 +45,7 @@ public class CameraEffects : MonoBehaviour
 
     public void PlaySceneTransition(string nextScene)
     {
+        Debug.Log("Transition");
         SceneManagement.instance.GetSceneReferences();
 
         if (dimmer == null)
@@ -66,7 +68,7 @@ public class CameraEffects : MonoBehaviour
 
     IEnumerator DimCam(string nextScene)
     {
-
+        Debug.Log("Dim cam");
         transitioning = true;
         Color tempColor = dimmer.color;
         tempColor.a = dimmer.color.a;
@@ -80,17 +82,26 @@ public class CameraEffects : MonoBehaviour
         while (dimmer.color.a < 1)
         {
             yield return new WaitForFixedUpdate();
-            tempColor.a += 0.05f;
+            if (tempColor.a < 0.95f)
+            {
+                tempColor.a += 0.05f;
+            }
+            else
+            {
+                tempColor.a = 1;
+            }
+            //Debug.Log("a (dim): " + tempColor.a);
             dimmer.color = tempColor;
 
         }
-        Debug.Break();
+        Debug.Log("Break");
 
         SceneManagement.instance.ChangeScene(nextScene);
         transitioning = false;
     }
     IEnumerator BrightenCam()
     {
+        Debug.Log("Brighten cam");
         GetDimmer();
         transitioning = true;
         Color tempColor = dimmer.color;
@@ -99,7 +110,16 @@ public class CameraEffects : MonoBehaviour
         while (dimmer.color.a > 0)
         {
             yield return new WaitForFixedUpdate();
-            tempColor.a -= 0.05f;
+            if(tempColor.a > 0.05f)
+            {
+                tempColor.a -= 0.05f;
+            }
+            else
+            {
+                tempColor.a = 0;
+            }
+            //Debug.Log("a (brighten): " + tempColor.a);
+
             dimmer.color = tempColor;
         }
         transitioning = false;
@@ -146,6 +166,7 @@ public class CameraEffects : MonoBehaviour
         settingsButton = GameObject.Find("SettingsButton").GetComponent<Image>();
         settingsButtonText = GameObject.Find("SettingsButtonText").GetComponent<TextMeshProUGUI>();
         settings = GameObject.Find("SettingsMenu");
+        timerText = GameObject.Find("Timer").GetComponent<TextMeshProUGUI>();
     }
     public void EnablePauseText()
     {
@@ -158,6 +179,7 @@ public class CameraEffects : MonoBehaviour
         settingsButton.enabled = true;
         settingsButtonText.enabled = true;
         settings.SetActive(true);
+        timerText.enabled = true;
     }
     public void DisablePauseText()
     {
@@ -169,6 +191,7 @@ public class CameraEffects : MonoBehaviour
         exitButtonText.enabled = false;
         settingsButton.enabled = false;
         settingsButtonText.enabled = false;
+        timerText.enabled = false;
         DisableSettings();
     }
 
