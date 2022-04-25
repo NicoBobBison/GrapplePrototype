@@ -66,6 +66,7 @@ public class CameraEffects : MonoBehaviour
 
     IEnumerator DimCam(string nextScene)
     {
+
         transitioning = true;
         Color tempColor = dimmer.color;
         tempColor.a = dimmer.color.a;
@@ -75,14 +76,16 @@ public class CameraEffects : MonoBehaviour
             PlayerControls pc = GameObject.Find("Player").GetComponent<PlayerControls>();
             pc.StateMachine.ChangeState(pc.SceneTransState);
         }
-        
+
         while (dimmer.color.a < 1)
         {
-            yield return new WaitForSecondsRealtime(0.005f);
-            tempColor.a += 0.02f;
+            yield return new WaitForFixedUpdate();
+            tempColor.a += 0.05f;
             dimmer.color = tempColor;
 
         }
+        Debug.Break();
+
         SceneManagement.instance.ChangeScene(nextScene);
         transitioning = false;
     }
@@ -95,8 +98,8 @@ public class CameraEffects : MonoBehaviour
         dimmer.color = tempColor;
         while (dimmer.color.a > 0)
         {
-            yield return new WaitForSecondsRealtime(0.005f);
-            tempColor.a -= 0.02f;
+            yield return new WaitForFixedUpdate();
+            tempColor.a -= 0.05f;
             dimmer.color = tempColor;
         }
         transitioning = false;

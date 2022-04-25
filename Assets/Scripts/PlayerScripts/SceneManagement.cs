@@ -72,6 +72,7 @@ public class SceneManagement : MonoBehaviour
     }
     public void ChangeScene(string scene)
     {
+        Debug.Log("Change scene");
         if (scene != SceneManager.GetActiveScene().name)
         {
             PlayerPrefs.SetString("previousScene", SceneManager.GetActiveScene().name);
@@ -81,8 +82,8 @@ public class SceneManagement : MonoBehaviour
             Debug.LogWarning("Attempting to reload scene too quickly. Make sure the player's spawn and the area around it is unobstructed.");
         }
         GetSceneReferences();
-        camEffects.PlaySceneTransition();
         SceneManager.LoadSceneAsync(scene);
+        camEffects.PlaySceneTransition();
         ResumeGame();
     }
 

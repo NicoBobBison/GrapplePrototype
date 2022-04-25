@@ -5,27 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Old/CaveEntrance.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/Scenes/Old/Cave1.unity
-    guid: 90b23a07918a9a14a8aec1939c3b38ab
-  - enabled: 0
-    path: Assets/Scenes/Old/Cave2.unity
-    guid: 23bf0d1a172dc264a8bab7bd236c5862
-  - enabled: 0
-    path: Assets/Scenes/Old/CaveRoom2.unity
-    guid: a1b69d66f3a8cae4bb08547b0b1f6796
-  - enabled: 0
-    path: Assets/Scenes/Old/CaveRoom1.unity
-    guid: ad08a0f68d098d74fbdeaafb87b40b9a
-  - enabled: 0
-    path: Assets/Scenes/Old/CaveRoom3.unity
-    guid: a2aba7fceaffe054999bcf9c45656c8c
-  - enabled: 0
-    path: Assets/Scenes/Old/BonusRoom1.unity
-    guid: 4782f9bc743c86440aa5742863f5b951
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: cfb003fae73d5bc4c83a4ce04dd3c4a1
   - enabled: 1
     path: Assets/Scenes/Lab/Lab2.unity
     guid: 630d631697105bc41be6c08499ab9703
@@ -35,12 +17,6 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/Lab/ScrappedLevels/Lab3.unity
-    guid: d732d914a8338a747a176b53e7bf302d
-  - enabled: 1
-    path: Assets/Scenes/Lab/ScrappedLevels/Lab4.unity
-    guid: 7a5fadac92ff4c546ad7d5c12aa16302
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
@@ -48,32 +24,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Lab/Lab5.unity
     guid: e46e496ef6ce8754191d37fb2fe2d648
   - enabled: 1
-    path: Assets/Scenes/Lab/ScrappedLevels/Lab8.unity
-    guid: 8e412557372e7a74ea1e454f8828984c
-  - enabled: 1
-    path: Assets/Scenes/Lab/ScrappedLevels/Lab6.unity
-    guid: 47fd6fdfb3a0669498a85653a59c9c18
-  - enabled: 1
     path: Assets/Scenes/Lab/Lab7.unity
     guid: 7cf77d3fdddaa2d4ab24a8603635e306
   - enabled: 1
     path: Assets/Scenes/Lab/Lab9.unity
     guid: 3be7e49f74e592c42b3da802c88a36b2
-  - enabled: 1
-    path: Assets/Scenes/Lab/ScrappedLevels/Lab10.unity
-    guid: 50bd7a2760ea93d4f89cd8e240499fa9
-  - enabled: 1
-    path: Assets/Scenes/Lab/ScrappedLevels/Lab11.unity
-    guid: 36be62a89f673dd4ead927a2fe54468b
-  - enabled: 1
-    path: Assets/Scenes/Lab/ScrappedLevels/Lab12.unity
-    guid: 2b78b62e8015f4e448691b4ab9e7dbe4
-  - enabled: 1
-    path: Assets/Scenes/Lab/ScrappedLevels/Lab13.unity
-    guid: 14e0f2df594a90149a067f4545571ee1
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: cfb003fae73d5bc4c83a4ce04dd3c4a1
   - enabled: 1
     path: Assets/Scenes/Lab/Lab24.unity
     guid: 09553e9f1294cfb4589b81979810a959
@@ -86,9 +41,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lab/Lab16.unity
     guid: f4faeafca71de1b439a3afc909b53124
-  - enabled: 1
-    path: Assets/Scenes/Lab/ScrappedLevels/Lab17.unity
-    guid: 17f440d3fdab96548a92648c3a53f396
   - enabled: 1
     path: Assets/Scenes/Lab/Lab18.unity
     guid: f282c7285719bb349bcbaaaac3833faa
@@ -110,4 +62,31 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lab/Lab29.unity
     guid: b1221e786faf0d944b73654b0bf63fbd
+  - enabled: 1
+    path: Assets/Scenes/Lab/Lab30.unity
+    guid: 7977a52df0f85004ca9dee853073f6c4
+  - enabled: 1
+    path: Assets/Scenes/Lab/Lab33.unity
+    guid: 4f6985a6f9aaacd41a44f99247d9c34f
+  - enabled: 1
+    path: Assets/Scenes/Lab/Lab31.unity
+    guid: d2b955e6c80b74443becaddf6735c499
+  - enabled: 1
+    path: Assets/Scenes/Lab/Lab35.unity
+    guid: dba3e6509131f0a46a7070922af7ac3e
+  - enabled: 1
+    path: Assets/Scenes/Lab/Lab36.unity
+    guid: a25061684d0cbde4e8c1c4caa7d6b814
+  - enabled: 1
+    path: Assets/Scenes/Lab/Lab37.unity
+    guid: 2d1adbef5d02ed74da9f83708b54ba8c
+  - enabled: 1
+    path: Assets/Scenes/Lab/Lab32.unity
+    guid: 7821e8684bc987c468942a89ee2eb444
+  - enabled: 1
+    path: Assets/Scenes/Lab/Lab34.unity
+    guid: 48a38fed27ce66f428beffec03513c18
+  - enabled: 1
+    path: Assets/Scenes/Lab/Lab15.unity
+    guid: 9b854d5f94fb90d438ec329705ebbc8c
   m_configObjects: {}
