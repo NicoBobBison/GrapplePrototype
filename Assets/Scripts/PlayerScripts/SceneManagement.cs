@@ -42,7 +42,7 @@ public class SceneManagement : MonoBehaviour
         {
             GetSceneReferences();
         }
-        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "MainMenu")
+        if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name != "MainMenu" && SceneManager.GetActiveScene().name != "Lab38")
         {
             if (inSettings)
             {

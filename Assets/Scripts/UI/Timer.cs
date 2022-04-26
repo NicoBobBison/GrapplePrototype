@@ -35,4 +35,8 @@ public class Timer : MonoBehaviour
     {
         timePaused = pause;
     }
+    public static float GetRoundedTime()
+    {
+        return (int)(time * 100) / 100.0f;
+    }
 }
