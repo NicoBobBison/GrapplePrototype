@@ -42,6 +42,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -280,6 +281,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      grappleRunSheet_0: 9069066099221579226
+      grappleRunSheet_4: -7858943064370877762
+      grappleRunSheet_2: 1168769549639663795
+      grappleRunSheet_1: 6619389526480931657
+      grappleRunSheet_5: -6373466100153900672
+      grappleRunSheet_3: 2784873335433878482
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

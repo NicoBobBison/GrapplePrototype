@@ -48,6 +48,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -328,6 +329,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      lab16by16decorations_0: 5444293420481147935
+      lab16by16decorations_2: 2752483100527905920
+      lab16by16decorations_5: 4043072227360386846
+      lab16by16decorations_6: 2495723904754125304
+      lab16by16decorations_7: 4711245745968724679
+      lab16by16decorations_3: -7296657025924041043
+      lab16by16decorations_1: -640943931366569223
+      lab16by16decorations_4: -1575337590343180148
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

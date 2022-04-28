@@ -42,6 +42,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -280,6 +281,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      scrapsAndTools_3: -5720670284305057401
+      scrapsAndTools_2: -4284237099538443094
+      scrapsAndTools_1: 5341239092541423117
+      scrapsAndTools_4: -1645619528667008427
+      scrapsAndTools_5: 8617966254621514786
+      scrapsAndTools_0: 8961811597643541723
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

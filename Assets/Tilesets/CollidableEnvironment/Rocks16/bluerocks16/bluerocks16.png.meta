@@ -99,6 +99,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -736,6 +737,32 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      bluerocks16_14: -3787473889040158741
+      bluerocks16_4: 5309193359011085640
+      bluerocks16_15: 1230737397440882161
+      bluerocks16_21: 703232491128070033
+      bluerocks16_5: -802994593426159358
+      bluerocks16_20: -377815081782863798
+      bluerocks16_18: 6883434852628633328
+      bluerocks16_9: 3263999835193151561
+      bluerocks16_2: 1649655657891131143
+      bluerocks16_23: 7672692535802027971
+      bluerocks16_1: 3243346008543533537
+      bluerocks16_8: -2652144736833548011
+      bluerocks16_0: -390137281663791065
+      bluerocks16_22: -4050042298171011165
+      bluerocks16_3: 2608139399382840906
+      bluerocks16_16: 6495120649209323396
+      bluerocks16_11: -1526134190954549955
+      bluerocks16_24: 4408903795792425565
+      bluerocks16_13: -1811420053420980956
+      bluerocks16_19: -4729249918259063582
+      bluerocks16_6: -6634919207319859512
+      bluerocks16_7: -4239020173944119661
+      bluerocks16_12: -3756447014728741778
+      bluerocks16_10: -5217704337836568991
+      bluerocks16_17: -6574205581696347549
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

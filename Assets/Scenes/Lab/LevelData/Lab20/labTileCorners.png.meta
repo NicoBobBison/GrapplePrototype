@@ -48,6 +48,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -328,6 +329,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      labTileCorners_2: -2869770984574949239
+      labTileCorners_1: 854555712169507822
+      labTileCorners_5: -7430534884036171059
+      labTileCorners_4: -6729540311828377326
+      labTileCorners_6: -6205992915698016137
+      labTileCorners_3: -8442226180528059511
+      labTileCorners_0: 2138732152700419929
+      labTileCorners_7: -7652004757056639608
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

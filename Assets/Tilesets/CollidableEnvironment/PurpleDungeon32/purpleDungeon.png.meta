@@ -75,6 +75,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -544,6 +545,24 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      purpleDungeon_5: -5903905552941319253
+      purpleDungeon_4: -7909264412267346483
+      purpleDungeon_2: -9069600454242713661
+      purpleDungeon_10: 4344361099808570728
+      purpleDungeon_6: 8714552850994630263
+      purpleDungeon_8: -4335884557434755510
+      purpleDungeon_9: 5870429409033337670
+      purpleDungeon_16: 7179601526789814801
+      purpleDungeon_7: 7725404015606764863
+      purpleDungeon_11: 607758310028160018
+      purpleDungeon_12: 8468315063754850373
+      purpleDungeon_13: -790481769687780198
+      purpleDungeon_3: -7234059208195208782
+      purpleDungeon_14: -5298963254116582666
+      purpleDungeon_15: -6135708102680318900
+      purpleDungeon_0: -2919634888997057071
+      purpleDungeon_1: -6698741205867004471
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

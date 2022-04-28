@@ -99,6 +99,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -736,6 +737,32 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      redrocks16_9: -2520177309136579698
+      redrocks16_15: 3375159543492948043
+      redrocks16_18: 7194822204379364149
+      redrocks16_8: -8915632447353044770
+      redrocks16_24: -8603800484956239471
+      redrocks16_11: 6500556850678130696
+      redrocks16_16: -7131633761098382413
+      redrocks16_22: 7561154954905443511
+      redrocks16_4: -7623742576277014195
+      redrocks16_23: -5574109916395063848
+      redrocks16_5: -5566084622590025368
+      redrocks16_12: -6792543969060626997
+      redrocks16_21: 5988689582652796629
+      redrocks16_2: -5800025663920504237
+      redrocks16_17: 825358944170689783
+      redrocks16_1: 3343259381631456653
+      redrocks16_7: -5813016063193286582
+      redrocks16_13: 7978363395191416263
+      redrocks16_10: -7643916989111756302
+      redrocks16_19: 4757527415293563115
+      redrocks16_20: 849578740490378323
+      redrocks16_6: 5032821668368518864
+      redrocks16_14: -777905232368720546
+      redrocks16_0: 7464636103254508166
+      redrocks16_3: 6352532539521003449
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -144,6 +144,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1096,6 +1097,47 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      playerCharacterAnim-Sheet 1_5: -4621083307925223639
+      playerCharacterAnim-Sheet 1_10: -85424653272632483
+      playerCharacterAnim-Sheet 1_4: 1626795621789344007
+      playerCharacterAnim-Sheet 1_37: -8889799383127254823
+      playerCharacterAnim-Sheet 1_27: 7465664620940795841
+      playerCharacterAnim-Sheet 1_29: -6722430259918105518
+      playerCharacterAnim-Sheet 1_14: -3899422949518229082
+      playerCharacterAnim-Sheet 1_0: 3235387449651544747
+      playerCharacterAnim-Sheet 1_15: 8114655669215351282
+      playerCharacterAnim-Sheet 1_3: -7266364204262075981
+      playerCharacterAnim-Sheet 1_26: 6929943963066701984
+      playerCharacterAnim-Sheet 1_20: -352619197707017445
+      playerCharacterAnim-Sheet 1_31: -7181746391730130161
+      playerCharacterAnim-Sheet 1_1: 6126132981378658120
+      playerCharacterAnim-Sheet 1_32: -4544492341408977037
+      playerCharacterAnim-Sheet 1_6: -5331287143753203175
+      playerCharacterAnim-Sheet 1_18: -4740270120408512226
+      playerCharacterAnim-Sheet 1_25: 197769769193662848
+      playerCharacterAnim-Sheet 1_7: -7301213879884008842
+      playerCharacterAnim-Sheet 1_8: -4140548361860814062
+      playerCharacterAnim-Sheet 1_39: -8322122879186867444
+      playerCharacterAnim-Sheet 1_33: 8267578910396010486
+      playerCharacterAnim-Sheet 1_12: -2269557245397631408
+      playerCharacterAnim-Sheet 1_30: 2709195452492861845
+      playerCharacterAnim-Sheet 1_19: 7942632528081100617
+      playerCharacterAnim-Sheet 1_21: 6617443199323477911
+      playerCharacterAnim-Sheet 1_36: -8036453014345308789
+      playerCharacterAnim-Sheet 1_34: 6455451287826810869
+      playerCharacterAnim-Sheet 1_35: 5675228760065454088
+      playerCharacterAnim-Sheet 1_17: -5319081716417588248
+      playerCharacterAnim-Sheet 1_28: 6263401538977461773
+      playerCharacterAnim-Sheet 1_38: 8474332305862369725
+      playerCharacterAnim-Sheet 1_2: -3463491540948732617
+      playerCharacterAnim-Sheet 1_16: 2780270310567786821
+      playerCharacterAnim-Sheet 1_13: 6555426492088549489
+      playerCharacterAnim-Sheet 1_11: -3756105663179092460
+      playerCharacterAnim-Sheet 1_24: 5678072082609684843
+      playerCharacterAnim-Sheet 1_22: -1235237805599945639
+      playerCharacterAnim-Sheet 1_23: -5570336939727131305
+      playerCharacterAnim-Sheet 1_9: 6717439996282837873
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
