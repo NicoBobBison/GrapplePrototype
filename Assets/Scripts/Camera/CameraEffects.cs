@@ -40,6 +40,7 @@ public class CameraEffects : MonoBehaviour
         Color tempColor = dimmer.color;
         tempColor.a = 1;
         dimmer.color = tempColor;
+        StartCoroutine(BrightenCam());
     }
 
     public void PlaySceneTransition(string nextScene)
@@ -49,7 +50,7 @@ public class CameraEffects : MonoBehaviour
 
         if (dimmer == null)
             GetDimmer();
-        Debug.Log("Scene name: " + SceneManager.GetActiveScene().name + ". a < 0.5?: " + (dimmer.color.a < 0.5f));
+        
         if(dimmer.color.a < 0.5f)
         {
             StartCoroutine(DimCam(nextScene));
@@ -62,7 +63,6 @@ public class CameraEffects : MonoBehaviour
 
     public void PlaySceneTransition()
     {
-        Debug.Log("Scene name: " + SceneManager.GetActiveScene().name);
         StartCoroutine(BrightenCam());
     }
 
@@ -94,8 +94,8 @@ public class CameraEffects : MonoBehaviour
             dimmer.color = tempColor;
 
         }
-        //Debug.Log("Break");
-        Debug.Break();
+        Debug.Log("Break");
+
         SceneManagement.instance.ChangeScene(nextScene);
         transitioning = false;
     }

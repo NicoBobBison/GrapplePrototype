@@ -137,6 +137,7 @@ public class SceneManagement : MonoBehaviour
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         GetSceneReferences();
+        camEffects.PlaySceneTransition();
 
         if (scene.name == "MainMenu")
         {
