@@ -94,8 +94,6 @@ public class CameraEffects : MonoBehaviour
             dimmer.color = tempColor;
 
         }
-        Debug.Log("Break");
-
         SceneManagement.instance.ChangeScene(nextScene);
         transitioning = false;
     }

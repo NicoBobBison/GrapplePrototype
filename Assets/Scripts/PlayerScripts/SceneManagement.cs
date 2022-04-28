@@ -80,7 +80,7 @@ public class SceneManagement : MonoBehaviour
             Debug.LogWarning("Attempting to reload scene too quickly. Make sure the player's spawn and the area around it is unobstructed.");
         }
         GetSceneReferences();
-        SceneManager.LoadSceneAsync(scene);
+        SceneManager.LoadScene(scene);
         //camEffects.PlaySceneTransition();
         ResumeGame();
     }

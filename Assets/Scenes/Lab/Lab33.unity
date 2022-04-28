@@ -43255,9 +43255,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 992360769627229884, guid: e32a00f15d468c745839711decfa0fc0, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 992360769627229885, guid: e32a00f15d468c745839711decfa0fc0, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 992360769911534762, guid: e32a00f15d468c745839711decfa0fc0, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 992360769911534764, guid: e32a00f15d468c745839711decfa0fc0, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 992360769911534764, guid: e32a00f15d468c745839711decfa0fc0, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 992360769911534764, guid: e32a00f15d468c745839711decfa0fc0, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 992360769911534766, guid: e32a00f15d468c745839711decfa0fc0, type: 3}
       propertyPath: m_Pivot.x
