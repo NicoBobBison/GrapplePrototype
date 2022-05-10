@@ -20,6 +20,7 @@ public class PlayerGrappleStartState : PlayerGrappleState
     public override void Enter()
     {
         base.Enter();
+        AudioManager.instance.Play("GrappleSound");
         startDistance = Vector2.Distance(playerGrapple.lastHitPoint, player.transform.position);
         if (playerData.slowBeforeGrapple)
         {
@@ -41,7 +42,7 @@ public class PlayerGrappleStartState : PlayerGrappleState
         base.Exit();
         player.SetVelocityX(player.CurrentVelocity.x / 2);
         player.SetVelocityY(player.CurrentVelocity.y / 2);
-        if (playerData.slowBeforeGrapple)
+        if (playerData.slowBeforeGrapple && wait != null)
         {
             player.StopCoroutine(wait);
         }

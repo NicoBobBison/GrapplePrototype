@@ -15,7 +15,7 @@ C:/Users/Nicholas DeJesse/Desktop/Unity Projects/Cardmancer/GrapplePrototype
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-55773
+59554
 Successfully changed project path to: C:/Users/Nicholas DeJesse/Desktop/Unity Projects/Cardmancer/GrapplePrototype
 C:/Users/Nicholas DeJesse/Desktop/Unity Projects/Cardmancer/GrapplePrototype
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,7 +47,7 @@ C:/Users/Nicholas DeJesse/Desktop/Unity Projects/Cardmancer/GrapplePrototype
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 266.93 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 81.65 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2021.3.1f1 (3b70a0754835)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/Resources/UnitySubsystems
@@ -63,88 +63,88 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56680
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56296
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.009178 seconds.
+Registered in 0.010581 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 59.30 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 61.87 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.804 seconds
+- Completed reload, in  0.826 seconds
 Domain Reload Profiling:
-	ReloadAssembly (805ms)
-		BeginReloadAssembly (92ms)
+	ReloadAssembly (827ms)
+		BeginReloadAssembly (173ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (582ms)
-			LoadAssemblies (89ms)
+		EndReloadAssembly (514ms)
+			LoadAssemblies (169ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (125ms)
+			SetupTypeCache (124ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (32ms)
-			SetupLoadedEditorAssemblies (362ms)
+			RebuildScriptCaches (36ms)
+			SetupLoadedEditorAssemblies (295ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (10ms)
+				InitializePlatformSupportModulesInManaged (9ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (59ms)
-				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (218ms)
-				ProcessInitializeOnLoadMethodAttributes (73ms)
+				RefreshPlugins (62ms)
+				BeforeProcessingInitializeOnLoad (2ms)
+				ProcessInitializeOnLoadAttributes (166ms)
+				ProcessInitializeOnLoadMethodAttributes (55ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.008338 seconds.
+Registered in 0.007127 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory is not a mono symbol file
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 58.40 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 71.92 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.197 seconds
+- Completed reload, in  1.766 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1198ms)
-		BeginReloadAssembly (129ms)
+	ReloadAssembly (1766ms)
+		BeginReloadAssembly (130ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (21ms)
-		EndReloadAssembly (925ms)
-			LoadAssemblies (107ms)
+			CreateAndSetChildDomain (22ms)
+		EndReloadAssembly (1485ms)
+			LoadAssemblies (113ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (223ms)
+			SetupTypeCache (309ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (64ms)
-			SetupLoadedEditorAssemblies (480ms)
+			RebuildScriptCaches (88ms)
+			SetupLoadedEditorAssemblies (894ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (6ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (58ms)
-				BeforeProcessingInitializeOnLoad (89ms)
-				ProcessInitializeOnLoadAttributes (271ms)
-				ProcessInitializeOnLoadMethodAttributes (44ms)
+				RefreshPlugins (72ms)
+				BeforeProcessingInitializeOnLoad (115ms)
+				ProcessInitializeOnLoadAttributes (629ms)
+				ProcessInitializeOnLoadMethodAttributes (61ms)
 				AfterProcessingInitializeOnLoad (11ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (7ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.15 seconds
-Refreshing native plugins compatible for Editor in 0.70 ms, found 3 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.19 seconds
+Refreshing native plugins compatible for Editor in 31.80 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2584 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 44 unused Assets / (128.9 KB). Loaded Objects now: 3050.
-Memory consumption went from 119.8 MB to 119.6 MB.
-Total: 4.438400 ms (FindLiveObjects: 0.232800 ms CreateObjectMapping: 0.179900 ms MarkObjects: 3.787600 ms  DeleteObjects: 0.236900 ms)
+Memory consumption went from 119.8 MB to 119.7 MB.
+Total: 3.741900 ms (FindLiveObjects: 0.250800 ms CreateObjectMapping: 0.158200 ms MarkObjects: 3.207400 ms  DeleteObjects: 0.124400 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -157,116 +157,49 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 731299.557385 seconds.
-  path: Assets/Slippery.physicsMaterial2D
-  artifactKey: Guid(f5c50e5b698619644af12b7d77b69405) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Slippery.physicsMaterial2D using Guid(f5c50e5b698619644af12b7d77b69405) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '979efc94769654af0e33780fb2fb85f7') in 0.106187 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000034 seconds.
-  path: Assets/Sticky.physicsMaterial2D
-  artifactKey: Guid(b73cb3c9be8c9054fb8f985a9fb45099) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Sticky.physicsMaterial2D using Guid(b73cb3c9be8c9054fb8f985a9fb45099) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36cfaf84b8124594ac44bbe16a65bd64') in 0.002467 seconds 
-========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.007104 seconds.
+Registered in 0.006775 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory is not a mono symbol file
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.86 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.83 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.789 seconds
+- Completed reload, in  2.313 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1790ms)
-		BeginReloadAssembly (152ms)
+	ReloadAssembly (2313ms)
+		BeginReloadAssembly (207ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (8ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (38ms)
-		EndReloadAssembly (1512ms)
-			LoadAssemblies (135ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (356ms)
-			ReleaseScriptCaches (3ms)
-			RebuildScriptCaches (95ms)
-			SetupLoadedEditorAssemblies (774ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (26ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (145ms)
-				ProcessInitializeOnLoadAttributes (512ms)
-				ProcessInitializeOnLoadMethodAttributes (72ms)
-				AfterProcessingInitializeOnLoad (17ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (16ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 3.24 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2559 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 19 unused Assets / (95.3 KB). Loaded Objects now: 3065.
-Memory consumption went from 117.7 MB to 117.6 MB.
-Total: 5.029900 ms (FindLiveObjects: 0.297700 ms CreateObjectMapping: 0.236700 ms MarkObjects: 4.456500 ms  DeleteObjects: 0.037400 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007082 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory is not a mono symbol file
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.76 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.873 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1874ms)
-		BeginReloadAssembly (150ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (7ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (37ms)
-		EndReloadAssembly (1575ms)
-			LoadAssemblies (134ms)
+		EndReloadAssembly (1939ms)
+			LoadAssemblies (176ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (428ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (97ms)
-			SetupLoadedEditorAssemblies (760ms)
+			SetupTypeCache (281ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (60ms)
+			SetupLoadedEditorAssemblies (1397ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (41ms)
+				InitializePlatformSupportModulesInManaged (15ms)
 				SetLoadedEditorAssemblies (1ms)
 				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (136ms)
-				ProcessInitializeOnLoadAttributes (489ms)
-				ProcessInitializeOnLoadMethodAttributes (71ms)
-				AfterProcessingInitializeOnLoad (20ms)
-				EditorAssembliesLoaded (0ms)
+				BeforeProcessingInitializeOnLoad (850ms)
+				ProcessInitializeOnLoadAttributes (446ms)
+				ProcessInitializeOnLoadMethodAttributes (66ms)
+				AfterProcessingInitializeOnLoad (16ms)
+				EditorAssembliesLoaded (1ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (18ms)
+			AwakeInstancesAfterBackupRestoration (14ms)
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 2.95 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 3.22 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2559 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 19 unused Assets / (95.4 KB). Loaded Objects now: 3080.
+Unloading 19 unused Assets / (95.4 KB). Loaded Objects now: 3065.
 Memory consumption went from 117.7 MB to 117.6 MB.
-Total: 4.713000 ms (FindLiveObjects: 0.686600 ms CreateObjectMapping: 0.244000 ms MarkObjects: 3.738100 ms  DeleteObjects: 0.042600 ms)
+Total: 4.747800 ms (FindLiveObjects: 0.220900 ms CreateObjectMapping: 0.117100 ms MarkObjects: 4.248700 ms  DeleteObjects: 0.160100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -280,130 +213,7 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 65.808612 seconds.
-  path: Assets/Scenes
-  artifactKey: Guid(23db7c8058efd5046991877cfaff35fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes using Guid(23db7c8058efd5046991877cfaff35fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd74d1c83f75a0f8d5f82b919ff442079') in 0.005306 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 1.047290 seconds.
-  path: Assets/Scenes/Lab
-  artifactKey: Guid(d9f3df0db39d5524fb65e5610a599d21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab using Guid(d9f3df0db39d5524fb65e5610a599d21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b702128c6343cda41356d7c61fb8422') in 0.004668 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.072230 seconds.
-  path: Assets/Scenes/Lab/Lab3.scenetemplate
-  artifactKey: Guid(f5d6c3dc635faa64a94ad8e3389080ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/Lab3.scenetemplate using Guid(f5d6c3dc635faa64a94ad8e3389080ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Refresh completed but there are assets queued up for importing. Check for code that modifies assets which gets called after OnPostProcessAllAssets. Additional details in Log file
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEditor.SceneTemplate.SceneTemplateAsset:UpdateDependencies ()
-UnityEditor.SceneTemplate.SceneTemplateAssetInspectorWindow:UpdateSceneTemplateAsset ()
-UnityEditor.SceneTemplate.SceneTemplateAssetInspectorWindow:OnEnable ()
-UnityEditor.Editor:CreateEditorWithContext (UnityEngine.Object[],UnityEngine.Object,System.Type)
-UnityEditor.Editor:CreateEditor (UnityEngine.Object,System.Type)
-UnityEditor.Editor:CreateEditor (UnityEngine.Object)
-UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
-UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
-
-[C:\buildslave\unity\build\Modules\AssetDatabase\Editor\V2\AssetDatabaseInternal.cpp line 2193]
-
-Assets queued for import after Refresh completed:
-	Assets/Scenes/Lab/Lab3.scenetemplate
-Asset Pipeline Refresh: Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
-Assertion failed on expression: 'm_Ptr'
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEditor.SceneTemplate.SceneTemplateAsset:UpdateDependencies ()
-UnityEditor.SceneTemplate.SceneTemplateAssetInspectorWindow:UpdateSceneTemplateAsset ()
-UnityEditor.SceneTemplate.SceneTemplateAssetInspectorWindow:OnEnable ()
-UnityEditor.Editor:CreateEditorWithContext (UnityEngine.Object[],UnityEngine.Object,System.Type)
-UnityEditor.Editor:CreateEditor (UnityEngine.Object,System.Type)
-UnityEditor.Editor:CreateEditor (UnityEngine.Object)
-UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
-UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
-
-[C:\buildslave\unity\build\Runtime\Core\unique_ptr.h line 141]
-
-The asset at Assets/Scenes/Lab/Lab3.scenetemplate has been scheduled for reimport during the Refresh loop and Loading of it has been attempted.
-Doing this can lead to the AssetDatabase returning two versions of the same asset.
-Please ensure that code which attempts to reimport this asset does not run while the editor is Refreshing.
-You can do so by checking the value of EditorApplication.isUpdating
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEditor.SceneTemplate.SceneTemplateAsset:UpdateDependencies ()
-UnityEditor.SceneTemplate.SceneTemplateAssetInspectorWindow:UpdateSceneTemplateAsset ()
-UnityEditor.SceneTemplate.SceneTemplateAssetInspectorWindow:OnEnable ()
-UnityEditor.Editor:CreateEditorWithContext (UnityEngine.Object[],UnityEngine.Object,System.Type)
-UnityEditor.Editor:CreateEditor (UnityEngine.Object,System.Type)
-UnityEditor.Editor:CreateEditor (UnityEngine.Object)
-UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
-UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
-
-[C:\buildslave\unity\build\Modules\AssetDatabase\Editor\V2\AssetResolveTracker.cpp line 58]
-
-The asset at Assets/Scenes/Lab/Lab3.scenetemplate has been scheduled for reimport during the Refresh loop and Loading of it has been attempted.
-Doing this can lead to the AssetDatabase returning two versions of the same asset.
-Please ensure that code which attempts to reimport this asset does not run while the editor is Refreshing.
-You can do so by checking the value of EditorApplication.isUpdating
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEditor.TextureInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
-UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
-UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
-
-[C:\buildslave\unity\build\Modules\AssetDatabase\Editor\V2\AssetResolveTracker.cpp line 58]
-
-The asset at Assets/Scenes/Lab/Lab3.scenetemplate has been scheduled for reimport during the Refresh loop and Loading of it has been attempted.
-Doing this can lead to the AssetDatabase returning two versions of the same asset.
-Please ensure that code which attempts to reimport this asset does not run while the editor is Refreshing.
-You can do so by checking the value of EditorApplication.isUpdating
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEditor.TextureInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
-UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
-UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
-
-[C:\buildslave\unity\build\Modules\AssetDatabase\Editor\V2\AssetResolveTracker.cpp line 58]
-
-The asset at Assets/Scenes/Lab/Lab3.scenetemplate has been scheduled for reimport during the Refresh loop and Loading of it has been attempted.
-Doing this can lead to the AssetDatabase returning two versions of the same asset.
-Please ensure that code which attempts to reimport this asset does not run while the editor is Refreshing.
-You can do so by checking the value of EditorApplication.isUpdating
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEditor.TextureInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
-UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
-UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
-
-[C:\buildslave\unity\build\Modules\AssetDatabase\Editor\V2\AssetResolveTracker.cpp line 58]
-
-The asset at Assets/Scenes/Lab/Lab3.scenetemplate has been scheduled for reimport during the Refresh loop and Loading of it has been attempted.
-Doing this can lead to the AssetDatabase returning two versions of the same asset.
-Please ensure that code which attempts to reimport this asset does not run while the editor is Refreshing.
-You can do so by checking the value of EditorApplication.isUpdating
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEditor.TextureInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
-UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
-UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
-
-[C:\buildslave\unity\build\Modules\AssetDatabase\Editor\V2\AssetResolveTracker.cpp line 58]
-
-The asset at Assets/Scenes/Lab/Lab3.scenetemplate has been scheduled for reimport during the Refresh loop and Loading of it has been attempted.
-Doing this can lead to the AssetDatabase returning two versions of the same asset.
-Please ensure that code which attempts to reimport this asset does not run while the editor is Refreshing.
-You can do so by checking the value of EditorApplication.isUpdating
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEditor.TextureInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
-UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
-UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
-
-[C:\buildslave\unity\build\Modules\AssetDatabase\Editor\V2\AssetResolveTracker.cpp line 58]
-
-The asset at Assets/Scenes/Lab/Lab3.scenetemplate has been scheduled for reimport during the Refresh loop and Loading of it has been attempted.
-Doing this can lead to the AssetDatabase returning two versions of the same asset.
-Please ensure that code which attempts to reimport this asset does not run while the editor is Refreshing.
-You can do so by checking the value of EditorApplication.isUpdating
- -> (artifact id: '00000000000000000000000000000000') in 0.650083 seconds  code(4) message(Build asset version error: assets/scenes/lab/lab3.scenetemplate in SourceAssetDB has modification time of '2022-01-12T04:56:04.5968308Z' while content on disk has modification time of '2022-04-28T06:33:48.2096421Z')
-  ERROR: Build asset version error: assets/scenes/lab/lab3.scenetemplate in SourceAssetDB has modification time of '2022-01-12T04:56:04.5968308Z' while content on disk has modification time of '2022-04-28T06:33:48.2096421Z'
-========================================================================
-Received Import Request.
-  Time since last request: 0.000042 seconds.
+  Time since last request: 1590511.661413 seconds.
   path: Assets/Scenes/Lab/TempLabForTemplate 2.scenetemplate
   artifactKey: Guid(fb4ded1e508b16445ae9af0afe7e6f7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Scenes/Lab/TempLabForTemplate 2.scenetemplate using Guid(fb4ded1e508b16445ae9af0afe7e6f7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Refresh completed but there are assets queued up for importing. Check for code that modifies assets which gets called after OnPostProcessAllAssets. Additional details in Log file
@@ -420,7 +230,6 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 [C:\buildslave\unity\build\Modules\AssetDatabase\Editor\V2\AssetDatabaseInternal.cpp line 2193]
 
 Assets queued for import after Refresh completed:
-	Assets/Scenes/Lab/Lab3.scenetemplate
 	Assets/Scenes/Lab/TempLabForTemplate 2.scenetemplate
 Asset Pipeline Refresh: Total: 0.001 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
 Assertion failed on expression: 'm_Ptr'
@@ -511,11 +320,11 @@ The asset at Assets/Scenes/Lab/TempLabForTemplate 2.scenetemplate has been sched
 Doing this can lead to the AssetDatabase returning two versions of the same asset.
 Please ensure that code which attempts to reimport this asset does not run while the editor is Refreshing.
 You can do so by checking the value of EditorApplication.isUpdating
- -> (artifact id: '00000000000000000000000000000000') in 0.375818 seconds  code(4) message(Build asset version error: assets/scenes/lab/templabfortemplate 2.scenetemplate in SourceAssetDB has modification time of '2022-03-12T03:26:26.77265Z' while content on disk has modification time of '2022-04-28T06:33:48.8475402Z')
-  ERROR: Build asset version error: assets/scenes/lab/templabfortemplate 2.scenetemplate in SourceAssetDB has modification time of '2022-03-12T03:26:26.77265Z' while content on disk has modification time of '2022-04-28T06:33:48.8475402Z'
+ -> (artifact id: '00000000000000000000000000000000') in 1.181088 seconds  code(4) message(Build asset version error: assets/scenes/lab/templabfortemplate 2.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:50.4350244Z' while content on disk has modification time of '2022-05-08T05:12:41.6559162Z')
+  ERROR: Build asset version error: assets/scenes/lab/templabfortemplate 2.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:50.4350244Z' while content on disk has modification time of '2022-05-08T05:12:41.6559162Z'
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000040 seconds.
+  Time since last request: 0.000039 seconds.
   path: Assets/Scenes/Lab/TempLabForTemplate 4.scenetemplate
   artifactKey: Guid(10302c4ae6ff6a34c927bada2406334c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Scenes/Lab/TempLabForTemplate 4.scenetemplate using Guid(10302c4ae6ff6a34c927bada2406334c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Refresh completed but there are assets queued up for importing. Check for code that modifies assets which gets called after OnPostProcessAllAssets. Additional details in Log file
@@ -532,7 +341,6 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 [C:\buildslave\unity\build\Modules\AssetDatabase\Editor\V2\AssetDatabaseInternal.cpp line 2193]
 
 Assets queued for import after Refresh completed:
-	Assets/Scenes/Lab/Lab3.scenetemplate
 	Assets/Scenes/Lab/TempLabForTemplate 4.scenetemplate
 	Assets/Scenes/Lab/TempLabForTemplate 2.scenetemplate
 Asset Pipeline Refresh: Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
@@ -624,14 +432,14 @@ The asset at Assets/Scenes/Lab/TempLabForTemplate 4.scenetemplate has been sched
 Doing this can lead to the AssetDatabase returning two versions of the same asset.
 Please ensure that code which attempts to reimport this asset does not run while the editor is Refreshing.
 You can do so by checking the value of EditorApplication.isUpdating
- -> (artifact id: '00000000000000000000000000000000') in 0.282416 seconds  code(4) message(Build asset version error: assets/scenes/lab/templabfortemplate 4.scenetemplate in SourceAssetDB has modification time of '2022-03-29T02:49:47.4692225Z' while content on disk has modification time of '2022-04-28T06:33:49.1452461Z')
-  ERROR: Build asset version error: assets/scenes/lab/templabfortemplate 4.scenetemplate in SourceAssetDB has modification time of '2022-03-29T02:49:47.4692225Z' while content on disk has modification time of '2022-04-28T06:33:49.1452461Z'
+ -> (artifact id: '00000000000000000000000000000000') in 0.282514 seconds  code(4) message(Build asset version error: assets/scenes/lab/templabfortemplate 4.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:49.4361958Z' while content on disk has modification time of '2022-05-08T05:12:42.4700186Z')
+  ERROR: Build asset version error: assets/scenes/lab/templabfortemplate 4.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:49.4361958Z' while content on disk has modification time of '2022-05-08T05:12:42.4700186Z'
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000050 seconds.
-  path: Assets/Scenes/Lab/TemplateLevel 1.scenetemplate
-  artifactKey: Guid(5dbd6905375880c4b946eca17eb53861) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TemplateLevel 1.scenetemplate using Guid(5dbd6905375880c4b946eca17eb53861) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Refresh completed but there are assets queued up for importing. Check for code that modifies assets which gets called after OnPostProcessAllAssets. Additional details in Log file
+  Time since last request: 0.000077 seconds.
+  path: Assets/Scenes/Lab/TemplateLevel.scenetemplate
+  artifactKey: Guid(ecacc6cb6eae4cb48931efe79ba0dfa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Lab/TemplateLevel.scenetemplate using Guid(ecacc6cb6eae4cb48931efe79ba0dfa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Refresh completed but there are assets queued up for importing. Check for code that modifies assets which gets called after OnPostProcessAllAssets. Additional details in Log file
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
 UnityEditor.SceneTemplate.SceneTemplateAsset:UpdateDependencies ()
 UnityEditor.SceneTemplate.SceneTemplateAssetInspectorWindow:UpdateSceneTemplateAsset ()
@@ -645,8 +453,7 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 [C:\buildslave\unity\build\Modules\AssetDatabase\Editor\V2\AssetDatabaseInternal.cpp line 2193]
 
 Assets queued for import after Refresh completed:
-	Assets/Scenes/Lab/Lab3.scenetemplate
-	Assets/Scenes/Lab/TemplateLevel 1.scenetemplate
+	Assets/Scenes/Lab/TemplateLevel.scenetemplate
 	Assets/Scenes/Lab/TempLabForTemplate 4.scenetemplate
 	Assets/Scenes/Lab/TempLabForTemplate 2.scenetemplate
 Asset Pipeline Refresh: Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
@@ -663,7 +470,7 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Runtime\Core\unique_ptr.h line 141]
 
-The asset at Assets/Scenes/Lab/TemplateLevel 1.scenetemplate has been scheduled for reimport during the Refresh loop and Loading of it has been attempted.
+The asset at Assets/Scenes/Lab/TemplateLevel.scenetemplate has been scheduled for reimport during the Refresh loop and Loading of it has been attempted.
 Doing this can lead to the AssetDatabase returning two versions of the same asset.
 Please ensure that code which attempts to reimport this asset does not run while the editor is Refreshing.
 You can do so by checking the value of EditorApplication.isUpdating
@@ -679,21 +486,70 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 [C:\buildslave\unity\build\Modules\AssetDatabase\Editor\V2\AssetResolveTracker.cpp line 58]
 
-The asset at Assets/Scenes/Lab/TemplateLevel 1.scenetemplate has been scheduled for reimport during the Refresh loop and Loading of it has been attempted.
+The asset at Assets/Scenes/Lab/TemplateLevel.scenetemplate has been scheduled for reimport during the Refresh loop and Loading of it has been attempted.
 Doing this can lead to the AssetDatabase returning two versions of the same asset.
 Please ensure that code which attempts to reimport this asset does not run while the editor is Refreshing.
 You can do so by checking the value of EditorApplication.isUpdating
- -> (artifact id: '00000000000000000000000000000000') in 0.112530 seconds  code(4) message(Build asset version error: assets/scenes/lab/templatelevel 1.scenetemplate in SourceAssetDB has modification time of '2022-04-22T04:19:22.2159996Z' while content on disk has modification time of '2022-04-28T06:33:49.3713664Z')
-  ERROR: Build asset version error: assets/scenes/lab/templatelevel 1.scenetemplate in SourceAssetDB has modification time of '2022-04-22T04:19:22.2159996Z' while content on disk has modification time of '2022-04-28T06:33:49.3713664Z'
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.TextureInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules\AssetDatabase\Editor\V2\AssetResolveTracker.cpp line 58]
+
+The asset at Assets/Scenes/Lab/TemplateLevel.scenetemplate has been scheduled for reimport during the Refresh loop and Loading of it has been attempted.
+Doing this can lead to the AssetDatabase returning two versions of the same asset.
+Please ensure that code which attempts to reimport this asset does not run while the editor is Refreshing.
+You can do so by checking the value of EditorApplication.isUpdating
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.TextureInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules\AssetDatabase\Editor\V2\AssetResolveTracker.cpp line 58]
+
+The asset at Assets/Scenes/Lab/TemplateLevel.scenetemplate has been scheduled for reimport during the Refresh loop and Loading of it has been attempted.
+Doing this can lead to the AssetDatabase returning two versions of the same asset.
+Please ensure that code which attempts to reimport this asset does not run while the editor is Refreshing.
+You can do so by checking the value of EditorApplication.isUpdating
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.TextureInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules\AssetDatabase\Editor\V2\AssetResolveTracker.cpp line 58]
+
+The asset at Assets/Scenes/Lab/TemplateLevel.scenetemplate has been scheduled for reimport during the Refresh loop and Loading of it has been attempted.
+Doing this can lead to the AssetDatabase returning two versions of the same asset.
+Please ensure that code which attempts to reimport this asset does not run while the editor is Refreshing.
+You can do so by checking the value of EditorApplication.isUpdating
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.TextureInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules\AssetDatabase\Editor\V2\AssetResolveTracker.cpp line 58]
+
+The asset at Assets/Scenes/Lab/TemplateLevel.scenetemplate has been scheduled for reimport during the Refresh loop and Loading of it has been attempted.
+Doing this can lead to the AssetDatabase returning two versions of the same asset.
+Please ensure that code which attempts to reimport this asset does not run while the editor is Refreshing.
+You can do so by checking the value of EditorApplication.isUpdating
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.TextureInspector:RenderStaticPreview (string,UnityEngine.Object[],int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreview (UnityEngine.Object,UnityEngine.Object[],string,int,int)
+UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityEngine.Object[],string)
+
+[C:\buildslave\unity\build\Modules\AssetDatabase\Editor\V2\AssetResolveTracker.cpp line 58]
+
+The asset at Assets/Scenes/Lab/TemplateLevel.scenetemplate has been scheduled for reimport during the Refresh loop and Loading of it has been attempted.
+Doing this can lead to the AssetDatabase returning two versions of the same asset.
+Please ensure that code which attempts to reimport this asset does not run while the editor is Refreshing.
+You can do so by checking the value of EditorApplication.isUpdating
+ -> (artifact id: '00000000000000000000000000000000') in 0.408947 seconds  code(4) message(Build asset version error: assets/scenes/lab/templatelevel.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:49.155944Z' while content on disk has modification time of '2022-05-08T05:12:42.8119939Z')
+  ERROR: Build asset version error: assets/scenes/lab/templatelevel.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:49.155944Z' while content on disk has modification time of '2022-05-08T05:12:42.8119939Z'
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000038 seconds.
-  path: Assets/Scenes/Lab/TemplateLevel.scenetemplate
-  artifactKey: Guid(ecacc6cb6eae4cb48931efe79ba0dfa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TemplateLevel.scenetemplate using Guid(ecacc6cb6eae4cb48931efe79ba0dfa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8b2bd2a493a549f535ef9ea89301e3c') in 0.227996 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
+  Time since last request: 0.000037 seconds.
   path: Assets/Scenes/Lab/TempLabForTemplate.scenetemplate
   artifactKey: Guid(9b668d0371ec0944f9ef88221fd2bad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Scenes/Lab/TempLabForTemplate.scenetemplate using Guid(9b668d0371ec0944f9ef88221fd2bad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Refresh completed but there are assets queued up for importing. Check for code that modifies assets which gets called after OnPostProcessAllAssets. Additional details in Log file
@@ -711,8 +567,7 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 Assets queued for import after Refresh completed:
 	Assets/Scenes/Lab/TempLabForTemplate 2.scenetemplate
-	Assets/Scenes/Lab/Lab3.scenetemplate
-	Assets/Scenes/Lab/TemplateLevel 1.scenetemplate
+	Assets/Scenes/Lab/TemplateLevel.scenetemplate
 	Assets/Scenes/Lab/TempLabForTemplate 4.scenetemplate
 	Assets/Scenes/Lab/TempLabForTemplate.scenetemplate
 Asset Pipeline Refresh: Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
@@ -804,8 +659,8 @@ The asset at Assets/Scenes/Lab/TempLabForTemplate.scenetemplate has been schedul
 Doing this can lead to the AssetDatabase returning two versions of the same asset.
 Please ensure that code which attempts to reimport this asset does not run while the editor is Refreshing.
 You can do so by checking the value of EditorApplication.isUpdating
- -> (artifact id: '00000000000000000000000000000000') in 0.183599 seconds  code(4) message(Build asset version error: assets/scenes/lab/templabfortemplate.scenetemplate in SourceAssetDB has modification time of '2022-02-27T21:53:43.7919644Z' while content on disk has modification time of '2022-04-28T06:33:49.7681685Z')
-  ERROR: Build asset version error: assets/scenes/lab/templabfortemplate.scenetemplate in SourceAssetDB has modification time of '2022-02-27T21:53:43.7919644Z' while content on disk has modification time of '2022-04-28T06:33:49.7681685Z'
+ -> (artifact id: '00000000000000000000000000000000') in 0.642329 seconds  code(4) message(Build asset version error: assets/scenes/lab/templabfortemplate.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:50.6866847Z' while content on disk has modification time of '2022-05-08T05:12:43.6298475Z')
+  ERROR: Build asset version error: assets/scenes/lab/templabfortemplate.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:50.6866847Z' while content on disk has modification time of '2022-05-08T05:12:43.6298475Z'
 ========================================================================
 Received Import Request.
   Time since last request: 0.000041 seconds.
@@ -826,9 +681,8 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 
 Assets queued for import after Refresh completed:
 	Assets/Scenes/Lab/TempLabForTemplate 2.scenetemplate
-	Assets/Scenes/Lab/TemplateLevel 1.scenetemplate
+	Assets/Scenes/Lab/TemplateLevel.scenetemplate
 	Assets/Scenes/Lab/TempLabForTemplate 4.scenetemplate
-	Assets/Scenes/Lab/Lab3.scenetemplate
 	Assets/Scenes/Lab/TempLabForTemplate 1.scenetemplate
 	Assets/Scenes/Lab/TempLabForTemplate.scenetemplate
 Asset Pipeline Refresh: Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
@@ -920,17 +774,11 @@ The asset at Assets/Scenes/Lab/TempLabForTemplate 1.scenetemplate has been sched
 Doing this can lead to the AssetDatabase returning two versions of the same asset.
 Please ensure that code which attempts to reimport this asset does not run while the editor is Refreshing.
 You can do so by checking the value of EditorApplication.isUpdating
- -> (artifact id: '00000000000000000000000000000000') in 0.267393 seconds  code(4) message(Build asset version error: assets/scenes/lab/templabfortemplate 1.scenetemplate in SourceAssetDB has modification time of '2022-02-28T05:16:01.2855341Z' while content on disk has modification time of '2022-04-28T06:33:49.9711331Z')
-  ERROR: Build asset version error: assets/scenes/lab/templabfortemplate 1.scenetemplate in SourceAssetDB has modification time of '2022-02-28T05:16:01.2855341Z' while content on disk has modification time of '2022-04-28T06:33:49.9711331Z'
+ -> (artifact id: '00000000000000000000000000000000') in 0.370841 seconds  code(4) message(Build asset version error: assets/scenes/lab/templabfortemplate 1.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:49.8984699Z' while content on disk has modification time of '2022-05-08T05:12:43.9122052Z')
+  ERROR: Build asset version error: assets/scenes/lab/templabfortemplate 1.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:49.8984699Z' while content on disk has modification time of '2022-05-08T05:12:43.9122052Z'
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000035 seconds.
-  path: Assets/Scenes/Lab/TemplateLevel 3.scenetemplate
-  artifactKey: Guid(501c6008ce837c8479b50a2a5a6d64d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TemplateLevel 3.scenetemplate using Guid(501c6008ce837c8479b50a2a5a6d64d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ba864a3083e12e77365c07beb66464f') in 0.109781 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000245 seconds.
+  Time since last request: 0.000040 seconds.
   path: Assets/Scenes/Lab/TempLabForTemplate 3.scenetemplate
   artifactKey: Guid(826a186a64c88b047b1c79c4e793b1bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Scenes/Lab/TempLabForTemplate 3.scenetemplate using Guid(826a186a64c88b047b1c79c4e793b1bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Refresh completed but there are assets queued up for importing. Check for code that modifies assets which gets called after OnPostProcessAllAssets. Additional details in Log file
@@ -949,9 +797,8 @@ UnityEditor.AssetPreviewUpdater:CreatePreviewForAsset (UnityEngine.Object,UnityE
 Assets queued for import after Refresh completed:
 	Assets/Scenes/Lab/TempLabForTemplate 2.scenetemplate
 	Assets/Scenes/Lab/TempLabForTemplate 1.scenetemplate
-	Assets/Scenes/Lab/TemplateLevel 1.scenetemplate
 	Assets/Scenes/Lab/TempLabForTemplate 4.scenetemplate
-	Assets/Scenes/Lab/Lab3.scenetemplate
+	Assets/Scenes/Lab/TemplateLevel.scenetemplate
 	Assets/Scenes/Lab/TempLabForTemplate 3.scenetemplate
 	Assets/Scenes/Lab/TempLabForTemplate.scenetemplate
 Asset Pipeline Refresh: Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
@@ -1043,423 +890,83 @@ The asset at Assets/Scenes/Lab/TempLabForTemplate 3.scenetemplate has been sched
 Doing this can lead to the AssetDatabase returning two versions of the same asset.
 Please ensure that code which attempts to reimport this asset does not run while the editor is Refreshing.
 You can do so by checking the value of EditorApplication.isUpdating
- -> (artifact id: '00000000000000000000000000000000') in 0.276355 seconds  code(4) message(Build asset version error: assets/scenes/lab/templabfortemplate 3.scenetemplate in SourceAssetDB has modification time of '2022-03-13T07:35:35.0215116Z' while content on disk has modification time of '2022-04-28T06:33:50.3685801Z')
-  ERROR: Build asset version error: assets/scenes/lab/templabfortemplate 3.scenetemplate in SourceAssetDB has modification time of '2022-03-13T07:35:35.0215116Z' while content on disk has modification time of '2022-04-28T06:33:50.3685801Z'
+ -> (artifact id: '00000000000000000000000000000000') in 0.409015 seconds  code(4) message(Build asset version error: assets/scenes/lab/templabfortemplate 3.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:50.1669868Z' while content on disk has modification time of '2022-05-08T05:12:44.3184819Z')
+  ERROR: Build asset version error: assets/scenes/lab/templabfortemplate 3.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:50.1669868Z' while content on disk has modification time of '2022-05-08T05:12:44.3184819Z'
 ========================================================================
 Received Import Request.
-  Time since last request: 7.516660 seconds.
-  path: Assets/Scenes/Lab/Lab30.unity
-  artifactKey: Guid(7977a52df0f85004ca9dee853073f6c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/Lab30.unity using Guid(7977a52df0f85004ca9dee853073f6c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ddb93fcf56e51eaba8958e409ed55ddb') in 0.003849 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.008433 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory is not a mono symbol file
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.80 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.918 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1919ms)
-		BeginReloadAssembly (150ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (8ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (38ms)
-		EndReloadAssembly (1626ms)
-			LoadAssemblies (110ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (467ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (101ms)
-			SetupLoadedEditorAssemblies (781ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (26ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (160ms)
-				ProcessInitializeOnLoadAttributes (476ms)
-				ProcessInitializeOnLoadMethodAttributes (87ms)
-				AfterProcessingInitializeOnLoad (29ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (14ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 6.52 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2559 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 32 unused Assets / (102.6 KB). Loaded Objects now: 3102.
-Memory consumption went from 122.7 MB to 122.6 MB.
-Total: 12.965300 ms (FindLiveObjects: 1.859100 ms CreateObjectMapping: 0.475500 ms MarkObjects: 10.225600 ms  DeleteObjects: 0.390800 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 22.124382 seconds.
-  path: Assets/Scenes/Lab/Lab3.scenetemplate
-  artifactKey: Guid(f5d6c3dc635faa64a94ad8e3389080ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/Lab3.scenetemplate using Guid(f5d6c3dc635faa64a94ad8e3389080ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.002082 seconds  code(4) message(Build asset version error: assets/scenes/lab/lab3.scenetemplate in SourceAssetDB has modification time of '2022-01-12T04:56:04.5968308Z' while content on disk has modification time of '2022-04-28T06:33:48.2096421Z')
-  ERROR: Build asset version error: assets/scenes/lab/lab3.scenetemplate in SourceAssetDB has modification time of '2022-01-12T04:56:04.5968308Z' while content on disk has modification time of '2022-04-28T06:33:48.2096421Z'
-========================================================================
-Received Import Request.
-  Time since last request: 0.000043 seconds.
-  path: Assets/Scenes/Lab/TempLabForTemplate 2.scenetemplate
-  artifactKey: Guid(fb4ded1e508b16445ae9af0afe7e6f7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TempLabForTemplate 2.scenetemplate using Guid(fb4ded1e508b16445ae9af0afe7e6f7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000384 seconds  code(4) message(Build asset version error: assets/scenes/lab/templabfortemplate 2.scenetemplate in SourceAssetDB has modification time of '2022-03-12T03:26:26.77265Z' while content on disk has modification time of '2022-04-28T06:33:48.8475402Z')
-  ERROR: Build asset version error: assets/scenes/lab/templabfortemplate 2.scenetemplate in SourceAssetDB has modification time of '2022-03-12T03:26:26.77265Z' while content on disk has modification time of '2022-04-28T06:33:48.8475402Z'
-========================================================================
-Received Import Request.
-  Time since last request: 0.000035 seconds.
-  path: Assets/Scenes/Lab/TempLabForTemplate 4.scenetemplate
-  artifactKey: Guid(10302c4ae6ff6a34c927bada2406334c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TempLabForTemplate 4.scenetemplate using Guid(10302c4ae6ff6a34c927bada2406334c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000347 seconds  code(4) message(Build asset version error: assets/scenes/lab/templabfortemplate 4.scenetemplate in SourceAssetDB has modification time of '2022-03-29T02:49:47.4692225Z' while content on disk has modification time of '2022-04-28T06:33:49.1452461Z')
-  ERROR: Build asset version error: assets/scenes/lab/templabfortemplate 4.scenetemplate in SourceAssetDB has modification time of '2022-03-29T02:49:47.4692225Z' while content on disk has modification time of '2022-04-28T06:33:49.1452461Z'
-========================================================================
-Received Import Request.
-  Time since last request: 0.000039 seconds.
-  path: Assets/Scenes/Lab/TemplateLevel 1.scenetemplate
-  artifactKey: Guid(5dbd6905375880c4b946eca17eb53861) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TemplateLevel 1.scenetemplate using Guid(5dbd6905375880c4b946eca17eb53861) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000454 seconds  code(4) message(Build asset version error: assets/scenes/lab/templatelevel 1.scenetemplate in SourceAssetDB has modification time of '2022-04-22T04:19:22.2159996Z' while content on disk has modification time of '2022-04-28T06:33:49.3713664Z')
-  ERROR: Build asset version error: assets/scenes/lab/templatelevel 1.scenetemplate in SourceAssetDB has modification time of '2022-04-22T04:19:22.2159996Z' while content on disk has modification time of '2022-04-28T06:33:49.3713664Z'
-========================================================================
-Received Import Request.
-  Time since last request: 0.000031 seconds.
-  path: Assets/Scenes/Lab/TempLabForTemplate.scenetemplate
-  artifactKey: Guid(9b668d0371ec0944f9ef88221fd2bad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TempLabForTemplate.scenetemplate using Guid(9b668d0371ec0944f9ef88221fd2bad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000478 seconds  code(4) message(Build asset version error: assets/scenes/lab/templabfortemplate.scenetemplate in SourceAssetDB has modification time of '2022-02-27T21:53:43.7919644Z' while content on disk has modification time of '2022-04-28T06:33:49.7681685Z')
-  ERROR: Build asset version error: assets/scenes/lab/templabfortemplate.scenetemplate in SourceAssetDB has modification time of '2022-02-27T21:53:43.7919644Z' while content on disk has modification time of '2022-04-28T06:33:49.7681685Z'
-========================================================================
-Received Import Request.
-  Time since last request: 0.000035 seconds.
+  Time since last request: 36.278875 seconds.
   path: Assets/Scenes/Lab/TempLabForTemplate 1.scenetemplate
   artifactKey: Guid(f528105fb58bd6b4ea12f8b33406a203) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TempLabForTemplate 1.scenetemplate using Guid(f528105fb58bd6b4ea12f8b33406a203) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000574 seconds  code(4) message(Build asset version error: assets/scenes/lab/templabfortemplate 1.scenetemplate in SourceAssetDB has modification time of '2022-02-28T05:16:01.2855341Z' while content on disk has modification time of '2022-04-28T06:33:49.9711331Z')
-  ERROR: Build asset version error: assets/scenes/lab/templabfortemplate 1.scenetemplate in SourceAssetDB has modification time of '2022-02-28T05:16:01.2855341Z' while content on disk has modification time of '2022-04-28T06:33:49.9711331Z'
+Start importing Assets/Scenes/Lab/TempLabForTemplate 1.scenetemplate using Guid(f528105fb58bd6b4ea12f8b33406a203) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000517 seconds  code(4) message(Build asset version error: assets/scenes/lab/templabfortemplate 1.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:49.8984699Z' while content on disk has modification time of '2022-05-08T05:12:43.9122052Z')
+  ERROR: Build asset version error: assets/scenes/lab/templabfortemplate 1.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:49.8984699Z' while content on disk has modification time of '2022-05-08T05:12:43.9122052Z'
 ========================================================================
 Received Import Request.
   Time since last request: 0.000036 seconds.
-  path: Assets/Scenes/Lab/TempLabForTemplate 3.scenetemplate
-  artifactKey: Guid(826a186a64c88b047b1c79c4e793b1bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TempLabForTemplate 3.scenetemplate using Guid(826a186a64c88b047b1c79c4e793b1bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000370 seconds  code(4) message(Build asset version error: assets/scenes/lab/templabfortemplate 3.scenetemplate in SourceAssetDB has modification time of '2022-03-13T07:35:35.0215116Z' while content on disk has modification time of '2022-04-28T06:33:50.3685801Z')
-  ERROR: Build asset version error: assets/scenes/lab/templabfortemplate 3.scenetemplate in SourceAssetDB has modification time of '2022-03-13T07:35:35.0215116Z' while content on disk has modification time of '2022-04-28T06:33:50.3685801Z'
-========================================================================
-Received Import Request.
-  Time since last request: 16.222581 seconds.
-  path: Assets/Prefabs/Stuff for each level
-  artifactKey: Guid(0688bd793f6554c4b81c8f8462c9f819) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Stuff for each level using Guid(0688bd793f6554c4b81c8f8462c9f819) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3309c3b37b7e3c6dde7e9f55db09b90f') in 0.005597 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.041690 seconds.
-  path: Assets/Prefabs/Stuff for each level/AudioManager.prefab
-  artifactKey: Guid(b76b0b5ddbf471c42b5127b1b844be49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Stuff for each level/AudioManager.prefab using Guid(b76b0b5ddbf471c42b5127b1b844be49) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73b89423c8bcb72954bc1a2565de10dd') in 0.028715 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000019 seconds.
-  path: Assets/Prefabs/Stuff for each level/Canvas.prefab
-  artifactKey: Guid(e32a00f15d468c745839711decfa0fc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Stuff for each level/Canvas.prefab using Guid(e32a00f15d468c745839711decfa0fc0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '155b8359e1d8fa0c9d59509a609d1dae') in 0.088426 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000032 seconds.
-  path: Assets/Prefabs/Stuff for each level/Main Camera 1.prefab
-  artifactKey: Guid(9865ced158232f94cb8609a8674e8169) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Stuff for each level/Main Camera 1.prefab using Guid(9865ced158232f94cb8609a8674e8169) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '122901ef9cd839594366e58c784a7994') in 0.008408 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/Prefabs/Stuff for each level/SceneManager.prefab
-  artifactKey: Guid(941d92e2a60317b43934278f7f047a96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Stuff for each level/SceneManager.prefab using Guid(941d92e2a60317b43934278f7f047a96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ec5625f080a306402668de6196f1169') in 0.008550 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000094 seconds.
-  path: Assets/Prefabs/Stuff for each level/DialogueManager.prefab
-  artifactKey: Guid(be8f348272c9ede41a9a994ae7d397cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Stuff for each level/DialogueManager.prefab using Guid(be8f348272c9ede41a9a994ae7d397cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9398dcd1116d822f3205c3cd2fe35d77') in 0.006384 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Prefabs/Stuff for each level/Grapple.prefab
-  artifactKey: Guid(81f116ae36e16e647a9ad1dc6c0b527c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Stuff for each level/Grapple.prefab using Guid(81f116ae36e16e647a9ad1dc6c0b527c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76c3ed0a177d3b6975163a2b9a57f810') in 0.118252 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Prefabs/Stuff for each level/Level Exit.prefab
-  artifactKey: Guid(141a14e8d7bab7445ae1ecca5dc4c8b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Stuff for each level/Level Exit.prefab using Guid(141a14e8d7bab7445ae1ecca5dc4c8b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a02a3004cba95dd4f2e563a5eb265fc') in 0.006210 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000072 seconds.
-  path: Assets/Prefabs/Stuff for each level/Player.prefab
-  artifactKey: Guid(71e1d79bc18b12244ad0b590fe26cfc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Stuff for each level/Player.prefab using Guid(71e1d79bc18b12244ad0b590fe26cfc5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5741ac047172fa66f239e8da97daf7a7') in 0.246212 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Prefabs/Stuff for each level/DimmerCanvas.prefab
-  artifactKey: Guid(cf75c4454bb518b4096fa1ecb342dc52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Stuff for each level/DimmerCanvas.prefab using Guid(cf75c4454bb518b4096fa1ecb342dc52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b07dc8c9fe6b3dff17a438af0a17d577') in 0.007557 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000035 seconds.
-  path: Assets/Prefabs/Stuff for each level/CM vcam1.prefab
-  artifactKey: Guid(45a6e616546fdb446992b93e935361db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Stuff for each level/CM vcam1.prefab using Guid(45a6e616546fdb446992b93e935361db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0193be39357493b841365240fdb3780') in 0.010802 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.007037 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory is not a mono symbol file
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.67 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.809 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1810ms)
-		BeginReloadAssembly (150ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (8ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (37ms)
-		EndReloadAssembly (1530ms)
-			LoadAssemblies (117ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (300ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (131ms)
-			SetupLoadedEditorAssemblies (839ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (26ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (124ms)
-				ProcessInitializeOnLoadAttributes (594ms)
-				ProcessInitializeOnLoadMethodAttributes (70ms)
-				AfterProcessingInitializeOnLoad (24ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (17ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 22.04 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2559 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 26 unused Assets / (100.9 KB). Loaded Objects now: 3122.
-Memory consumption went from 122.7 MB to 122.6 MB.
-Total: 6.253000 ms (FindLiveObjects: 0.218200 ms CreateObjectMapping: 0.241400 ms MarkObjects: 5.737800 ms  DeleteObjects: 0.054500 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 33.123472 seconds.
-  path: Assets/Scenes/Lab/Lab3.scenetemplate
-  artifactKey: Guid(f5d6c3dc635faa64a94ad8e3389080ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/Lab3.scenetemplate using Guid(f5d6c3dc635faa64a94ad8e3389080ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd90eeaf03473d4a75036da451c506b5e') in 0.006655 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
   path: Assets/Scenes/Lab/TempLabForTemplate 2.scenetemplate
   artifactKey: Guid(fb4ded1e508b16445ae9af0afe7e6f7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TempLabForTemplate 2.scenetemplate using Guid(fb4ded1e508b16445ae9af0afe7e6f7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa18760776ad3fb23237eaee69179da8') in 0.001763 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Scenes/Lab/TempLabForTemplate 4.scenetemplate
-  artifactKey: Guid(10302c4ae6ff6a34c927bada2406334c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TempLabForTemplate 4.scenetemplate using Guid(10302c4ae6ff6a34c927bada2406334c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ac3102d08109d8d1b23100d1d213588') in 0.002093 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000093 seconds.
-  path: Assets/Scenes/Lab/TemplateLevel 1.scenetemplate
-  artifactKey: Guid(5dbd6905375880c4b946eca17eb53861) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TemplateLevel 1.scenetemplate using Guid(5dbd6905375880c4b946eca17eb53861) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ce772079d898166924c7f50738924ae') in 0.002540 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Scenes/Lab/TempLabForTemplate.scenetemplate
-  artifactKey: Guid(9b668d0371ec0944f9ef88221fd2bad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TempLabForTemplate.scenetemplate using Guid(9b668d0371ec0944f9ef88221fd2bad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf51f3be88f51102cfc4ec4617ba0199') in 0.002255 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Scenes/Lab/TempLabForTemplate 1.scenetemplate
-  artifactKey: Guid(f528105fb58bd6b4ea12f8b33406a203) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TempLabForTemplate 1.scenetemplate using Guid(f528105fb58bd6b4ea12f8b33406a203) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '814402e083c7bc921d4c2e626a095b08') in 0.002140 seconds 
+Start importing Assets/Scenes/Lab/TempLabForTemplate 2.scenetemplate using Guid(fb4ded1e508b16445ae9af0afe7e6f7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000511 seconds  code(4) message(Build asset version error: assets/scenes/lab/templabfortemplate 2.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:50.4350244Z' while content on disk has modification time of '2022-05-08T05:12:41.6559162Z')
+  ERROR: Build asset version error: assets/scenes/lab/templabfortemplate 2.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:50.4350244Z' while content on disk has modification time of '2022-05-08T05:12:41.6559162Z'
 ========================================================================
 Received Import Request.
   Time since last request: 0.000030 seconds.
-  path: Assets/Scenes/Lab/TempLabForTemplate 3.scenetemplate
-  artifactKey: Guid(826a186a64c88b047b1c79c4e793b1bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TempLabForTemplate 3.scenetemplate using Guid(826a186a64c88b047b1c79c4e793b1bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a1419a866bec9eb52c57026eb289c90') in 0.002949 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 2.051366 seconds.
-  path: Assets/Scenes/Lab/Lab19.unity
-  artifactKey: Guid(2f32c28f13569a44597c82c629134444) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/Lab19.unity using Guid(2f32c28f13569a44597c82c629134444) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a73346ab72dad0f20a474d36d963e9b') in 0.001703 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006904 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory is not a mono symbol file
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.84 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.729 seconds
-Domain Reload Profiling:
-	ReloadAssembly (1730ms)
-		BeginReloadAssembly (146ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (7ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (36ms)
-		EndReloadAssembly (1462ms)
-			LoadAssemblies (107ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (321ms)
-			ReleaseScriptCaches (3ms)
-			RebuildScriptCaches (92ms)
-			SetupLoadedEditorAssemblies (764ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (25ms)
-				SetLoadedEditorAssemblies (2ms)
-				RefreshPlugins (1ms)
-				BeforeProcessingInitializeOnLoad (120ms)
-				ProcessInitializeOnLoadAttributes (513ms)
-				ProcessInitializeOnLoadMethodAttributes (69ms)
-				AfterProcessingInitializeOnLoad (33ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (18ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 3.57 ms, found 3 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2559 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 19 unused Assets / (95.3 KB). Loaded Objects now: 3137.
-Memory consumption went from 122.7 MB to 122.6 MB.
-Total: 4.089400 ms (FindLiveObjects: 0.241600 ms CreateObjectMapping: 0.139700 ms MarkObjects: 3.672400 ms  DeleteObjects: 0.034700 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 37.078700 seconds.
-  path: Assets/Scenes/Lab/Lab3.scenetemplate
-  artifactKey: Guid(f5d6c3dc635faa64a94ad8e3389080ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/Lab3.scenetemplate using Guid(f5d6c3dc635faa64a94ad8e3389080ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd90eeaf03473d4a75036da451c506b5e') in 0.008738 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Scenes/Lab/TempLabForTemplate 2.scenetemplate
-  artifactKey: Guid(fb4ded1e508b16445ae9af0afe7e6f7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TempLabForTemplate 2.scenetemplate using Guid(fb4ded1e508b16445ae9af0afe7e6f7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa18760776ad3fb23237eaee69179da8') in 0.002276 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
   path: Assets/Scenes/Lab/TempLabForTemplate 4.scenetemplate
   artifactKey: Guid(10302c4ae6ff6a34c927bada2406334c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TempLabForTemplate 4.scenetemplate using Guid(10302c4ae6ff6a34c927bada2406334c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ac3102d08109d8d1b23100d1d213588') in 0.001672 seconds 
+Start importing Assets/Scenes/Lab/TempLabForTemplate 4.scenetemplate using Guid(10302c4ae6ff6a34c927bada2406334c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000496 seconds  code(4) message(Build asset version error: assets/scenes/lab/templabfortemplate 4.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:49.4361958Z' while content on disk has modification time of '2022-05-08T05:12:42.4700186Z')
+  ERROR: Build asset version error: assets/scenes/lab/templabfortemplate 4.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:49.4361958Z' while content on disk has modification time of '2022-05-08T05:12:42.4700186Z'
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Scenes/Lab/TemplateLevel 1.scenetemplate
-  artifactKey: Guid(5dbd6905375880c4b946eca17eb53861) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TemplateLevel 1.scenetemplate using Guid(5dbd6905375880c4b946eca17eb53861) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ce772079d898166924c7f50738924ae') in 0.008381 seconds 
+  Time since last request: 0.000030 seconds.
+  path: Assets/Scenes/Lab/TemplateLevel.scenetemplate
+  artifactKey: Guid(ecacc6cb6eae4cb48931efe79ba0dfa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Lab/TemplateLevel.scenetemplate using Guid(ecacc6cb6eae4cb48931efe79ba0dfa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000692 seconds  code(4) message(Build asset version error: assets/scenes/lab/templatelevel.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:49.155944Z' while content on disk has modification time of '2022-05-08T05:12:42.8119939Z')
+  ERROR: Build asset version error: assets/scenes/lab/templatelevel.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:49.155944Z' while content on disk has modification time of '2022-05-08T05:12:42.8119939Z'
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000026 seconds.
+  Time since last request: 0.000030 seconds.
   path: Assets/Scenes/Lab/TempLabForTemplate.scenetemplate
   artifactKey: Guid(9b668d0371ec0944f9ef88221fd2bad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TempLabForTemplate.scenetemplate using Guid(9b668d0371ec0944f9ef88221fd2bad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf51f3be88f51102cfc4ec4617ba0199') in 0.002246 seconds 
+Start importing Assets/Scenes/Lab/TempLabForTemplate.scenetemplate using Guid(9b668d0371ec0944f9ef88221fd2bad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000388 seconds  code(4) message(Build asset version error: assets/scenes/lab/templabfortemplate.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:50.6866847Z' while content on disk has modification time of '2022-05-08T05:12:43.6298475Z')
+  ERROR: Build asset version error: assets/scenes/lab/templabfortemplate.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:50.6866847Z' while content on disk has modification time of '2022-05-08T05:12:43.6298475Z'
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000117 seconds.
-  path: Assets/Scenes/Lab/TempLabForTemplate 1.scenetemplate
-  artifactKey: Guid(f528105fb58bd6b4ea12f8b33406a203) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TempLabForTemplate 1.scenetemplate using Guid(f528105fb58bd6b4ea12f8b33406a203) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '814402e083c7bc921d4c2e626a095b08') in 0.001582 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000045 seconds.
+  Time since last request: 0.000038 seconds.
   path: Assets/Scenes/Lab/TempLabForTemplate 3.scenetemplate
   artifactKey: Guid(826a186a64c88b047b1c79c4e793b1bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TempLabForTemplate 3.scenetemplate using Guid(826a186a64c88b047b1c79c4e793b1bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a1419a866bec9eb52c57026eb289c90') in 0.002818 seconds 
+Start importing Assets/Scenes/Lab/TempLabForTemplate 3.scenetemplate using Guid(826a186a64c88b047b1c79c4e793b1bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00000000000000000000000000000000') in 0.000565 seconds  code(4) message(Build asset version error: assets/scenes/lab/templabfortemplate 3.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:50.1669868Z' while content on disk has modification time of '2022-05-08T05:12:44.3184819Z')
+  ERROR: Build asset version error: assets/scenes/lab/templabfortemplate 3.scenetemplate in SourceAssetDB has modification time of '2022-05-03T05:51:50.1669868Z' while content on disk has modification time of '2022-05-08T05:12:44.3184819Z'
 ========================================================================
 Received Import Request.
-  Time since last request: 26.065172 seconds.
-  path: Assets/Scenes/Lab/Lab3.scenetemplate
-  artifactKey: Guid(f5d6c3dc635faa64a94ad8e3389080ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/Lab3.scenetemplate using Guid(f5d6c3dc635faa64a94ad8e3389080ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd90eeaf03473d4a75036da451c506b5e') in 0.003266 seconds 
+  Time since last request: 44.374960 seconds.
+  path: Assets/Scenes/Lab/TempLabForTemplate 1.scenetemplate
+  artifactKey: Guid(f528105fb58bd6b4ea12f8b33406a203) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Lab/TempLabForTemplate 1.scenetemplate using Guid(f528105fb58bd6b4ea12f8b33406a203) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f84a0047f6e68047df549a8c1185aff9') in 0.006446 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000037 seconds.
+  Time since last request: 0.000040 seconds.
   path: Assets/Scenes/Lab/TempLabForTemplate 2.scenetemplate
   artifactKey: Guid(fb4ded1e508b16445ae9af0afe7e6f7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TempLabForTemplate 2.scenetemplate using Guid(fb4ded1e508b16445ae9af0afe7e6f7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fa18760776ad3fb23237eaee69179da8') in 0.001767 seconds 
+Start importing Assets/Scenes/Lab/TempLabForTemplate 2.scenetemplate using Guid(fb4ded1e508b16445ae9af0afe7e6f7e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58270d1b0ac7ff0be471805c7ab772ef') in 0.013643 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Scenes/Lab/TempLabForTemplate 4.scenetemplate
+  artifactKey: Guid(10302c4ae6ff6a34c927bada2406334c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Lab/TempLabForTemplate 4.scenetemplate using Guid(10302c4ae6ff6a34c927bada2406334c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '046cf687957dd272f219f4f7e9da2942') in 0.010633 seconds 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000025 seconds.
-  path: Assets/Scenes/Lab/TempLabForTemplate 4.scenetemplate
-  artifactKey: Guid(10302c4ae6ff6a34c927bada2406334c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TempLabForTemplate 4.scenetemplate using Guid(10302c4ae6ff6a34c927bada2406334c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ac3102d08109d8d1b23100d1d213588') in 0.002409 seconds 
+  path: Assets/Scenes/Lab/TemplateLevel.scenetemplate
+  artifactKey: Guid(ecacc6cb6eae4cb48931efe79ba0dfa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Lab/TemplateLevel.scenetemplate using Guid(ecacc6cb6eae4cb48931efe79ba0dfa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '07fed5029a2e3eead7c9b3f2c446acde') in 0.002447 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Scenes/Lab/TemplateLevel 1.scenetemplate
-  artifactKey: Guid(5dbd6905375880c4b946eca17eb53861) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TemplateLevel 1.scenetemplate using Guid(5dbd6905375880c4b946eca17eb53861) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ce772079d898166924c7f50738924ae') in 0.001757 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
+  Time since last request: 0.000034 seconds.
   path: Assets/Scenes/Lab/TempLabForTemplate.scenetemplate
   artifactKey: Guid(9b668d0371ec0944f9ef88221fd2bad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TempLabForTemplate.scenetemplate using Guid(9b668d0371ec0944f9ef88221fd2bad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf51f3be88f51102cfc4ec4617ba0199') in 0.001983 seconds 
+Start importing Assets/Scenes/Lab/TempLabForTemplate.scenetemplate using Guid(9b668d0371ec0944f9ef88221fd2bad7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8eaa4578489ab571be16787b64d58382') in 0.005947 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Scenes/Lab/TempLabForTemplate 1.scenetemplate
-  artifactKey: Guid(f528105fb58bd6b4ea12f8b33406a203) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TempLabForTemplate 1.scenetemplate using Guid(f528105fb58bd6b4ea12f8b33406a203) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '814402e083c7bc921d4c2e626a095b08') in 0.002982 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000222 seconds.
+  Time since last request: 0.000025 seconds.
   path: Assets/Scenes/Lab/TempLabForTemplate 3.scenetemplate
   artifactKey: Guid(826a186a64c88b047b1c79c4e793b1bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Lab/TempLabForTemplate 3.scenetemplate using Guid(826a186a64c88b047b1c79c4e793b1bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a1419a866bec9eb52c57026eb289c90') in 0.005257 seconds 
+Start importing Assets/Scenes/Lab/TempLabForTemplate 3.scenetemplate using Guid(826a186a64c88b047b1c79c4e793b1bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72ceb970323d9cea37e429364b3ae583') in 0.002227 seconds 

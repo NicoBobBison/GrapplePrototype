@@ -12,6 +12,8 @@ public class PlayerStateMachine
     }
     public void ChangeState(PlayerState newState)
     {
+        if (CurrentState.animBoolName == "trans state")
+            return;
         CurrentState.Exit();
         CurrentState = newState;
         CurrentState.Enter();
