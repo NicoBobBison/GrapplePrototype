@@ -136,6 +136,7 @@ public class SceneManagement : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        Debug.Log("Scene loaded");
         GetSceneReferences();
         camEffects.PlaySceneTransition();
 

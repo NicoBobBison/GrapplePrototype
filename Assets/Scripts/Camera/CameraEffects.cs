@@ -40,7 +40,6 @@ public class CameraEffects : MonoBehaviour
         Color tempColor = dimmer.color;
         tempColor.a = 1;
         dimmer.color = tempColor;
-        StartCoroutine(BrightenCam());
     }
 
     public void PlaySceneTransition(string nextScene)
