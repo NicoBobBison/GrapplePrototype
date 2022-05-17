@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Cinemachine;
 
 public class CameraEffects : MonoBehaviour
 {
@@ -24,13 +25,11 @@ public class CameraEffects : MonoBehaviour
 
     public bool transitioning = false;
     public SceneManagement sm { get; private set; }
-    private void Awake()
-    {
-        
-    }
     private void Start()
     {
         GetDimmer();
+        if(SceneManager.GetActiveScene().name != "Lab38")
+            Camera.main.backgroundColor = Color.black;
         if (!SceneManager.GetActiveScene().name.Equals("MainMenu"))
         {
             GetPauseText();
@@ -93,6 +92,7 @@ public class CameraEffects : MonoBehaviour
             dimmer.color = tempColor;
 
         }
+        DisableCam();
         SceneManagement.instance.ChangeScene(nextScene);
         transitioning = false;
     }
@@ -104,6 +104,7 @@ public class CameraEffects : MonoBehaviour
         Color tempColor = dimmer.color;
         tempColor.a = 1;
         dimmer.color = tempColor;
+        EnableCam();
         while (dimmer.color.a > 0)
         {
             yield return new WaitForFixedUpdate();
@@ -219,5 +220,15 @@ public class CameraEffects : MonoBehaviour
         {
             Debug.LogWarning("Settings reference not found!");
         }
+    }
+    void EnableCam()
+    {
+        Debug.Log("enable");
+        Camera.main.cullingMask = Physics.AllLayers;
+    }
+    void DisableCam()
+    {
+        Debug.Log("disable");
+        Camera.main.cullingMask = 0;
     }
 }
