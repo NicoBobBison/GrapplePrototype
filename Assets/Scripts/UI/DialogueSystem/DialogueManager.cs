@@ -20,8 +20,8 @@ public class DialogueManager : MonoBehaviour
     bool inMainMenu = true;
     public string interactDisplayText { get; private set; }
 
-    public Vector2 bottomTextLocation = new Vector2(0, -420);
-    public Vector2 topTextLocation = new Vector2(0, 420);
+    Vector2 bottomTextLocation = new Vector2(0, 42.83496f);
+    Vector2 topTextLocation = new Vector2(0, 800);
 
 
     private void Awake()

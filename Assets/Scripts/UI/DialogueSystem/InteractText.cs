@@ -32,6 +32,8 @@ public class InteractText : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 StopCoroutine(currentInteractText);
+                m_text.text = "";
+
                 CheckIfSpecialDialogue();
                 if (!DialogueManager.Instance.inDialogue && dialogue != null)
                 {

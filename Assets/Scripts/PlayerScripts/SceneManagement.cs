@@ -71,7 +71,7 @@ public class SceneManagement : MonoBehaviour
     public void ChangeScene(string scene)
     {
         Debug.Log("Change scene");
-        if (scene != SceneManager.GetActiveScene().name)
+        if (scene != SceneManager.GetActiveScene().name && GetScene().name != "MainMenu")
         {
             PlayerPrefs.SetString("previousScene", SceneManager.GetActiveScene().name);
         }

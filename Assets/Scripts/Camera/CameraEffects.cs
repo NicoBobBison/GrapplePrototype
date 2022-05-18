@@ -90,7 +90,6 @@ public class CameraEffects : MonoBehaviour
             }
             //Debug.Log("a (dim): " + tempColor.a);
             dimmer.color = tempColor;
-
         }
         DisableCam();
         SceneManagement.instance.ChangeScene(nextScene);

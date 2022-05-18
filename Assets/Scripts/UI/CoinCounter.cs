@@ -11,6 +11,9 @@ public class CoinCounter : MonoBehaviour
     void Start()
     {
         text = GetComponent<TextMeshProUGUI>();
+        Color color = text.color;
+        color.a = 0;
+        text.color = color;
     }
 
     void Update()

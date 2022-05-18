@@ -46896,7 +46896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4199459012975447593, guid: 8cdaa1a5219652c4ebffb7af2fb7dda0, type: 3}
       propertyPath: m_Name
-      value: Lab22
+      value: Lab35
       objectReference: {fileID: 0}
     - target: {fileID: 5843560768756411008, guid: 8cdaa1a5219652c4ebffb7af2fb7dda0, type: 3}
       propertyPath: m_RootOrder
@@ -46904,7 +46904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5843560768756411008, guid: 8cdaa1a5219652c4ebffb7af2fb7dda0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18
+      value: 17.96875
       objectReference: {fileID: 0}
     - target: {fileID: 5843560768756411008, guid: 8cdaa1a5219652c4ebffb7af2fb7dda0, type: 3}
       propertyPath: m_LocalPosition.y

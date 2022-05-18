@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: GrappleTutorial
   m_EditorClassIdentifier: 
   lines:
-  - There's a page of a notebook on the ground...
+  - There's a note sticking out of the locker...
   - '"Hold shift while moving to grapple!"'
-  - What's a "shift"?
-  - (Also pretend this is a piece of paper, not a closet)
