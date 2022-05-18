@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     TextMeshProUGUI completedRuns;
     void Start()
     {
+        Cursor.visible = true;
         fastestTime = GameObject.Find("FastestTime").GetComponent<TextMeshProUGUI>();
         completedRuns = GameObject.Find("CompletedRuns").GetComponent<TextMeshProUGUI>();
         if(PlayerPrefs.HasKey("CompletedRuns") && PlayerPrefs.GetInt("CompletedRuns") > 0)
@@ -27,6 +28,7 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
+        Cursor.visible = false;
         PlayerPrefs.SetInt("SaveExists", 1);
         Timer.ResetTimer();
         Timer.SetTimePaused(false);
@@ -37,8 +39,9 @@ public class MainMenu : MonoBehaviour
     }
     public void ContinueGame()
     {
-        if(PlayerPrefs.GetInt("SaveExists") == 1)
+        if (PlayerPrefs.GetInt("SaveExists") == 1)
         {
+            Cursor.visible = false;
             Timer.SetTimePaused(false);
             camEffects.PlaySceneTransition(PlayerPrefs.GetString("currentScene"));
             AudioManager.instance.FadeOut("TitleTheme", 1);

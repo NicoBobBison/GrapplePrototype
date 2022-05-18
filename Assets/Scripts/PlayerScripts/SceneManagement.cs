@@ -120,6 +120,8 @@ public class SceneManagement : MonoBehaviour
     
     public void PauseGame()
     {
+        Cursor.visible = true;
+
         Time.timeScale = 0;
         gamePaused = true;
         camEffects.SetDimmerLevel(0.4f);
@@ -127,6 +129,8 @@ public class SceneManagement : MonoBehaviour
     }
     public void ResumeGame()
     {
+        Cursor.visible = false;
+
         gamePaused = false;
         Time.timeScale = 1;
         GetSceneReferences();

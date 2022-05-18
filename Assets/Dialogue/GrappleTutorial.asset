@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: GrappleTutorial
   m_EditorClassIdentifier: 
   lines:
-  - There's a note sticking out of the locker...
+  - There's a note sticking out of the locker... (Press E to advance through dialogue)
   - '"Hold shift while moving to grapple!"'
