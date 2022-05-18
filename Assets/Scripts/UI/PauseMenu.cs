@@ -22,7 +22,7 @@ public class PauseMenu : MonoBehaviour
         AudioManager.instance.FadeOut("MainTheme", 1);
         camEffects.PlaySceneTransition("MainMenu");
     }
-    public void toSettings()
+    public void ToSettings()
     {
         SceneManagement.instance.inSettings = true;
         camEffects.EnableSettings();

@@ -28297,6 +28297,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 412389694}
+  - component: {fileID: 412389695}
   m_Layer: 0
   m_Name: Pile of Terrariums
   m_TagString: Untagged
@@ -28323,6 +28324,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &412389695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412389693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4a684a89792cc744b931a2e101819ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: 001a0b1facd028e42971d4ea6cdac315, type: 2}
 --- !u!1 &492339263
 GameObject:
   m_ObjectHideFlags: 0
@@ -44173,6 +44187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1933851774}
   - component: {fileID: 1933851773}
+  - component: {fileID: 1933851775}
   m_Layer: 0
   m_Name: SilviaBigAlienContainer
   m_TagString: Untagged
@@ -44248,6 +44263,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1933851775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933851772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4a684a89792cc744b931a2e101819ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: a7deb54229848f04bbf9a37cbbdd80b2, type: 2}
 --- !u!1 &1958660973
 GameObject:
   m_ObjectHideFlags: 0
@@ -44258,6 +44286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1958660975}
   - component: {fileID: 1958660974}
+  - component: {fileID: 1958660976}
   m_Layer: 0
   m_Name: SilviaSmallDudeContainer
   m_TagString: Untagged
@@ -44333,6 +44362,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1958660976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958660973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4a684a89792cc744b931a2e101819ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: 7e3b7d7e96cdfeb4599d39d074feaf03, type: 2}
 --- !u!1 &2007210433
 GameObject:
   m_ObjectHideFlags: 0

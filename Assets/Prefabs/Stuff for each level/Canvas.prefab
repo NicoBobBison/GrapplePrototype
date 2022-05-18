@@ -36,7 +36,7 @@ RectTransform:
   - {fileID: 6119980310265872504}
   - {fileID: 3230970851317666110}
   m_Father: {fileID: 992360769911534766}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -828,8 +828,8 @@ RectTransform:
   - {fileID: 992360770389655623}
   - {fileID: 8810426061161819327}
   - {fileID: 856114404526303180}
-  - {fileID: 141389246186649369}
   - {fileID: 5401480611180833626}
+  - {fileID: 141389246186649369}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2674,7 +2674,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 992360769911534766}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -3112,7 +3112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.88697046, g: 0.89351, b: 0.9339623, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3535,7 +3535,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 822014000687279015}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: toSettings
+        m_MethodName: ToSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

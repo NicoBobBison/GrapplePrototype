@@ -44,4 +44,8 @@ public class MainMenu : MonoBehaviour
             AudioManager.instance.FadeOut("TitleTheme", 1);
         }
     }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }

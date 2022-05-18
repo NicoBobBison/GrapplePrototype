@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf6e1593afa05a64db5a650f40b933b7, type: 3}
-  m_Name: New Dialogue
+  m_Name: SmallDude
   m_EditorClassIdentifier: 
   lines:
-  - A stack of terrariums.
+  - A human (?)

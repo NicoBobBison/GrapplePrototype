@@ -71,15 +71,12 @@ public class PlayerGrappleStartState : PlayerGrappleState
             }
             if(playerGrapple.lastHitObject.layer == LayerMask.NameToLayer("Chains"))
             {
-                if (Vector2.Distance(playerGrapple.grapplePoint, player.transform.position) > 0.5f)
-                {
-                    player.SetVelocityX(Mathf.Clamp(playerGrapple.grappleDir.x * playerData.playerReelSpeed, -playerData.playerReelSpeed, playerData.playerReelSpeed));
-                    player.SetVelocityY(Mathf.Clamp(playerGrapple.grappleDir.y * playerData.playerReelSpeed, -playerData.playerReelSpeed, playerData.playerReelSpeed));
-
-                }
-                else
+                player.SetVelocityX(Mathf.Clamp(playerGrapple.grappleDir.x * playerData.playerReelSpeed, -playerData.playerReelSpeed, playerData.playerReelSpeed));
+                player.SetVelocityY(Mathf.Clamp(playerGrapple.grappleDir.y * playerData.playerReelSpeed, -playerData.playerReelSpeed, playerData.playerReelSpeed));
+                if (Vector2.Distance(playerGrapple.grapplePoint, player.transform.position) < 0.5f)
                 {
                     playerGrapple.EndGrapple(player.JumpSustainState);
+
                 }
             }
             else
