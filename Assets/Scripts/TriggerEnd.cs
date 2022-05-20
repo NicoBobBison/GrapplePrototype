@@ -13,7 +13,7 @@ public class TriggerEnd : MonoBehaviour
     {
         player = GameObject.Find("Player");
         finalTimeDisplay = GameObject.Find("FinalTimeDisplay").GetComponent<TextMeshProUGUI>();
-        AudioManager.instance.FadeOut("MainTheme", 2);
+        AudioManager.instance.FadeOut("MainTheme");
         Timer.SetTimePaused(true);
         finalTimeDisplay.text = "";
     }
@@ -55,7 +55,7 @@ public class TriggerEnd : MonoBehaviour
 
         if (PlayerPrefs.HasKey("FastestTime"))
         {
-            if (finalTime > PlayerPrefs.GetFloat("FastestTime"))
+            if (finalTime < PlayerPrefs.GetFloat("FastestTime"))
             {
                 PlayerPrefs.SetFloat("FastestTime", finalTime);
             }

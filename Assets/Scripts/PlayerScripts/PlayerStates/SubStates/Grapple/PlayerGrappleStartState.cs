@@ -20,6 +20,7 @@ public class PlayerGrappleStartState : PlayerGrappleState
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("Enter grapple");
         AudioManager.instance.Play("GrappleSound");
         startDistance = Vector2.Distance(playerGrapple.lastHitPoint, player.transform.position);
         if (playerData.slowBeforeGrapple)

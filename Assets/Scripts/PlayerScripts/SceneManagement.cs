@@ -140,20 +140,19 @@ public class SceneManagement : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        Debug.Log("Scene loaded");
         GetSceneReferences();
         camEffects.PlaySceneTransition();
 
         if (scene.name == "MainMenu")
         {
-            AudioManager.instance.FadeIn("TitleTheme", 1);
+            AudioManager.instance.FadeIn("TitleTheme");
         }
         else
         {
             DialogueManager.Instance.GetDialogueReferences();
             if (!AudioManager.instance.SoundPlaying("MainTheme"))
             {
-                AudioManager.instance.FadeIn("MainTheme", 1);
+                AudioManager.instance.FadeIn("MainTheme");
             }
         }
     }

@@ -83,16 +83,12 @@ public class AudioManager : MonoBehaviour
         Debug.Log("Couldn't find sound named " + name);
         return null;
     }
-    public void FadeOut(string name, float time)
+    public void FadeOut(string name)
     {
-        if (currentFadeIn == name)
-            return;
-        StartCoroutine(_FadeOut(name, time));
+        StartCoroutine(_FadeOut(name, 0.2f));
     }
-    public void FadeIn(string name, float time)
+    public void FadeIn(string name)
     {
-        if (currentFadeOut == name)
-            return;
-        StartCoroutine(_FadeIn(name, time));
+        StartCoroutine(_FadeIn(name, 0.2f));
     }
 }

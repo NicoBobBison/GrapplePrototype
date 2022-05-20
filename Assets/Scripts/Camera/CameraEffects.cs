@@ -43,7 +43,6 @@ public class CameraEffects : MonoBehaviour
 
     public void PlaySceneTransition(string nextScene)
     {
-        Debug.Log("Transition");
         SceneManagement.instance.GetSceneReferences();
 
         if (dimmer == null)
@@ -66,7 +65,6 @@ public class CameraEffects : MonoBehaviour
 
     IEnumerator DimCam(string nextScene)
     {
-        Debug.Log("Dim cam");
         transitioning = true;
         Color tempColor = dimmer.color;
         tempColor.a = dimmer.color.a;
@@ -97,7 +95,6 @@ public class CameraEffects : MonoBehaviour
     }
     IEnumerator BrightenCam()
     {
-        Debug.Log("Brighten cam");
         GetDimmer();
         transitioning = true;
         Color tempColor = dimmer.color;
@@ -125,8 +122,6 @@ public class CameraEffects : MonoBehaviour
     {
         if (cameraData != null && cameraData.camShake)
         {
-            Debug.Log("Cam shake");
-
             Vector3 originalPos = transform.position;
             this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x + (2 * horizontal * camShakeDistance),
             this.gameObject.transform.position.y + (vertical * camShakeDistance),
@@ -222,12 +217,10 @@ public class CameraEffects : MonoBehaviour
     }
     void EnableCam()
     {
-        Debug.Log("enable");
         Camera.main.cullingMask = Physics.AllLayers;
     }
     void DisableCam()
     {
-        Debug.Log("disable");
         Camera.main.cullingMask = 0;
     }
 }

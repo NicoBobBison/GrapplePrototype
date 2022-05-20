@@ -29,13 +29,14 @@ public class MainMenu : MonoBehaviour
     public void NewGame()
     {
         Cursor.visible = false;
+        PlayerPrefs.SetInt("coins", 0);
         PlayerPrefs.SetInt("SaveExists", 1);
         Timer.ResetTimer();
         Timer.SetTimePaused(false);
         PlayerPrefs.SetInt("unlockedGrapple", 0);
         Coin.collectedCoins.Clear();
         camEffects.PlaySceneTransition("Lab1");
-        AudioManager.instance.FadeOut("TitleTheme", 1);
+        AudioManager.instance.FadeOut("TitleTheme");
     }
     public void ContinueGame()
     {
@@ -44,7 +45,7 @@ public class MainMenu : MonoBehaviour
             Cursor.visible = false;
             Timer.SetTimePaused(false);
             camEffects.PlaySceneTransition(PlayerPrefs.GetString("currentScene"));
-            AudioManager.instance.FadeOut("TitleTheme", 1);
+            AudioManager.instance.FadeOut("TitleTheme");
         }
     }
     public void ExitGame()

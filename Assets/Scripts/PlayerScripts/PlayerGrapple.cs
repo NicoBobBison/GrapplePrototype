@@ -101,7 +101,7 @@ public class PlayerGrapple : MonoBehaviour
             if (Input.GetButton("Fire1") && PlayerPrefs.GetInt("unlockedGrapple") == 1)
             {
                 lr.enabled = true;
-                if (CastInDirection(pc.MoveInput).collider != null)
+                if (CastInDirection(pc.MoveInput).collider != null && pc.StateMachine.CurrentState.animBoolName != "scene trans")
                 {
                     lastHitPoint = CastInDirection(pc.MoveInput).point;
                     lastHitObject = CastInDirection(pc.MoveInput).collider.gameObject;
@@ -123,7 +123,7 @@ public class PlayerGrapple : MonoBehaviour
             }
             if(_state == GrapplingState.pulling && pc.StateMachine.CurrentState != pc.GrappleState)
             {
-                if (pc.IsInLayerMask(lastHitObject, grappleable))
+                if (pc.IsInLayerMask(lastHitObject, grappleable) && pc.StateMachine.CurrentState.animBoolName != "scene trans")
                 {
                     pc.StateMachine.ChangeState(pc.GrappleState);
                     if(Vector2.Distance(grapplePoint, playerPos) > pc.playerData.grappleMaxDistance)
