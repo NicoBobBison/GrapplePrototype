@@ -26,16 +26,20 @@ public class HighScores : MonoBehaviour
 
     IEnumerator DatabaseUpload(string userame, int score) //Called when sending new score to Website
     {
-        int scoreFor = 10000 - score;
-        WWW www = new WWW(webURL + privateCode + "/add/" + WWW.EscapeURL(userame) + "/" + scoreFor);
-        yield return www;
-
-        if (string.IsNullOrEmpty(www.error))
+        if (score < 1000) 
         {
-            print("Upload Successful");
-            DownloadScores();
-        }
+            int scoreFor = 10000 - score;
+            WWW www = new WWW(webURL + privateCode + "/add/" + WWW.EscapeURL(userame) + "/" + scoreFor);
+            yield return www;
+
+            if (string.IsNullOrEmpty(www.error))
+            {
+                print("Upload Successful");
+                DownloadScores();
+            }
         else print("Error uploading" + www.error);
+        }
+        
     }
 
     public void DownloadScores()

@@ -13,7 +13,9 @@ public class PlayerName : MonoBehaviour
         {
             PlayerPrefs.SetString("LEACH", input);
         }
-        ifield.text = PlayerPrefs.GetString("PlayerName");
+        // THIS DOES NOT WORK
+        //  FIX IT!
+        // ifield.text = PlayerPrefs.GetString("PlayerName"); 
 
 
     }
