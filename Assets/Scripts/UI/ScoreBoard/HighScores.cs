@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//http://dreamlo.com/lb/KuiKe-fd9E-JGfRnCwd5SgwJE_r6grhkGo1ZIrjsI0Bg
 public class HighScores : MonoBehaviour
 {
     const string privateCode = "KuiKe-fd9E-JGfRnCwd5SgwJE_r6grhkGo1ZIrjsI0Bg";  //Key to Upload New Info
@@ -25,7 +26,8 @@ public class HighScores : MonoBehaviour
 
     IEnumerator DatabaseUpload(string userame, int score) //Called when sending new score to Website
     {
-        WWW www = new WWW(webURL + privateCode + "/add/" + WWW.EscapeURL(userame) + "/" + score);
+        int scoreFor = 10000 - score;
+        WWW www = new WWW(webURL + privateCode + "/add/" + WWW.EscapeURL(userame) + "/" + scoreFor);
         yield return www;
 
         if (string.IsNullOrEmpty(www.error))
@@ -63,7 +65,8 @@ public class HighScores : MonoBehaviour
             string[] entryInfo = entries[i].Split(new char[] {'|'});
             string username = entryInfo[0];
             int score = int.Parse(entryInfo[1]);
-            scoreList[i] = new PlayerScore(username,score);
+            int scoreFor = 10000 - score;
+            scoreList[i] = new PlayerScore(username,scoreFor);
             print(scoreList[i].username + ": " + scoreList[i].score);
         }
     }

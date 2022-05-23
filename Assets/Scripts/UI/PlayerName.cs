@@ -2,31 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+public class PlayerName : MonoBehaviour
+{
+    private string input;
+    public InputField ifield = null;
 
-    public class PlayerName : MonoBehaviour
+    void Start()
     {
-        private string input;
-        public InputField mainInputField;
- 
-        void Start()
+        if (PlayerPrefs.GetString("PlayerName") == null)
         {
-         
- 		if (PlayerPrefs.GetString ("PlayerName")=="") {
- 			PlayerPrefs.SetString ("LEACH", input);
- 			}
-            mainInputField.text = PlayerPrefs.GetString ("PlayerName");
-             
- 
+            PlayerPrefs.SetString("LEACH", input);
         }
- 
-        public void SavePlayerName(string name)
-        {
-        	input = name;
-        	Debug.Log(input);
-         	Debug.Log("Saving Player Name");
-       PlayerPrefs.SetString ("PlayerName", input);
-        Debug.Log(PlayerPrefs.GetString ("PlayerName"));
- 
-        }
- }
- 
+        ifield.text = PlayerPrefs.GetString("PlayerName");
+
+
+    }
+
+    public void SavePlayerName(string name)
+    {
+        input = name;
+        PlayerPrefs.SetString("PlayerName", input);
+        
+    }
+}
+
