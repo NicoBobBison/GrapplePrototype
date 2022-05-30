@@ -55,7 +55,7 @@ public class TriggerEnd : MonoBehaviour
 
         if (PlayerPrefs.HasKey("FastestTime"))
         {
-            if (finalTime < PlayerPrefs.GetFloat("FastestTime"))
+            if (finalTime != 0 && finalTime < PlayerPrefs.GetFloat("FastestTime"))
             {
                 PlayerPrefs.SetFloat("FastestTime", finalTime);
             }
