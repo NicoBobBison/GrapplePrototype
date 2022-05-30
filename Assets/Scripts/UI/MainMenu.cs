@@ -2,21 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class MainMenu : MonoBehaviour
 {
     CameraEffects camEffects;
     TextMeshProUGUI fastestTime;
     TextMeshProUGUI completedRuns;
+    [SerializeField]
+    TextMeshProUGUI resetButtonText;
+    [SerializeField]
+    GameObject leaderboard;
+
+    bool shouldResetScore = false;
     void Start()
     {
+        shouldResetScore = false;
         Cursor.visible = true;
         fastestTime = GameObject.Find("FastestTime").GetComponent<TextMeshProUGUI>();
         completedRuns = GameObject.Find("CompletedRuns").GetComponent<TextMeshProUGUI>();
         if(PlayerPrefs.HasKey("CompletedRuns") && PlayerPrefs.GetInt("CompletedRuns") > 0)
         {
-            fastestTime.text = "Fastest time: " + PlayerPrefs.GetFloat("FastestTime");
-            completedRuns.text = "Completed runs: " + PlayerPrefs.GetInt("CompletedRuns");
+            UpdateTimeAndRuns();
         }
         else
         {
@@ -24,7 +31,10 @@ public class MainMenu : MonoBehaviour
             completedRuns.text = "";
         }
         camEffects = Camera.main.GetComponent<CameraEffects>();
+        DisplayLeaderboards();
     }
+
+   
 
     public void NewGame()
     {
@@ -51,5 +61,55 @@ public class MainMenu : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+    public void ResetButton()
+    {
+        ConfirmReset();
+    }
+    void ConfirmReset()
+    {
+        if (!shouldResetScore)
+        {
+            resetButtonText.text = "Click again to confirm";
+            shouldResetScore = true;
+        }
+        else
+        {
+            resetButtonText.text = "Reset high score";
+            ResetScore();
+            shouldResetScore = false;
+        }
+    }
+    void ResetScore()
+    {
+        PlayerPrefs.SetFloat("FastestTime", -1);
+        UpdateTimeAndRuns();
+    }
+    private void DisplayLeaderboards()
+    {
+        if(PlayerPrefs.GetInt("CompletedRuns") == 0)
+        {
+            leaderboard.SetActive(false);
+        }
+        else
+        {
+            leaderboard.SetActive(true);
+        }
+    }
+    void UpdateTimeAndRuns()
+    {
+        if (PlayerPrefs.HasKey("FastestTime") && PlayerPrefs.GetFloat("FastestTime") != -1)
+            fastestTime.text = "Fastest time: " + PlayerPrefs.GetFloat("FastestTime");
+        else
+            fastestTime.text = "Fastest time: No runs completed";
+        completedRuns.text = "Completed runs: " + PlayerPrefs.GetInt("CompletedRuns");
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            PlayerPrefs.SetFloat("FastestTime", 12);
+            UpdateTimeAndRuns();
+        }
     }
 }
